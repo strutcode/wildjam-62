@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://b2inypsd3hnu3"]
+[gd_scene load_steps=7 format=3 uid="uid://b2inypsd3hnu3"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_degrw"]
+[ext_resource type="Script" path="res://attack.gd" id="2_ii7wu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3y5eb"]
 size = Vector2(18, 28)
@@ -33,9 +34,27 @@ tracks/1/keys = {
 "update": 1,
 "values": [true, false, true]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Slash")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.04, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"hit"
+}, {
+"args": [],
+"method": &"hit"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_r0rq7"]
 length = 0.001
+step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -67,7 +86,8 @@ _data = {
 "attack": SubResource("Animation_wry1n")
 }
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 3
 collision_mask = 32769
 script = ExtResource("1_degrw")
 speed = 510
@@ -88,13 +108,16 @@ shape = SubResource("RectangleShape2D_3y5eb")
 zoom = Vector2(3, 3)
 
 [node name="Slash" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 256
+script = ExtResource("2_ii7wu")
 
 [node name="Polygon2D" type="Polygon2D" parent="Slash"]
 visible = false
-polygon = PackedVector2Array(23, -13, 26, -6, 23, 3, 1, 10, 13, 14, 32, 14, 41, 5, 40, -8)
+polygon = PackedVector2Array(21, -41, 31, -15, 25, 4, 1, 10, 24, 14, 48, 11, 58, -11, 50, -31)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Slash"]
-polygon = PackedVector2Array(23, -13, 26, -6, 23, 3, 1, 10, 13, 14, 32, 14, 41, 5, 40, -8)
+polygon = PackedVector2Array(21, -41, 31, -15, 25, 4, 1, 10, 24, 14, 48, 11, 58, -11, 50, -31)
 disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
