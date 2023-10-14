@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://b87g8qw2vt7np"]
+[gd_scene load_steps=5 format=3 uid="uid://b87g8qw2vt7np"]
 
+[ext_resource type="Texture2D" uid="uid://bi1cqyujjookn" path="res://sprite/props/pumpkin.png" id="1_5cxth"]
 [ext_resource type="PackedScene" uid="uid://b2inypsd3hnu3" path="res://player.tscn" id="1_tv81w"]
 
 [sub_resource type="GDScript" id="GDScript_6xhvm"]
@@ -45,5 +46,13 @@ color = Color(0.192157, 0.168627, 0.168627, 1)
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor"]
 position = Vector2(9, 14)
 shape = SubResource("RectangleShape2D_3y5eb")
+
+[node name="Pumpkin" type="Sprite2D" parent="."]
+position = Vector2(201, 33)
+texture = ExtResource("1_5cxth")
+
+[node name="Pumpkin2" type="Sprite2D" parent="."]
+position = Vector2(-109, 33)
+texture = ExtResource("1_5cxth")
 
 [node name="Player" parent="." instance=ExtResource("1_tv81w")]

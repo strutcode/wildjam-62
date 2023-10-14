@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://ci4gs5nk2rfl5"]
+
+[sub_resource type="Gradient" id="Gradient_d8jpm"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="EnemyDeathFX" type="Node2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 103
+lifetime = 0.2
+one_shot = true
+preprocess = 0.05
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2(100, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 75.59
+initial_velocity_max = 313.02
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_d8jpm")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="ready" from="." to="CPUParticles2D" method="restart"]
+[connection signal="timeout" from="Timer" to="." method="queue_free"]
