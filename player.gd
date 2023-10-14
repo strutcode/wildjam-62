@@ -14,11 +14,16 @@ func _process(delta):
 	if Input.is_action_just_pressed('attack'):
 		animator.play('attack')
 
+	if Input.is_action_just_pressed('super'):
+		animator.play('super')
+
 	if velocity.x < 0:
 		$Slash.scale.x = -1
+		$Super.scale.x = -1
 		sprite.flip_h = true
 	elif velocity.x > 0:
 		$Slash.scale.x = 1
+		$Super.scale.x = 1
 		sprite.flip_h = false
 
 func _physics_process(delta):
