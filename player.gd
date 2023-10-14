@@ -7,6 +7,8 @@ extends CharacterBody2D
 
 @onready var animator = $AnimationPlayer
 
+var doubleJump = false
+
 func _process(delta):
 	if Input.is_action_just_pressed('attack'):
 		animator.play('attack')
@@ -17,11 +19,17 @@ func _process(delta):
 		$Slash.scale.x = 1
 
 func _physics_process(delta):
-	if not is_on_floor():
+	if is_on_floor():
+		doubleJump = true
+	else:
 		velocity.y += 980 * delta
 
-	if is_on_floor() && Input.is_action_just_pressed('jump'):
-		velocity.y = -jumpStrength
+	if Input.is_action_just_pressed('jump'):
+		if is_on_floor() || doubleJump:
+			velocity.y = -jumpStrength
+
+			if not is_on_floor():
+				doubleJump = false
 
 	var input = Input.get_axis('left', 'right')
 
