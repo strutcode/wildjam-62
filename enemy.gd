@@ -12,7 +12,7 @@ const DeathFX = preload('res://enemy_death_fx.tscn')
 var hit = false
 
 func _process(delta):
-	sprite.flip_h = velocity.x > 0
+	sprite.flip_h = player.position.x > position.x
 
 func _physics_process(delta):
 	if hit:
