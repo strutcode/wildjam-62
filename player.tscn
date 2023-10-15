@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://b2inypsd3hnu3"]
+[gd_scene load_steps=10 format=3 uid="uid://b2inypsd3hnu3"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_degrw"]
 [ext_resource type="Script" path="res://attack.gd" id="2_ii7wu"]
 [ext_resource type="Texture2D" uid="uid://b8na638lf1r13" path="res://sprite/player/stand0001.png" id="3_a1847"]
+[ext_resource type="FontFile" uid="uid://pp3xssdve1oe" path="res://fonts/GraffitiPaintBrush.ttf" id="4_webns"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h7evi"]
 radius = 13.0
@@ -186,6 +187,7 @@ script = ExtResource("2_ii7wu")
 damage = 30
 
 [node name="Polygon2D" type="Polygon2D" parent="Super"]
+visible = false
 position = Vector2(-12, 22)
 scale = Vector2(3.22197, 4.17175)
 polygon = PackedVector2Array(15, -42, 28, -18, 24, 3, -9, 11, 21, 17, 50, 12, 60, -14, 50, -35)
@@ -200,3 +202,55 @@ disabled = true
 libraries = {
 "": SubResource("AnimationLibrary_2i6qq")
 }
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -70.5
+offset_top = -249.0
+offset_right = 70.5
+offset_bottom = -209.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.215686, 0.215686, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_webns")
+theme_override_font_sizes/font_size = 104
+text = "ULTIMATE"
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control/CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.215686, 0.215686, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_webns")
+theme_override_font_sizes/font_size = 104
+text = "ABILITY"

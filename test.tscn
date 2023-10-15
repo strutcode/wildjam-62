@@ -8,22 +8,11 @@ script/source = "extends Node2D
 
 const Enemy = preload('res://enemy.tscn')
 
-var timer = Timer.new()
-
-func _ready():
-	add_child(timer)
-	timer.wait_time = 2.0
-	timer.timeout.connect(spawn)
-	timer.start()
-
 func spawn():
 	var inst = Enemy.instantiate()
 	add_child(inst)
 	inst.position.x = randf_range(-400, 400)
 	inst.position.y = randf_range(-200, 0)
-
-	timer.stop()
-	timer.start()
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3y5eb"]
@@ -31,6 +20,19 @@ size = Vector2(18, 28)
 
 [node name="Node2D" type="Node2D"]
 script = SubResource("GDScript_6xhvm")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -100
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0862745, 0.105882, 0.160784, 1)
+
+[node name="MultiMeshInstance2D" type="MultiMeshInstance2D" parent="CanvasLayer/ColorRect"]
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(-517, 70)
@@ -56,3 +58,9 @@ position = Vector2(-109, 33)
 texture = ExtResource("1_5cxth")
 
 [node name="Player" parent="." instance=ExtResource("1_tv81w")]
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[connection signal="timeout" from="SpawnTimer" to="." method="spawn"]
