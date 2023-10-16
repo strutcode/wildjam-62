@@ -5,7 +5,7 @@ const Collectibles = preload('res://collectibles.tscn')
 var collectibles
 var xp = -1
 var lvl = 1
-var nextLvl = 1000.0
+var nextLvl = 110.0
 
 func _ready():
 	collectibles = Collectibles.instantiate()
@@ -25,7 +25,7 @@ func addPoint():
 	if xp >= nextLvl:
 		xp -= nextLvl
 		lvl += 1
-		nextLvl = nextLvl ** 1.05
+		nextLvl = log(lvl + 1) * 100 + lvl * 50
 
 func getXpPercent():
 	return (xp / nextLvl) * 100
