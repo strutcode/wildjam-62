@@ -1,9 +1,11 @@
 extends Node2D
 
 @onready var spirit_sm: MultiMeshInstance2D = $SpiritSm
+@onready var player = get_tree().get_first_node_in_group('player')
 
 var sp_t = []
 var sp_p = []
+var invalidT = Transform2D.IDENTITY.translated(Vector2(-10000, -10000))
 
 func _ready():
 	sp_t.resize(10000)
@@ -32,4 +34,17 @@ func _process(delta):
 	for i in mm.visible_instance_count:
 		sp_t[i] += delta
 
-		mm.set_instance_transform_2d(i, Transform2D.IDENTITY.scaled(Vector2(1, -1)).translated(sp_p[i] + Vector2(0, sin(sp_t[i]) * 10)))
+		if sp_p[i] == null:
+			mm.set_instance_transform_2d(i, invalidT)
+			continue
+
+		if player:
+			var dist = sp_p[i].distance_to(player.position)
+			var falloff = 1500.0 / dist ** 2
+			var move = 400 * falloff * delta
+
+			if dist - move < 10:
+				sp_p[i] = null
+			else:
+				sp_p[i] = sp_p[i].move_toward(player.position, move)
+				mm.set_instance_transform_2d(i, Transform2D.IDENTITY.scaled(Vector2(1, -1)).translated(sp_p[i] + Vector2(0, sin(sp_t[i]) * 10)))
