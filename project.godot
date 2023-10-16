@@ -15,6 +15,10 @@ run/main_scene="res://test.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Game="*res://game.tscn"
+
 [debug]
 
 gdscript/warnings/unused_parameter=0

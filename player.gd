@@ -12,10 +12,10 @@ var doubleJump = false
 
 func _process(delta):
 	if Input.is_action_just_pressed('attack'):
-		animator.play('attack')
+		attack()
 
 	if Input.is_action_just_pressed('super'):
-		animator.play('super')
+		superAttack()
 
 	if velocity.x < 0:
 		$Slash.scale.x = -1
@@ -51,3 +51,13 @@ func _physics_process(delta):
 	velocity.x = move_toward(velocity.x, input * speed if input else 0.0, change)
 
 	move_and_slide()
+
+func attack():
+	animator.play('attack')
+	await get_tree().create_timer(0.07).timeout
+	$Slash.hit()
+
+func superAttack():
+	animator.play('super')
+	await get_tree().create_timer(0.08).timeout
+	$Super.hit()

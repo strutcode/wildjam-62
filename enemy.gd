@@ -46,4 +46,6 @@ func die():
 	add_sibling(inst)
 	inst.global_position = global_position
 
+	Game.spawnSouls(10, global_position)
+
 	queue_free()

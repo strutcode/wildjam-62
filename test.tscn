@@ -1,18 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://b87g8qw2vt7np"]
+[gd_scene load_steps=7 format=3 uid="uid://b87g8qw2vt7np"]
 
 [ext_resource type="Texture2D" uid="uid://bi1cqyujjookn" path="res://sprite/props/pumpkin.png" id="1_5cxth"]
+[ext_resource type="Texture2D" uid="uid://cunojqi0jbyqs" path="res://sprite/moon.png" id="1_idx2d"]
 [ext_resource type="PackedScene" uid="uid://b2inypsd3hnu3" path="res://player.tscn" id="1_tv81w"]
+[ext_resource type="Texture2D" uid="uid://dl022ts4cfv8y" path="res://sprite/tower.png" id="2_rdx6u"]
 
 [sub_resource type="GDScript" id="GDScript_6xhvm"]
 script/source = "extends Node2D
 
 const Enemy = preload('res://enemy.tscn')
 
+@onready var spawn_rect = $SpawnRect
+
+func _process(delta):
+	%FPS.text = 'FPS: %.1f' % Performance.get_monitor(Performance.TIME_FPS)
+	%Enemies.text = 'Enemies: %d' % get_tree().get_nodes_in_group('enemy').size()
+
 func spawn():
+	if Performance.get_monitor(Performance.TIME_FPS) < 120:
+		return
+
 	var inst = Enemy.instantiate()
 	add_child(inst)
-	inst.position.x = randf_range(-400, 400)
-	inst.position.y = randf_range(-200, 0)
+	inst.position.x = randf_range(spawn_rect.position.x, spawn_rect.position.x + spawn_rect.size.x)
+	inst.position.y = randf_range(spawn_rect.position.y, spawn_rect.position.y + spawn_rect.size.y)
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3y5eb"]
@@ -21,10 +32,9 @@ size = Vector2(18, 28)
 [node name="Node2D" type="Node2D"]
 script = SubResource("GDScript_6xhvm")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -100
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -32,10 +42,30 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0862745, 0.105882, 0.160784, 1)
 
-[node name="MultiMeshInstance2D" type="MultiMeshInstance2D" parent="CanvasLayer/ColorRect"]
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+
+[node name="Moon" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(404.815, 84.2053)
+texture = ExtResource("1_idx2d")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+
+[node name="Tower" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(-135, 181)
+texture = ExtResource("2_rdx6u")
+
+[node name="Tower2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(865, 198)
+texture = ExtResource("2_rdx6u")
+
+[node name="Tower3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(332, 231)
+texture = ExtResource("2_rdx6u")
 
 [node name="Floor" type="StaticBody2D" parent="."]
-position = Vector2(-517, 70)
+position = Vector2(-223, 240)
 scale = Vector2(62.445, 5.3369)
 collision_layer = 32768
 collision_mask = 0
@@ -44,23 +74,56 @@ collision_mask = 0
 offset_right = 18.0
 offset_bottom = 28.0
 color = Color(0.192157, 0.168627, 0.168627, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor"]
 position = Vector2(9, 14)
 shape = SubResource("RectangleShape2D_3y5eb")
 
 [node name="Pumpkin" type="Sprite2D" parent="."]
-position = Vector2(201, 33)
+position = Vector2(495, 203)
 texture = ExtResource("1_5cxth")
 
 [node name="Pumpkin2" type="Sprite2D" parent="."]
-position = Vector2(-109, 33)
+position = Vector2(185, 203)
 texture = ExtResource("1_5cxth")
 
 [node name="Player" parent="." instance=ExtResource("1_tv81w")]
+position = Vector2(320, 180)
 
 [node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.01
 autostart = true
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer2"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="FPS" type="Label" parent="CanvasLayer2/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 24
+text = "FPS"
+
+[node name="Enemies" type="Label" parent="CanvasLayer2/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 24
+text = "Enemies"
+
+[node name="SpawnRect" type="ReferenceRect" parent="."]
+offset_left = -223.0
+offset_top = -76.0
+offset_right = 898.0
+offset_bottom = 233.0
 
 [connection signal="timeout" from="SpawnTimer" to="." method="spawn"]
