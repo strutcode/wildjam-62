@@ -34,17 +34,21 @@ func _process(delta):
 	for i in mm.visible_instance_count:
 		sp_t[i] += delta
 
-		if sp_p[i] == null:
-			mm.set_instance_transform_2d(i, invalidT)
-			continue
-
 		if player:
 			var dist = sp_p[i].distance_to(player.position)
-			var falloff = 1500.0 / dist ** 2
-			var move = 400 * falloff * delta
+			var falloff = 175.0 / dist ** 1.2
+			var move = 500 * falloff * delta
 
 			if dist - move < 10:
-				sp_p[i] = null
+				var c = mm.visible_instance_count - 1
+
+				sp_p[i] = sp_p[c]
+				sp_t[i] = sp_t[c]
+				mm.visible_instance_count -= 1
+
+				Game.addPoint()
 			else:
-				sp_p[i] = sp_p[i].move_toward(player.position, move)
+				if dist <= 175.0:
+					sp_p[i] = sp_p[i].move_toward(player.position, move)
+
 				mm.set_instance_transform_2d(i, Transform2D.IDENTITY.scaled(Vector2(1, -1)).translated(sp_p[i] + Vector2(0, sin(sp_t[i]) * 10)))
