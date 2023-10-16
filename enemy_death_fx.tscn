@@ -1,11 +1,33 @@
-[gd_scene load_steps=2 format=3 uid="uid://ci4gs5nk2rfl5"]
+[gd_scene load_steps=5 format=3 uid="uid://ci4gs5nk2rfl5"]
 
 [sub_resource type="Gradient" id="Gradient_d8jpm"]
 colors = PackedColorArray(0.725, 0.106484, 0.106484, 1, 0.49, 0.00979999, 0.00979999, 0)
 
+[sub_resource type="Gradient" id="Gradient_vtu5y"]
+colors = PackedColorArray(0.65625, 0.174316, 0.174316, 1, 0.31, 0.0558, 0.0558, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nqqol"]
+gradient = SubResource("Gradient_vtu5y")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rvuqe"]
+particle_flag_disable_z = true
+spread = 180.0
+gravity = Vector3(0, 980, 0)
+initial_velocity_min = 37.55
+initial_velocity_max = 366.45
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+damping_min = 600.0
+damping_max = 600.0
+scale_min = 2.0
+scale_max = 2.0
+color_ramp = SubResource("GradientTexture1D_nqqol")
+attractor_interaction_enabled = false
+
 [node name="EnemyDeathFX" type="Node2D"]
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+visible = false
 emitting = false
 amount = 103
 lifetime = 0.2
@@ -22,8 +44,18 @@ scale_amount_min = 2.0
 scale_amount_max = 2.0
 color_ramp = SubResource("Gradient_d8jpm")
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 103
+process_material = SubResource("ParticleProcessMaterial_rvuqe")
+lifetime = 0.2
+one_shot = true
+preprocess = 0.05
+explosiveness = 0.72
+
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
 [connection signal="ready" from="." to="CPUParticles2D" method="restart"]
+[connection signal="ready" from="." to="GPUParticles2D" method="restart"]
 [connection signal="timeout" from="Timer" to="." method="queue_free"]
