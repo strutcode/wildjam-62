@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b87g8qw2vt7np"]
+[gd_scene load_steps=8 format=3 uid="uid://b87g8qw2vt7np"]
 
 [ext_resource type="Texture2D" uid="uid://bi1cqyujjookn" path="res://sprite/props/pumpkin.png" id="1_5cxth"]
 [ext_resource type="Texture2D" uid="uid://cunojqi0jbyqs" path="res://sprite/moon.png" id="1_idx2d"]
 [ext_resource type="PackedScene" uid="uid://b2inypsd3hnu3" path="res://player.tscn" id="1_tv81w"]
 [ext_resource type="Texture2D" uid="uid://dl022ts4cfv8y" path="res://sprite/tower.png" id="2_rdx6u"]
+[ext_resource type="PackedScene" uid="uid://f1xihl0ejq3y" path="res://hud.tscn" id="5_leapd"]
 
 [sub_resource type="GDScript" id="GDScript_6xhvm"]
 script/source = "extends Node2D
@@ -15,6 +16,7 @@ const Enemy = preload('res://enemy.tscn')
 func _process(delta):
 	%FPS.text = 'FPS: %.1f' % Performance.get_monitor(Performance.TIME_FPS)
 	%Enemies.text = 'Enemies: %d' % get_tree().get_nodes_in_group('enemy').size()
+	%Points.text = 'XP: %d/%d' % [Game.xp, Game.nextLvl]
 
 func spawn():
 	if Performance.get_monitor(Performance.TIME_FPS) < 120:
@@ -119,6 +121,17 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
 theme_override_font_sizes/font_size = 24
 text = "Enemies"
+
+[node name="Points" type="Label" parent="CanvasLayer2/VBoxContainer" groups=["points"]]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 24
+text = "Points"
+
+[node name="HUD" parent="CanvasLayer2" instance=ExtResource("5_leapd")]
 
 [node name="SpawnRect" type="ReferenceRect" parent="."]
 offset_left = -223.0
