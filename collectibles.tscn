@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://buf4w3u30fdjg"]
+[gd_scene load_steps=5 format=3 uid="uid://buf4w3u30fdjg"]
 
 [ext_resource type="Script" path="res://collectibles.gd" id="1_5xnke"]
 [ext_resource type="Texture2D" uid="uid://pi25do3aux24" path="res://sprite/collectible/spirit_sm.png" id="1_iwjl1"]
 [ext_resource type="PackedScene" uid="uid://cswvofw63dp1f" path="res://mass_sprite.tscn" id="3_lynl0"]
+[ext_resource type="Texture2D" uid="uid://v34irq7kysjw" path="res://sprite/collectible/spirit_lg.png" id="4_pku46"]
 
 [node name="Collectibles" type="Node2D"]
 script = ExtResource("1_5xnke")
@@ -12,5 +13,7 @@ texture = ExtResource("1_iwjl1")
 maxCount = 10000
 props = Array[String](["time"])
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
+[node name="SpiritLg" parent="." instance=ExtResource("3_lynl0")]
+texture = ExtResource("4_pku46")
+maxCount = 10000
+props = Array[String](["time"])
