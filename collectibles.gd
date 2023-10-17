@@ -48,8 +48,10 @@ func _physics_process(delta):
 		for i in coins.count:
 			var pos = coins.getProp(i, 'pos')
 			var vel = coins.getProp(i, 'vel')
+			var destroy = false
 
-			vel.y += 980 * delta
+			if pos.y < top - 1.5:
+				vel.y += 980 * delta
 
 			if pos.y <= top && pos.y + vel.y * delta > top:
 				pos.y -= bounds.position.y - pos.y
@@ -58,5 +60,20 @@ func _physics_process(delta):
 			pos += vel * delta
 			vel *= 0.98
 
-			coins.setProp(i, 'vel', vel)
-			coins.setProp(i, 'pos', pos)
+			if player:
+				var dist = pos.distance_to(player.position)
+				var falloff = 175.0 / dist ** 1.2
+				var move = 500 * falloff * delta
+
+				if dist - move < 10:
+					destroy = true
+					Game.addCoins(1)
+				else:
+					if dist <= 175.0:
+						pos = pos.move_toward(player.position, move)
+
+			if destroy:
+				coins.rem(i)
+			else:
+				coins.setProp(i, 'vel', vel)
+				coins.setProp(i, 'pos', pos)

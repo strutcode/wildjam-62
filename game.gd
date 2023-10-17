@@ -6,6 +6,7 @@ var collectibles
 var xp = 0
 var lvl = 1
 var nextLvl = 110.0
+var coins = 0
 
 func _ready():
 	collectibles = Collectibles.instantiate()
@@ -45,6 +46,9 @@ func addPoints(num):
 		xp -= nextLvl
 		lvl += 1
 		nextLvl = log(lvl + 1) * 100 + lvl * 50
+
+func addCoins(num):
+	coins += num
 
 func getXpPercent():
 	return (xp / nextLvl) * 100
