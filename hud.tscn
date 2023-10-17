@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://hud.gd" id="1_57mxs"]
 
 [sub_resource type="Gradient" id="Gradient_rh1e5"]
-colors = PackedColorArray(0.63, 0.63, 0.63, 1, 1, 1, 1, 1)
+colors = PackedColorArray(0.63, 0.63, 0.63, 0.705882, 1, 1, 1, 0.705882)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_lf1oc"]
 gradient = SubResource("Gradient_rh1e5")
