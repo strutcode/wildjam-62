@@ -15,14 +15,14 @@ z_index = 10
 z_as_relative = false
 texture = ExtResource("1_iwjl1")
 maxCount = 10000
-props = Array[String](["time"])
+props = Array[String](["time", "delay"])
 
 [node name="SpiritLg" parent="." instance=ExtResource("3_lynl0")]
 z_index = 10
 z_as_relative = false
 texture = ExtResource("4_pku46")
 maxCount = 10000
-props = Array[String](["time"])
+props = Array[String](["time", "delay"])
 
 [node name="Coins" type="MultiMeshInstance2D" parent="."]
 z_index = 9
@@ -30,4 +30,4 @@ z_as_relative = false
 texture = ExtResource("5_m65im")
 script = ExtResource("5_k0dgf")
 maxCount = 10000
-props = Array[String](["vel"])
+props = Array[String](["vel", "delay"])

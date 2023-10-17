@@ -6,13 +6,13 @@ extends Node2D
 @onready var player = get_tree().get_first_node_in_group('player')
 
 func spawnSoulSm(pos: Vector2):
-	spirit_sm.add(pos, { 'time': randf() * 10 })
+	spirit_sm.add(pos, { 'time': randf() * 10, 'delay': 0.5 })
 
 func spawnSoulLg(pos: Vector2):
-	spirit_lg.add(pos, { 'time': randf() * 10 })
+	spirit_lg.add(pos, { 'time': randf() * 10, 'delay': 0.5 })
 
 func spawnCoin(pos: Vector2, velocity = Vector2.ZERO):
-	coins.add(pos, { 'vel': velocity })
+	coins.add(pos, { 'vel': velocity, 'delay': 0.5 })
 
 func _process(delta):
 	var types = [spirit_sm, spirit_lg]
@@ -20,10 +20,15 @@ func _process(delta):
 	for type in types:
 		for i in type.count:
 			var time = type.getProp(i, 'time') + delta
+			var pos = type.getProp(i, 'pos')
+			var delay = type.getProp(i, 'delay')
 			type.setProp(i, 'time', time)
 
-			if player:
-				var dist = type.getProp(i, 'pos').distance_to(player.position)
+			delay -= delta
+			type.setProp(i, 'delay', delay)
+
+			if player && delay <= 0:
+				var dist = pos.distance_to(player.position)
 				var falloff = 175.0 / dist ** 1.2
 				var move = 500 * falloff * delta
 
@@ -31,7 +36,6 @@ func _process(delta):
 					type.rem(i)
 					Game.addPoints(10 if type == spirit_lg else 1)
 				else:
-					var pos = type.getProp(i, 'pos')
 					if dist <= 175.0:
 						pos = pos.move_toward(player.position, move)
 
@@ -48,6 +52,7 @@ func _physics_process(delta):
 		for i in coins.count:
 			var pos = coins.getProp(i, 'pos')
 			var vel = coins.getProp(i, 'vel')
+			var delay = coins.getProp(i, 'delay')
 			var destroy = false
 
 			if pos.y < top - 1.5:
@@ -59,8 +64,9 @@ func _physics_process(delta):
 
 			pos += vel * delta
 			vel *= 0.98
+			delay -= delta
 
-			if player:
+			if player && delay <= 0:
 				var dist = pos.distance_to(player.position)
 				var falloff = 175.0 / dist ** 1.2
 				var move = 500 * falloff * delta
@@ -77,3 +83,4 @@ func _physics_process(delta):
 			else:
 				coins.setProp(i, 'vel', vel)
 				coins.setProp(i, 'pos', pos)
+				coins.setProp(i, 'delay', delay)
