@@ -27,6 +27,9 @@ func _process(delta):
 		sprite.flip_h = false
 
 func _physics_process(delta):
+	if get_tree().paused:
+		return
+
 	if is_on_floor():
 		doubleJump = true
 	else:
@@ -58,6 +61,15 @@ func attack():
 	$Slash.hit()
 
 func superAttack():
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	get_tree().paused = true
 	animator.play('super')
-	await get_tree().create_timer(0.08).timeout
+
+	await get_tree().create_timer(1.4).timeout
+
 	$Super.hit()
+
+	await get_tree().create_timer(0.3).timeout
+
+	process_mode = Node.PROCESS_MODE_INHERIT
+	get_tree().paused = false
