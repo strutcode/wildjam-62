@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://f1xihl0ejq3y"]
+[gd_scene load_steps=9 format=3 uid="uid://f1xihl0ejq3y"]
 
 [ext_resource type="Script" path="res://hud.gd" id="1_57mxs"]
 [ext_resource type="Texture2D" uid="uid://byeuclomp04vn" path="res://sprite/collectible/coin.png" id="2_vg7k4"]
+[ext_resource type="Texture2D" uid="uid://c7q53g2fhr3l8" path="res://sprite/ui/hp.png" id="3_uhgkv"]
+[ext_resource type="Texture2D" uid="uid://bwfgjcmsry8mw" path="res://sprite/ui/soul.png" id="4_rbkv7"]
 
 [sub_resource type="Gradient" id="Gradient_rh1e5"]
 colors = PackedColorArray(0.63, 0.63, 0.63, 0.705882, 1, 1, 1, 0.705882)
@@ -57,10 +59,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -559.0
+offset_left = -518.0
 offset_top = -132.0
-offset_right = 559.0
-offset_bottom = -115.0
+offset_right = 558.0
+offset_bottom = -116.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/fill = SubResource("StyleBoxTexture_j3y8i")
@@ -115,3 +117,21 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 25
 theme_override_font_sizes/font_size = 48
 text = "12345"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+offset_left = 389.0
+offset_top = 869.0
+offset_right = 452.0
+offset_bottom = 984.0
+texture = ExtResource("3_uhgkv")
+expand_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+offset_left = 273.0
+offset_top = 905.0
+offset_right = 419.813
+offset_bottom = 1067.0
+texture = ExtResource("4_rbkv7")
+expand_mode = 3
