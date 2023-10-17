@@ -10,8 +10,11 @@ extends CharacterBody2D
 @onready var screenShake = $Camera2D/Wobbler
 
 var doubleJump = false
+var invincibility = 0.0
 
 func _process(delta):
+	invincibility -= delta
+
 	if Input.is_action_just_pressed('attack'):
 		attack()
 
@@ -26,6 +29,8 @@ func _process(delta):
 		$Slash.scale.x = 1
 		$Super.scale.x = 1
 		sprite.flip_h = false
+
+	sprite.modulate.a = 0.75 if invincibility > 0 else 1.0
 
 func _physics_process(delta):
 	if get_tree().paused:
@@ -77,3 +82,16 @@ func superAttack():
 
 	process_mode = Node.PROCESS_MODE_INHERIT
 	get_tree().paused = false
+
+func takeDamage(amount):
+	if invincibility > 0:
+		return
+
+	Game.hp -= amount
+	sprite.modulate = Color(10, 10, 10)
+	velocity = Vector2.ZERO
+	invincibility = 0.8
+
+	await get_tree().create_timer(0.2).timeout
+
+	sprite.modulate = Color.WHITE

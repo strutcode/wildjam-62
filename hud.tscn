@@ -27,7 +27,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_57mxs")
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
+[node name="XpBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
 modulate = Color(0.223529, 0.603922, 0.796078, 1)
 clip_contents = true
 layout_mode = 1
@@ -40,6 +41,26 @@ offset_left = -559.0
 offset_top = -82.0
 offset_right = 559.0
 offset_bottom = -41.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/fill = SubResource("StyleBoxTexture_j3y8i")
+value = 50.0
+show_percentage = false
+
+[node name="HpBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+modulate = Color(0.8, 0.2, 0.0941176, 1)
+clip_contents = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -559.0
+offset_top = -132.0
+offset_right = 559.0
+offset_bottom = -115.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/fill = SubResource("StyleBoxTexture_j3y8i")

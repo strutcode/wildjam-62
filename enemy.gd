@@ -11,6 +11,7 @@ const DeathFX = preload('res://enemy_death_fx.tscn')
 @onready var sprite = $Enemy
 @onready var hpBar = $HP
 @onready var wobbler = $Enemy/Wobbler
+@onready var attack = $Attack
 
 var hit = false
 var maxHp: float = hp
@@ -18,6 +19,7 @@ var unique = randf()
 
 func _ready():
 	hpBar.value = 1
+	attack.body_entered.connect(touch)
 
 func _process(delta):
 	var t = Time.get_ticks_msec() / 1000.0
@@ -35,6 +37,10 @@ func _physics_process(delta):
 	velocity = velocity.move_toward(dir * speed, acceleration)
 
 	move_and_slide()
+
+func touch(body):
+	if body.is_in_group('player'):
+		body.takeDamage(5)
 
 func takeDamage(amt):
 	hp -= amt

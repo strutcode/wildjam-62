@@ -3,6 +3,7 @@ extends Node
 const Collectibles = preload('res://collectibles.tscn')
 
 var collectibles
+var hp = 100.0
 var xp = 0
 var lvl = 1
 var nextLvl = 110.0
@@ -49,6 +50,9 @@ func addPoints(num):
 
 func addCoins(num):
 	coins += num
+
+func getHpPercent():
+	return hp
 
 func getXpPercent():
 	return (xp / nextLvl) * 100
