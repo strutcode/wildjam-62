@@ -4,12 +4,17 @@ const DeathFX = preload('res://enemy_death_fx.tscn')
 
 @export var speed = 30
 @export var acceleration = 10
-@export var hp = 30
+@export var hp: float = 30
 
 @onready var player = get_tree().get_first_node_in_group('player')
 @onready var sprite = $Enemy
+@onready var hpBar = $HP
 
 var hit = false
+var maxHp: float = hp
+
+func _ready():
+	hpBar.value = 1
 
 func _process(delta):
 	sprite.flip_h = player.position.x > position.x
@@ -29,6 +34,7 @@ func _physics_process(delta):
 func takeDamage(amt):
 	hp -= amt
 	hit = true
+	hpBar.value = hp / maxHp
 	modulate = Color(10, 10, 10)
 	velocity = -global_position.direction_to(player.global_position) * 400
 
@@ -46,6 +52,6 @@ func die():
 	add_sibling(inst)
 	inst.global_position = global_position
 
-	Game.spawnSouls(10, global_position)
+	Game.spawnSouls(randi_range(7, 12), global_position)
 
 	queue_free()
