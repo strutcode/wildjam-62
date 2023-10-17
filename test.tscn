@@ -19,8 +19,9 @@ func _process(delta):
 	%Points.text = 'XP: %d/%d' % [Game.xp, Game.nextLvl]
 
 func spawn():
-	if Performance.get_monitor(Performance.TIME_FPS) < 120:
-		return
+	if Time.get_ticks_msec() > 2000:
+		if Performance.get_monitor(Performance.TIME_FPS) < 120:
+			return
 
 	var inst = Enemy.instantiate()
 	add_child(inst)
@@ -94,7 +95,7 @@ texture = ExtResource("1_5cxth")
 position = Vector2(320, 180)
 
 [node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 0.01
+wait_time = 0.02
 autostart = true
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
