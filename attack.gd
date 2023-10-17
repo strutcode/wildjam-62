@@ -8,3 +8,5 @@ func hit():
 	for body in bodies:
 		if body.has_method('takeDamage'):
 			body.takeDamage(damage)
+
+	return bodies.size()

@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dusjyyttd7bio"]
+[gd_scene load_steps=8 format=3 uid="uid://dusjyyttd7bio"]
 
 [ext_resource type="Script" path="res://enemy.gd" id="1_v7g3o"]
 [ext_resource type="Texture2D" uid="uid://blnspfwowamr8" path="res://sprite/enemy.png" id="2_30rrk"]
+[ext_resource type="PackedScene" uid="uid://i38u1xst7u8d" path="res://wobbler.tscn" id="3_2stm1"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_4qd7q"]
 frequency = 1.0
@@ -22,6 +23,8 @@ noise = SubResource("FastNoiseLite_4qd7q")
 
 [node name="Enemy" type="Sprite2D" parent="."]
 texture = ExtResource("2_30rrk")
+
+[node name="Wobbler" parent="Enemy" instance=ExtResource("3_2stm1")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3)

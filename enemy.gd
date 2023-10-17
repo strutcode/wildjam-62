@@ -10,10 +10,10 @@ const DeathFX = preload('res://enemy_death_fx.tscn')
 @onready var player = get_tree().get_first_node_in_group('player')
 @onready var sprite = $Enemy
 @onready var hpBar = $HP
+@onready var wobbler = $Enemy/Wobbler
 
 var hit = false
 var maxHp: float = hp
-var wobble = 0.0
 var unique = randf()
 
 func _ready():
@@ -23,12 +23,6 @@ func _process(delta):
 	var t = Time.get_ticks_msec() / 1000.0
 
 	sprite.flip_h = player.position.x > position.x
-	sprite.position = Vector2(
-		noise.get_noise_2d(t * 2, unique) * wobble * 30,
-		noise.get_noise_2d(unique, t * 2) * wobble * 30,
-	)
-
-	wobble = move_toward(wobble, 0, delta * 0.8)
 
 func _physics_process(delta):
 	if hit:
@@ -49,7 +43,7 @@ func takeDamage(amt):
 	modulate = Color(10, 10, 10)
 	velocity = -global_position.direction_to(player.global_position) * 400
 
-	wobble += 0.5
+	wobbler.add(0.5)
 
 	await get_tree().create_timer(0.15).timeout
 
