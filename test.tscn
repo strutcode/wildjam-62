@@ -45,10 +45,10 @@ grow_vertical = 2
 color = Color(0.0862745, 0.105882, 0.160784, 1)
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0, 0)
+motion_scale = Vector2(0.05, 0.1)
 
 [node name="Moon" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2(404.815, 84.2053)
+position = Vector2(351, 15)
 texture = ExtResource("1_idx2d")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
