@@ -1,0 +1,11 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=3 format=3 uid="uid://0eqccidedyhk"]
+
+[ext_resource type="AudioStream" uid="uid://d3sfy5luu7r45" path="res://sfx/soul1.ogg" id="1_tsce7"]
+[ext_resource type="AudioStream" uid="uid://bxvdso2f8i0vg" path="res://sfx/soul2.ogg" id="2_ig8da"]
+
+[resource]
+streams_count = 2
+stream_0/stream = ExtResource("1_tsce7")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_ig8da")
+stream_1/weight = 1.0
