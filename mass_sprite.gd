@@ -32,6 +32,9 @@ func setProp(index: int, name: String, value):
 	if data.has(name):
 		data[name][index] = value
 
+		if name == 'pos':
+			multimesh.set_instance_transform_2d(index, Transform2D.IDENTITY.scaled(Vector2(1, -1)).translated(value))
+
 func add(newPos: Vector2, newData = {}):
 	if full:
 		return

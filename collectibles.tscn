@@ -1,26 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://buf4w3u30fdjg"]
+[gd_scene load_steps=4 format=3 uid="uid://buf4w3u30fdjg"]
 
 [ext_resource type="Script" path="res://collectibles.gd" id="1_5xnke"]
 [ext_resource type="Texture2D" uid="uid://pi25do3aux24" path="res://sprite/collectible/spirit_sm.png" id="1_iwjl1"]
 [ext_resource type="PackedScene" uid="uid://cswvofw63dp1f" path="res://mass_sprite.tscn" id="3_lynl0"]
-[ext_resource type="Texture2D" uid="uid://bi1cqyujjookn" path="res://sprite/props/pumpkin.png" id="4_0n7wj"]
-
-[sub_resource type="QuadMesh" id="QuadMesh_igfkv"]
-size = Vector2(48, 48)
-
-[sub_resource type="MultiMesh" id="MultiMesh_v5nfu"]
-mesh = SubResource("QuadMesh_igfkv")
 
 [node name="Collectibles" type="Node2D"]
 script = ExtResource("1_5xnke")
 
-[node name="SpiritSm" type="MultiMeshInstance2D" parent="."]
-z_index = 100
-multimesh = SubResource("MultiMesh_v5nfu")
+[node name="SpiritSm" parent="." instance=ExtResource("3_lynl0")]
 texture = ExtResource("1_iwjl1")
-
-[node name="MassSprite" parent="." instance=ExtResource("3_lynl0")]
-texture = ExtResource("4_0n7wj")
+maxCount = 10000
+props = Array[String](["time"])
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)

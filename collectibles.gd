@@ -2,57 +2,28 @@ extends Node2D
 
 @onready var spirit_sm: MultiMeshInstance2D = $SpiritSm
 @onready var player = get_tree().get_first_node_in_group('player')
-@onready var mass_sprite = $MassSprite
-
-var sp_t = []
-var sp_p = []
-
-func _ready():
-	sp_t.resize(10000)
-	sp_p.resize(10000)
-
-	spirit_sm.multimesh.instance_count = 10000
-	spirit_sm.multimesh.visible_instance_count = 0
-
-	mass_sprite.add(Vector2(25, 25))
-	mass_sprite.rem(mass_sprite.last)
-	mass_sprite.add(Vector2(100, 100))
 
 func spawnSoul(pos: Vector2):
-	var mm = spirit_sm.multimesh
-
-	if mm.visible_instance_count >= 10000:
-		return
-
-	var i = mm.visible_instance_count
-	mm.visible_instance_count += 1
-
-	sp_t[i] = randf() * 10
-	sp_p[i] = pos
-
-	mm.set_instance_transform_2d(i, Transform2D.IDENTITY.scaled(Vector2(1, -1)).translated(pos))
+	spirit_sm.add(pos, { 'time': randf() * 10 })
 
 func _process(delta):
-	var mm = spirit_sm.multimesh
-
-	for i in mm.visible_instance_count:
-		sp_t[i] += delta
+	for i in spirit_sm.count:
+		var time = spirit_sm.getProp(i, 'time') + delta
+		spirit_sm.setProp(i, 'time', time)
 
 		if player:
-			var dist = sp_p[i].distance_to(player.position)
+			var dist = spirit_sm.getProp(i, 'pos').distance_to(player.position)
 			var falloff = 175.0 / dist ** 1.2
 			var move = 500 * falloff * delta
 
 			if dist - move < 10:
-				var c = mm.visible_instance_count - 1
-
-				sp_p[i] = sp_p[c]
-				sp_t[i] = sp_t[c]
-				mm.visible_instance_count -= 1
-
+				spirit_sm.rem(i)
 				Game.addPoint()
 			else:
+				var pos = spirit_sm.getProp(i, 'pos')
 				if dist <= 175.0:
-					sp_p[i] = sp_p[i].move_toward(player.position, move)
+					pos = pos.move_toward(player.position, move)
 
-				mm.set_instance_transform_2d(i, Transform2D.IDENTITY.scaled(Vector2(1, -1)).translated(sp_p[i] + Vector2(0, sin(sp_t[i]) * 10)))
+				pos.y += sin(time) * 0.1
+
+				spirit_sm.setProp(i, 'pos', pos)
