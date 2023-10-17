@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://f1xihl0ejq3y"]
+[gd_scene load_steps=7 format=3 uid="uid://f1xihl0ejq3y"]
 
 [ext_resource type="Script" path="res://hud.gd" id="1_57mxs"]
+[ext_resource type="Texture2D" uid="uid://byeuclomp04vn" path="res://sprite/collectible/coin.png" id="2_vg7k4"]
 
 [sub_resource type="Gradient" id="Gradient_rh1e5"]
 colors = PackedColorArray(0.63, 0.63, 0.63, 0.705882, 1, 1, 1, 0.705882)
@@ -12,6 +13,10 @@ fill_to = Vector2(0.5, 0)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j3y8i"]
 texture = SubResource("GradientTexture2D_lf1oc")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_571hl"]
+atlas = ExtResource("2_vg7k4")
+region = Rect2(21, 19, 6, 8)
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -41,7 +46,8 @@ theme_override_styles/fill = SubResource("StyleBoxTexture_j3y8i")
 value = 50.0
 show_percentage = false
 
-[node name="Label" type="Label" parent="."]
+[node name="Level" type="Label" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -56,6 +62,35 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 14
+theme_override_constants/outline_size = 34
 theme_override_font_sizes/font_size = 72
 text = "1"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -92.0
+offset_top = 32.0
+offset_right = 93.0
+offset_bottom = 102.0
+grow_horizontal = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_571hl")
+expand_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+
+[node name="Coins" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(0.901961, 0.654902, 0.380392, 1)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_font_sizes/font_size = 48
+text = "12345"

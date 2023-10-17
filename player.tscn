@@ -264,7 +264,7 @@ zoom = Vector2(3, 3)
 
 [node name="Wobbler" parent="Camera2D" instance=ExtResource("3_i11e0")]
 speed = 10.0
-strength = 8.0
+strength = Vector2(4, 8)
 decay = 1.5
 
 [node name="Slash" type="Area2D" parent="."]
