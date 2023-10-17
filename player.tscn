@@ -241,9 +241,10 @@ _data = {
 collision_layer = 3
 collision_mask = 32769
 script = ExtResource("1_degrw")
-speed = 675
+speed = 620
+acceleration = 0.275
 deceleration = 0.155
-jumpStrength = 825
+jumpStrength = 750
 
 [node name="Stand0001" type="Sprite2D" parent="."]
 position = Vector2(0, -3)
@@ -266,7 +267,7 @@ zoom = Vector2(3, 3)
 
 [node name="Wobbler" parent="Camera2D" instance=ExtResource("3_i11e0")]
 speed = 10.0
-strength = Vector2(4, 8)
+strength = Vector2(5, 10)
 decay = 1.5
 
 [node name="Slash" type="Area2D" parent="."]
