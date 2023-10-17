@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://b2inypsd3hnu3"]
+[gd_scene load_steps=13 format=3 uid="uid://b2inypsd3hnu3"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_degrw"]
 [ext_resource type="Script" path="res://attack.gd" id="2_ii7wu"]
 [ext_resource type="Texture2D" uid="uid://b8na638lf1r13" path="res://sprite/player/stand0001.png" id="3_a1847"]
 [ext_resource type="PackedScene" uid="uid://i38u1xst7u8d" path="res://wobbler.tscn" id="3_i11e0"]
 [ext_resource type="FontFile" uid="uid://pp3xssdve1oe" path="res://fonts/GraffitiPaintBrush.ttf" id="4_webns"]
+[ext_resource type="AudioStream" uid="uid://cadx6skg6n2p5" path="res://sfx/slash.tres" id="6_i6gc5"]
+[ext_resource type="AudioStream" uid="uid://bt1rpna584j08" path="res://sfx/super.ogg" id="7_h3eef"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h7evi"]
 radius = 13.0
@@ -350,3 +352,10 @@ theme_override_fonts/font = ExtResource("4_webns")
 theme_override_font_sizes/font_size = 148
 text = "Moon"
 uppercase = true
+
+[node name="SlashSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_i6gc5")
+
+[node name="SuperSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_h3eef")
+volume_db = -5.0

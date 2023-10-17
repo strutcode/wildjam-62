@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var sprite = $Stand0001
 @onready var animator = $AnimationPlayer
 @onready var screenShake = $Camera2D/Wobbler
+@onready var slash_sound = $SlashSound
 
 var doubleJump = false
 var invincibility = 0.0
@@ -63,6 +64,7 @@ func _physics_process(delta):
 
 func attack():
 	animator.play('attack')
+	slash_sound.play()
 	await get_tree().create_timer(0.07).timeout
 
 	var count = $Slash.hit()
@@ -72,9 +74,11 @@ func superAttack():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	get_tree().paused = true
 	animator.play('super')
+	$SuperSound.play()
 
 	await get_tree().create_timer(1.4).timeout
 
+	slash_sound.play()
 	var count = $Super.hit()
 	screenShake.add(count ** 0.2)
 
