@@ -1,5 +1,7 @@
 extends MultiMeshInstance2D
 
+class_name MassSprite
+
 @export var maxCount = 1000
 @export var props: Array[String] = []
 

@@ -152,7 +152,7 @@ scale = Vector2(130.654, 11.026)
 collision_layer = 32768
 collision_mask = 0
 
-[node name="ColorRect2" type="ColorRect" parent="Floor"]
+[node name="ColorRect2" type="ColorRect" parent="Floor" groups=["floor"]]
 offset_right = 18.0
 offset_bottom = 28.0
 color = Color(0.192157, 0.168627, 0.168627, 1)
@@ -174,7 +174,7 @@ texture = ExtResource("1_5cxth")
 position = Vector2(320, 201)
 
 [node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 0.02
+wait_time = 0.1
 autostart = true
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]

@@ -29,6 +29,15 @@ func spawnSouls(count, position):
 		collectibles.spawnSoulSm(pos)
 		c -= 1
 
+func spawnCoins(count, position):
+	if !collectibles:
+		return
+
+	for i in count:
+		var pos = position + Vector2(randf_range(-10, 10), randf_range(-10, 10))
+
+		collectibles.spawnCoin(pos, Vector2(randf_range(-250, 250), -400))
+
 func addPoints(num):
 	xp += num
 

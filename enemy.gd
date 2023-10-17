@@ -53,5 +53,6 @@ func die():
 	inst.global_position = global_position
 
 	Game.spawnSouls(randi_range(7, 12), global_position)
+	Game.spawnCoins(randi_range(7, 12), global_position)
 
 	queue_free()
