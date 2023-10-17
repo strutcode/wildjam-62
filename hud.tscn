@@ -1,6 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://f1xihl0ejq3y"]
+[gd_scene load_steps=5 format=3 uid="uid://f1xihl0ejq3y"]
 
 [ext_resource type="Script" path="res://hud.gd" id="1_57mxs"]
+
+[sub_resource type="Gradient" id="Gradient_rh1e5"]
+colors = PackedColorArray(0.63, 0.63, 0.63, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lf1oc"]
+gradient = SubResource("Gradient_rh1e5")
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j3y8i"]
+texture = SubResource("GradientTexture2D_lf1oc")
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -13,6 +24,7 @@ script = ExtResource("1_57mxs")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 modulate = Color(0.223529, 0.603922, 0.796078, 1)
+clip_contents = true
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -25,6 +37,7 @@ offset_right = 559.0
 offset_bottom = -41.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_styles/fill = SubResource("StyleBoxTexture_j3y8i")
 value = 50.0
 show_percentage = false
 
@@ -43,6 +56,6 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 2
+theme_override_constants/outline_size = 14
 theme_override_font_sizes/font_size = 72
 text = "1"
