@@ -224,9 +224,9 @@ text = "Coins"
 [node name="HUD" parent="CanvasLayer2" instance=ExtResource("5_leapd")]
 
 [node name="SpawnRect" type="ReferenceRect" parent="."]
-offset_left = -223.0
+offset_left = -415.0
 offset_top = -76.0
-offset_right = 898.0
-offset_bottom = 233.0
+offset_right = 1025.0
+offset_bottom = 160.0
 
 [connection signal="timeout" from="SpawnTimer" to="." method="spawn"]
