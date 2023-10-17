@@ -2,10 +2,10 @@ extends Node2D
 
 @onready var spirit_sm: MultiMeshInstance2D = $SpiritSm
 @onready var player = get_tree().get_first_node_in_group('player')
+@onready var mass_sprite = $MassSprite
 
 var sp_t = []
 var sp_p = []
-var invalidT = Transform2D.IDENTITY.translated(Vector2(-10000, -10000))
 
 func _ready():
 	sp_t.resize(10000)
@@ -13,6 +13,10 @@ func _ready():
 
 	spirit_sm.multimesh.instance_count = 10000
 	spirit_sm.multimesh.visible_instance_count = 0
+
+	mass_sprite.add(Vector2(25, 25))
+	mass_sprite.rem(mass_sprite.last)
+	mass_sprite.add(Vector2(100, 100))
 
 func spawnSoul(pos: Vector2):
 	var mm = spirit_sm.multimesh
