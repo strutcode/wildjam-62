@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://b87g8qw2vt7np"]
+[gd_scene load_steps=10 format=3 uid="uid://b87g8qw2vt7np"]
 
 [ext_resource type="Texture2D" uid="uid://bi1cqyujjookn" path="res://sprite/props/pumpkin.png" id="1_5cxth"]
 [ext_resource type="Texture2D" uid="uid://cunojqi0jbyqs" path="res://sprite/moon.png" id="1_idx2d"]
 [ext_resource type="PackedScene" uid="uid://b2inypsd3hnu3" path="res://player.tscn" id="1_tv81w"]
+[ext_resource type="Texture2D" uid="uid://ckeoqkqpv81ot" path="res://sprite/background/mountains_far.png" id="2_3mvlq"]
 [ext_resource type="Texture2D" uid="uid://dl022ts4cfv8y" path="res://sprite/tower.png" id="2_rdx6u"]
+[ext_resource type="Texture2D" uid="uid://co11s43e1vyph" path="res://sprite/background/hills.png" id="4_cpyqa"]
 [ext_resource type="PackedScene" uid="uid://f1xihl0ejq3y" path="res://hud.tscn" id="5_leapd"]
 
 [sub_resource type="GDScript" id="GDScript_6xhvm"]
@@ -43,33 +45,110 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.0862745, 0.105882, 0.160784, 1)
+color = Color(0.258824, 0.223529, 0.203922, 1)
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.05, 0.1)
+motion_scale = Vector2(0.025, 0.05)
+
+[node name="MountainsFar" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(58, 232)
+scale = Vector2(2, 2)
+texture = ExtResource("2_3mvlq")
+
+[node name="MountainsFar2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(458, 232)
+scale = Vector2(2, 2)
+texture = ExtResource("2_3mvlq")
+
+[node name="MountainsFar3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(-762, 232)
+scale = Vector2(2, 2)
+texture = ExtResource("2_3mvlq")
+
+[node name="MountainsFar4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(-362, 232)
+scale = Vector2(2, 2)
+texture = ExtResource("2_3mvlq")
+
+[node name="MountainsFar5" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(858, 232)
+scale = Vector2(2, 2)
+texture = ExtResource("2_3mvlq")
+
+[node name="MountainsFar6" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(1258, 232)
+scale = Vector2(2, 2)
+texture = ExtResource("2_3mvlq")
 
 [node name="Moon" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2(351, 15)
+position = Vector2(351, 29)
 texture = ExtResource("1_idx2d")
 
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground/ParallaxLayer2"]
+offset_left = -962.0
+offset_top = 331.0
+offset_right = 1548.0
+offset_bottom = 576.0
+color = Color(0.0234375, 0.0234375, 0.03125, 1)
+
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.1, 0.1)
+motion_scale = Vector2(0.2, 0.1)
 
 [node name="Tower" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(-135, 181)
+position = Vector2(-135, 227)
 texture = ExtResource("2_rdx6u")
 
 [node name="Tower2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(865, 198)
+position = Vector2(865, 244)
 texture = ExtResource("2_rdx6u")
 
 [node name="Tower3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(332, 231)
+position = Vector2(332, 245)
 texture = ExtResource("2_rdx6u")
 
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.4, 0.2)
+
+[node name="Hills" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(-616, 233)
+scale = Vector2(2, 2)
+texture = ExtResource("4_cpyqa")
+
+[node name="Hills2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(-216, 233)
+scale = Vector2(2, 2)
+texture = ExtResource("4_cpyqa")
+
+[node name="Hills3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(184, 233)
+scale = Vector2(2, 2)
+texture = ExtResource("4_cpyqa")
+
+[node name="Hills4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(584, 233)
+scale = Vector2(2, 2)
+texture = ExtResource("4_cpyqa")
+
+[node name="Hills5" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(984, 233)
+scale = Vector2(2, 2)
+texture = ExtResource("4_cpyqa")
+
+[node name="Hills6" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(1384, 233)
+scale = Vector2(2, 2)
+texture = ExtResource("4_cpyqa")
+
+[node name="ColorRect2" type="ColorRect" parent="ParallaxBackground/ParallaxLayer3"]
+offset_left = -962.0
+offset_top = 331.0
+offset_right = 1548.0
+offset_bottom = 576.0
+color = Color(0.078125, 0.0625, 0.0742188, 1)
+
 [node name="Floor" type="StaticBody2D" parent="."]
-position = Vector2(-223, 240)
-scale = Vector2(62.445, 5.3369)
+position = Vector2(-824, 240)
+scale = Vector2(130.654, 11.026)
 collision_layer = 32768
 collision_mask = 0
 
@@ -92,7 +171,7 @@ position = Vector2(185, 203)
 texture = ExtResource("1_5cxth")
 
 [node name="Player" parent="." instance=ExtResource("1_tv81w")]
-position = Vector2(320, 180)
+position = Vector2(320, 201)
 
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 0.02
