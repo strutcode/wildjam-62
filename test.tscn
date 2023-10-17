@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b87g8qw2vt7np"]
+[gd_scene load_steps=11 format=3 uid="uid://b87g8qw2vt7np"]
 
 [ext_resource type="Texture2D" uid="uid://bi1cqyujjookn" path="res://sprite/props/pumpkin.png" id="1_5cxth"]
 [ext_resource type="Texture2D" uid="uid://cunojqi0jbyqs" path="res://sprite/moon.png" id="1_idx2d"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dl022ts4cfv8y" path="res://sprite/tower.png" id="2_rdx6u"]
 [ext_resource type="Texture2D" uid="uid://co11s43e1vyph" path="res://sprite/background/hills.png" id="4_cpyqa"]
 [ext_resource type="PackedScene" uid="uid://f1xihl0ejq3y" path="res://hud.tscn" id="5_leapd"]
+[ext_resource type="AudioStream" uid="uid://cey7iy3qdljdd" path="res://music/419802__sirkoto51__anime-encounter-loop-3.ogg" id="8_ir3f4"]
 
 [sub_resource type="GDScript" id="GDScript_6xhvm"]
 script/source = "extends Node2D
@@ -228,5 +229,10 @@ offset_left = -415.0
 offset_top = -76.0
 offset_right = 1025.0
 offset_bottom = 160.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ir3f4")
+volume_db = -20.0
+autoplay = true
 
 [connection signal="timeout" from="SpawnTimer" to="." method="spawn"]
