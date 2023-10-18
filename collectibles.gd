@@ -51,10 +51,11 @@ func _process(delta):
 
 func _physics_process(delta):
 	var floor = get_tree().get_first_node_in_group('floor')
-	var bounds = Rect2(floor.global_position, floor.size * floor.get_parent().scale)
-	var top = bounds.position.y
 
 	if floor:
+		var bounds = Rect2(floor.global_position, floor.size * floor.get_parent().scale)
+		var top = bounds.position.y
+
 		for i in coins.count:
 			var pos = coins.getProp(i, 'pos')
 			var vel = coins.getProp(i, 'vel')
