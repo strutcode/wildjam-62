@@ -8,6 +8,7 @@ func _ready():
 
 func _enter_tree():
 	get_tree().paused = true
+	%Options.get_child(0).grab_focus.call_deferred()
 
 func _exit_tree():
 	get_tree().paused = false
