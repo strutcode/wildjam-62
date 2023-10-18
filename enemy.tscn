@@ -27,6 +27,8 @@ noise = SubResource("FastNoiseLite_4qd7q")
 texture = ExtResource("2_30rrk")
 
 [node name="Wobbler" parent="Enemy" instance=ExtResource("3_2stm1")]
+speed = 10.0
+strength = Vector2(20, 20)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3)
@@ -35,10 +37,10 @@ shape = SubResource("CircleShape2D_35w86")
 [node name="HP" type="ProgressBar" parent="."]
 modulate = Color(0.862745, 0.152941, 0.152941, 1)
 z_index = 1
-offset_left = -26.0
+offset_left = -20.0
 offset_top = 20.0
-offset_right = 30.0
-offset_bottom = 23.0
+offset_right = 20.0
+offset_bottom = 22.0
 theme_override_styles/background = SubResource("StyleBoxFlat_u2smm")
 theme_override_styles/fill = SubResource("StyleBoxFlat_n42v0")
 max_value = 1.0
