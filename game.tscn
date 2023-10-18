@@ -4,3 +4,6 @@
 
 [node name="Game" type="Node"]
 script = ExtResource("1_o12mv")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 11

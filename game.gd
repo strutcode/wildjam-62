@@ -1,8 +1,11 @@
 extends Node
 
 const Collectibles = preload('res://collectibles.tscn')
+const PauseMenu = preload('res://ui/pause_menu.tscn')
 
-var collectibles
+var collectibles = Collectibles.instantiate()
+var menu = PauseMenu.instantiate()
+
 var hp = 100.0
 var xp = 0
 var lvl = 1
@@ -10,8 +13,12 @@ var nextLvl = 110.0
 var coins = 0
 
 func _ready():
-	collectibles = Collectibles.instantiate()
 	add_child(collectibles)
+
+func _input(ev):
+	if ev is InputEventKey:
+		if ev.pressed && ev.keycode == KEY_ESCAPE:
+			pause()
 
 func spawnSouls(count, position):
 	if !collectibles:
@@ -56,3 +63,9 @@ func getHpPercent():
 
 func getXpPercent():
 	return (xp / nextLvl) * 100
+
+func pause():
+	if menu.is_inside_tree():
+		return
+
+	$CanvasLayer.add_child(menu)
