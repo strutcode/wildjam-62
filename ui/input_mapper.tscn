@@ -12,8 +12,11 @@ script = ExtResource("1_nyktm")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Control"
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 2
 text = "Keybind"
+
+[connection signal="pressed" from="Button" to="." method="rebind"]

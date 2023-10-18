@@ -13,7 +13,7 @@ func populateInputs():
 		var events = InputMap.action_get_events(action)
 		var inst = InputMapper.instantiate()
 
-		inst.setLabel(action)
+		inst.setAction(action)
 		if events.is_empty():
 			inst.setInput(null)
 		else:
