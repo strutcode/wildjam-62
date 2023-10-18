@@ -1,9 +1,11 @@
 extends Node
 
 const Collectibles = preload('res://collectibles.tscn')
+const LevelUpper = preload('res://ui/level_upper.tscn')
 const PauseMenu = preload('res://ui/pause_menu.tscn')
 
 var collectibles = Collectibles.instantiate()
+var levelUpper = LevelUpper.instantiate()
 var menu = PauseMenu.instantiate()
 
 var hp = 100.0
@@ -54,6 +56,7 @@ func addPoints(num):
 		xp -= nextLvl
 		lvl += 1
 		nextLvl = log(lvl + 1) * 100 + lvl * 50
+		await levelUp()
 
 func addCoins(num):
 	coins += num
@@ -64,8 +67,12 @@ func getHpPercent():
 func getXpPercent():
 	return (xp / nextLvl) * 100
 
+func levelUp():
+	%ExtraUI.add_child(levelUpper)
+	await levelUpper.finished
+
 func pause():
 	if menu.is_inside_tree():
 		return
 
-	$CanvasLayer.add_child(menu)
+	%ExtraUI.add_child(menu)
