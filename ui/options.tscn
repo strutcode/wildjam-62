@@ -4,8 +4,6 @@
 
 [node name="Options" type="Control"]
 process_mode = 3
-z_index = 1001
-z_as_relative = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,6 +25,7 @@ custom_minimum_size = Vector2(1200, 600)
 layout_mode = 2
 
 [node name="Game" type="MarginContainer" parent="CenterContainer/TabContainer"]
+visible = false
 layout_mode = 2
 
 [node name="Audio" type="MarginContainer" parent="CenterContainer/TabContainer"]
@@ -141,7 +140,13 @@ horizontal_alignment = 2
 layout_mode = 2
 
 [node name="Input" type="MarginContainer" parent="CenterContainer/TabContainer"]
-visible = false
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CenterContainer/TabContainer/Input"]
+layout_mode = 2
+
+[node name="InputList" type="VBoxContainer" parent="CenterContainer/TabContainer/Input/ScrollContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Close" type="Button" parent="."]
