@@ -13,14 +13,22 @@ extends CharacterBody2D
 var doubleJump = false
 var invincibility = 0.0
 
-func _process(delta):
-	invincibility -= delta
+func _input(ev):
+	if ev.is_action_pressed('jump'):
+		if is_on_floor() || doubleJump:
+			velocity.y = -jumpStrength
 
-	if Input.is_action_just_pressed('attack'):
+			if not is_on_floor():
+				doubleJump = false
+
+	if ev.is_action_pressed('attack'):
 		attack()
 
-	if Input.is_action_just_pressed('super'):
+	if ev.is_action_pressed('super'):
 		superAttack()
+
+func _process(delta):
+	invincibility -= delta
 
 	if velocity.x < 0:
 		$Slash.scale.x = -1
@@ -44,13 +52,6 @@ func _physics_process(delta):
 
 	if animator.is_playing():
 		velocity.y = min(velocity.y, velocity.y * 0.5)
-
-	if Input.is_action_just_pressed('jump'):
-		if is_on_floor() || doubleJump:
-			velocity.y = -jumpStrength
-
-			if not is_on_floor():
-				doubleJump = false
 
 	var input = Input.get_axis('left', 'right')
 
