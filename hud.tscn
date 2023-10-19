@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://f1xihl0ejq3y"]
+[gd_scene load_steps=10 format=3 uid="uid://f1xihl0ejq3y"]
 
 [ext_resource type="Script" path="res://hud.gd" id="1_57mxs"]
 [ext_resource type="Texture2D" uid="uid://byeuclomp04vn" path="res://sprite/collectible/coin.png" id="2_vg7k4"]
+[ext_resource type="Script" path="res://ui/smooth_progress.gd" id="2_wvnj5"]
 [ext_resource type="Texture2D" uid="uid://c7q53g2fhr3l8" path="res://sprite/ui/hp.png" id="3_uhgkv"]
 [ext_resource type="Texture2D" uid="uid://bwfgjcmsry8mw" path="res://sprite/ui/soul.png" id="4_rbkv7"]
 
@@ -21,6 +22,7 @@ atlas = ExtResource("2_vg7k4")
 region = Rect2(21, 19, 6, 8)
 
 [node name="HUD" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -68,6 +70,7 @@ grow_vertical = 0
 theme_override_styles/fill = SubResource("StyleBoxTexture_j3y8i")
 value = 50.0
 show_percentage = false
+script = ExtResource("2_wvnj5")
 
 [node name="Level" type="Label" parent="."]
 unique_name_in_owner = true
