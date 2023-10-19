@@ -2,13 +2,22 @@
 
 [ext_resource type="Script" path="res://ui/leaderboard_entry.gd" id="1_1468j"]
 
-[node name="LeaderboardEntry" type="PanelContainer"]
+[node name="LeaderboardEntry" type="MarginContainer"]
 offset_left = 560.0
 offset_top = 189.0
 offset_right = 1360.0
-offset_bottom = 212.0
+offset_bottom = 238.0
 size_flags_horizontal = 3
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
 script = ExtResource("1_1468j")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0, 0, 0, 0)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2

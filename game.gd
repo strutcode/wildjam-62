@@ -9,6 +9,8 @@ var gameOver = GameOver.instantiate()
 var menu = PauseMenu.instantiate()
 var player
 
+var score = 0
+
 func _ready():
 	add_child(collectibles)
 
@@ -63,5 +65,6 @@ func pause():
 
 func restart():
 	get_tree().reload_current_scene()
+	score = 0
 	if collectibles:
 		collectibles.reset()

@@ -108,6 +108,7 @@ func takeDamage(amount):
 	sprite.modulate = Color(10, 10, 10)
 	velocity = Vector2.ZERO
 	invincibility = 0.8
+	screenShake.add(amount ** 0.2)
 
 	await get_tree().create_timer(0.2).timeout
 
@@ -115,15 +116,18 @@ func takeDamage(amount):
 
 func addPoints(num):
 	xp += num
+	Game.score += num
 
 	if xp >= nextLvl:
 		xp -= nextLvl
 		lvl += 1
+		Game.score += lvl * 100
 		nextLvl = log(lvl + 1) * 100 + lvl * 50
 		await levelUp()
 
 func addCoins(num):
 	coins += num
+	Game.score += num * 10
 
 func getHpPercent():
 	return hp

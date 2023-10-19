@@ -37,7 +37,7 @@ func _physics_process(delta):
 
 func touch(body):
 	if body.is_in_group('player'):
-		body.takeDamage(5)
+		body.takeDamage(50)
 
 func takeDamage(amt):
 	hp -= amt
@@ -61,6 +61,8 @@ func die():
 	var inst = DeathFX.instantiate()
 	add_sibling(inst)
 	inst.global_position = global_position
+
+	Game.score += 25
 
 	Game.spawnSouls(randi_range(7, 12), global_position)
 	Game.spawnCoins(randi_range(7, 12), global_position)
