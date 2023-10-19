@@ -30,6 +30,9 @@ func spawn():
 	add_child(inst)
 	inst.position.x = randf_range(spawn_rect.position.x, spawn_rect.position.x + spawn_rect.size.x)
 	inst.position.y = randf_range(spawn_rect.position.y, spawn_rect.position.y + spawn_rect.size.y)
+
+	if inst.position.distance_to(Game.player.position) < 200:
+		inst.position -= inst.position.direction_to(Game.player.position) * 200
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3y5eb"]
