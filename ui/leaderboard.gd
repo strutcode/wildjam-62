@@ -2,6 +2,8 @@ extends Control
 
 const LeaderboardEntry = preload('res://ui/leaderboard_entry.tscn')
 
+@onready var spinner = $VBoxContainer/Loader/Spinner
+
 func _enter_tree():
 	await get_tree().process_frame
 	populateScoreboard(await getScores())
@@ -18,6 +20,7 @@ func populateScoreboard(players):
 		scores.add_child(inst)
 
 func getScores():
+	%Loader.show()
 	var req := $WebClient
 	req.request('https://keepthescore.com/api/hmnyhtzjrygke/board/')
 	var res = await req.request_completed
@@ -26,8 +29,10 @@ func getScores():
 	if body:
 		var json = JSON.new()
 		json.parse(body.get_string_from_utf8())
+		%Loader.hide()
 		return json.data.players
 	else:
+		%Loader.hide()
 		return []
 
 func postScore():

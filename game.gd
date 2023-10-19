@@ -6,6 +6,7 @@ const PauseMenu = preload('res://ui/pause_menu.tscn')
 
 var collectibles = Collectibles.instantiate()
 var levelUpper = LevelUpper.instantiate()
+var scoreBoard = LevelUpper.instantiate()
 var menu = PauseMenu.instantiate()
 
 var hp = 100.0
