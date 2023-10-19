@@ -7,7 +7,7 @@ const LevelUpper = preload('res://ui/level_upper.tscn')
 @export var deceleration = 0.75
 @export var jumpStrength = 400
 
-@onready var sprite = $Stand0001
+@onready var sprite = $AnimatedSprite2D
 @onready var animator = $AnimationPlayer
 @onready var screenShake = $Camera2D/Wobbler
 @onready var slash_sound = $SlashSound
@@ -18,6 +18,7 @@ var lvl = 1
 var nextLvl = 110.0
 var coins = 0
 var doubleJump = false
+var attackFrames = 0.0
 var invincibility = 0.0
 
 var levelUpper = LevelUpper.instantiate()
@@ -38,6 +39,7 @@ func _input(ev):
 
 func _process(delta):
 	invincibility -= delta
+	attackFrames -= delta
 
 	if velocity.x < 0:
 		$Slash.scale.x = -1
@@ -49,6 +51,8 @@ func _process(delta):
 		sprite.flip_h = false
 
 	sprite.modulate.a = 0.75 if invincibility > 0 else 1.0
+
+	animate()
 
 func _physics_process(delta):
 	if get_tree().paused:
@@ -72,9 +76,24 @@ func _physics_process(delta):
 
 	move_and_slide()
 
+func animate():
+	if attackFrames > 0:
+		sprite.play('slash1')
+	elif velocity.y < -5:
+		sprite.play('jump')
+	elif velocity.y > 5:
+		sprite.play('fall')
+	elif abs(velocity.x) > 5:
+		sprite.play('run')
+		sprite.speed_scale = velocity.x / 12 * 0.03
+	else:
+		sprite.play('stand')
+		sprite.speed_scale = 1.0
+
 func attack():
 	animator.play('attack')
 	slash_sound.play()
+	attackFrames = 0.17
 	await get_tree().create_timer(0.07).timeout
 
 	var count = $Slash.hit()
@@ -108,7 +127,7 @@ func takeDamage(amount):
 	sprite.modulate = Color(10, 10, 10)
 	velocity = Vector2.ZERO
 	invincibility = 0.8
-	screenShake.add(amount ** 0.2)
+	screenShake.add(1)
 
 	await get_tree().create_timer(0.2).timeout
 
