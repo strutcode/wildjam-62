@@ -3,7 +3,6 @@ extends Node2D
 @onready var spirit_sm: MultiMeshInstance2D = $SpiritSm
 @onready var spirit_lg = $SpiritLg
 @onready var coins = $Coins
-@onready var player = get_tree().get_first_node_in_group('player')
 @onready var coin1 = $AudioStreamPlayer
 @onready var soul1 = $AudioStreamPlayer2
 
@@ -32,8 +31,8 @@ func _process(delta):
 			delay -= delta
 			type.setProp(i, 'delay', delay)
 
-			if player && delay <= 0:
-				var dist = pos.distance_to(player.position)
+			if Game.player && delay <= 0:
+				var dist = pos.distance_to(Game.player.position)
 				var falloff = 175.0 / dist ** 1.2
 				var move = 500 * falloff * delta
 
@@ -43,7 +42,7 @@ func _process(delta):
 					soulSound()
 				else:
 					if dist <= 175.0:
-						pos = pos.move_toward(player.position, move)
+						pos = pos.move_toward(Game.player.position, move)
 
 					pos.y += sin(time) * 0.1
 
@@ -73,8 +72,8 @@ func _physics_process(delta):
 			vel *= 0.98
 			delay -= delta
 
-			if player && delay <= 0:
-				var dist = pos.distance_to(player.position)
+			if Game.player && delay <= 0:
+				var dist = pos.distance_to(Game.player.position)
 				var falloff = 175.0 / dist ** 1.2
 				var move = 500 * falloff * delta
 
@@ -84,7 +83,7 @@ func _physics_process(delta):
 					coinSound()
 				else:
 					if dist <= 175.0:
-						pos = pos.move_toward(player.position, move)
+						pos = pos.move_toward(Game.player.position, move)
 
 			if destroy:
 				coins.rem(i)

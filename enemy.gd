@@ -7,7 +7,6 @@ const DeathFX = preload('res://enemy_death_fx.tscn')
 @export var hp: float = 30
 @export var noise = FastNoiseLite.new()
 
-@onready var player = get_tree().get_first_node_in_group('player')
 @onready var sprite = $Enemy
 @onready var hpBar = $HP
 @onready var wobbler = $Enemy/Wobbler
@@ -22,9 +21,7 @@ func _ready():
 	attack.body_entered.connect(touch)
 
 func _process(delta):
-	var t = Time.get_ticks_msec() / 1000.0
-
-	sprite.flip_h = player.position.x > position.x
+	sprite.flip_h = Game.player.position.x > position.x
 
 func _physics_process(delta):
 	if hit:
@@ -32,7 +29,7 @@ func _physics_process(delta):
 		velocity = velocity.move_toward(Vector2.ZERO, 40)
 		return
 
-	var dir = global_position.direction_to(player.global_position)
+	var dir = global_position.direction_to(Game.player.global_position)
 
 	velocity = velocity.move_toward(dir * speed, acceleration)
 
@@ -47,7 +44,7 @@ func takeDamage(amt):
 	hit = true
 	hpBar.value = hp / maxHp
 	modulate = Color(10, 10, 10)
-	velocity = -global_position.direction_to(player.global_position) * 400
+	velocity = -global_position.direction_to(Game.player.global_position) * 400
 
 	wobbler.add(0.5)
 

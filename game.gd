@@ -9,6 +9,7 @@ var collectibles = Collectibles.instantiate()
 var levelUpper = LevelUpper.instantiate()
 var gameOver = GameOver.instantiate()
 var menu = PauseMenu.instantiate()
+var player
 
 var hp = 100.0
 var xp = 0
@@ -18,6 +19,14 @@ var coins = 0
 
 func _ready():
 	add_child(collectibles)
+
+	get_tree().tree_changed.connect(findPlayer)
+
+func findPlayer():
+	var tree = get_tree()
+
+	if tree:
+		player = get_tree().get_first_node_in_group('player')
 
 func _input(ev):
 	if ev is InputEventKey:
