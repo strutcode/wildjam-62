@@ -38,7 +38,7 @@ func _process(delta):
 
 				if dist - move < 10:
 					type.rem(i)
-					Game.addPoints(10 if type == spirit_lg else 1)
+					Game.player.addPoints(10 if type == spirit_lg else 1)
 					soulSound()
 				else:
 					if dist <= 175.0:
@@ -79,7 +79,7 @@ func _physics_process(delta):
 
 				if dist - move < 10:
 					destroy = true
-					Game.addCoins(1)
+					Game.player.addCoins(1)
 					coinSound()
 				else:
 					if dist <= 175.0:

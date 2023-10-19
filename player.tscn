@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b2inypsd3hnu3"]
+[gd_scene load_steps=14 format=3 uid="uid://b2inypsd3hnu3"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_degrw"]
 [ext_resource type="Script" path="res://attack.gd" id="2_ii7wu"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://i38u1xst7u8d" path="res://wobbler.tscn" id="3_i11e0"]
 [ext_resource type="FontFile" uid="uid://pp3xssdve1oe" path="res://fonts/GraffitiPaintBrush.ttf" id="4_webns"]
 [ext_resource type="AudioStream" uid="uid://cadx6skg6n2p5" path="res://sfx/slash.tres" id="6_i6gc5"]
+[ext_resource type="PackedScene" uid="uid://f1xihl0ejq3y" path="res://hud.tscn" id="6_rt00s"]
 [ext_resource type="AudioStream" uid="uid://bt1rpna584j08" path="res://sfx/super.ogg" id="7_h3eef"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h7evi"]
@@ -30,7 +31,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/Control/Label:position")
+tracks/1/path = NodePath("UI/Control/Label:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -42,7 +43,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/Control/Label:scale")
+tracks/2/path = NodePath("UI/Control/Label:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -54,7 +55,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer/Control/Label:modulate")
+tracks/3/path = NodePath("UI/Control/Label:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -66,7 +67,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("CanvasLayer/Control/Label2:position")
+tracks/4/path = NodePath("UI/Control/Label2:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -78,7 +79,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("CanvasLayer/Control/Label2:scale")
+tracks/5/path = NodePath("UI/Control/Label2:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -90,7 +91,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("CanvasLayer/Control/Label2:modulate")
+tracks/6/path = NodePath("UI/Control/Label2:modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -102,7 +103,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("CanvasLayer/Control:visible")
+tracks/7/path = NodePath("UI/Control:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -148,7 +149,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/Control/Label:position")
+tracks/1/path = NodePath("UI/Control/Label:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -160,7 +161,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/Control/Label:scale")
+tracks/2/path = NodePath("UI/Control/Label:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -172,7 +173,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer/Control/Label:modulate")
+tracks/3/path = NodePath("UI/Control/Label:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -184,7 +185,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("CanvasLayer/Control/Label2:position")
+tracks/4/path = NodePath("UI/Control/Label2:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -196,7 +197,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("CanvasLayer/Control/Label2:scale")
+tracks/5/path = NodePath("UI/Control/Label2:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -208,7 +209,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("CanvasLayer/Control/Label2:modulate")
+tracks/6/path = NodePath("UI/Control/Label2:modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -220,7 +221,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("CanvasLayer/Control:visible")
+tracks/7/path = NodePath("UI/Control:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -308,9 +309,9 @@ libraries = {
 "": SubResource("AnimationLibrary_2i6qq")
 }
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
 
-[node name="Control" type="Control" parent="CanvasLayer"]
+[node name="Control" type="Control" parent="UI"]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -319,7 +320,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/Control"]
+[node name="Label" type="Label" parent="UI/Control"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 offset_left = 431.5
@@ -337,7 +338,7 @@ theme_override_font_sizes/font_size = 148
 text = "Crimson"
 uppercase = true
 
-[node name="Label2" type="Label" parent="CanvasLayer/Control"]
+[node name="Label2" type="Label" parent="UI/Control"]
 layout_mode = 2
 offset_left = 1055.5
 offset_top = 728.0
@@ -353,6 +354,8 @@ theme_override_fonts/font = ExtResource("4_webns")
 theme_override_font_sizes/font_size = 148
 text = "Moon"
 uppercase = true
+
+[node name="HUD" parent="UI" instance=ExtResource("6_rt00s")]
 
 [node name="SlashSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_i6gc5")
