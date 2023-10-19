@@ -7,7 +7,7 @@ func _exit_tree():
 	get_tree().paused = false
 
 func playAgain():
-	get_tree().reload_current_scene()
+	Game.restart()
 	get_parent().remove_child(self)
 
 func mainMenu():

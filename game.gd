@@ -60,3 +60,8 @@ func pause():
 		return
 
 	%ExtraUI.add_child(menu)
+
+func restart():
+	get_tree().reload_current_scene()
+	if collectibles:
+		collectibles.reset()

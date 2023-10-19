@@ -60,3 +60,8 @@ func rem(index: int):
 	count -= 1
 	last = count - 1
 	full = count == maxCount
+
+func clear():
+	count = 0
+	last = 0
+	multimesh.visible_instance_count = 0

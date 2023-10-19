@@ -18,6 +18,11 @@ func spawnSoulLg(pos: Vector2):
 func spawnCoin(pos: Vector2, velocity = Vector2.ZERO):
 	coins.add(pos, { 'vel': velocity, 'delay': 0.5 })
 
+func reset():
+	spirit_sm.clear()
+	spirit_lg.clear()
+	coins.clear()
+
 func _process(delta):
 	var types = [spirit_sm, spirit_lg]
 
