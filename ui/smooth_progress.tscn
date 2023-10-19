@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://l6jtqegcnakw"]
-
-[ext_resource type="Script" path="res://ui/smooth_progress.gd" id="1_lekbe"]
-
-[node name="SmoothProgress" type="ProgressBar"]
-offset_right = 8.0
-offset_bottom = 42.0
-script = ExtResource("1_lekbe")

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bi1cqyujjookn" path="res://sprite/props/pumpkin.png" id="1_5cxth"]
 [ext_resource type="Texture2D" uid="uid://cunojqi0jbyqs" path="res://sprite/moon.png" id="1_idx2d"]
-[ext_resource type="PackedScene" uid="uid://b2inypsd3hnu3" path="res://player.tscn" id="1_tv81w"]
+[ext_resource type="PackedScene" uid="uid://b2inypsd3hnu3" path="res://core/player.tscn" id="1_tv81w"]
 [ext_resource type="Texture2D" uid="uid://ckeoqkqpv81ot" path="res://sprite/background/mountains_far.png" id="2_3mvlq"]
 [ext_resource type="Texture2D" uid="uid://dl022ts4cfv8y" path="res://sprite/tower.png" id="2_rdx6u"]
 [ext_resource type="Texture2D" uid="uid://co11s43e1vyph" path="res://sprite/background/hills.png" id="4_cpyqa"]
@@ -11,7 +11,7 @@
 [sub_resource type="GDScript" id="GDScript_6xhvm"]
 script/source = "extends Node2D
 
-const Enemy = preload('res://enemy.tscn')
+const Enemy = preload('res://enemies/enemy.tscn')
 
 @onready var spawn_rect = $SpawnRect
 

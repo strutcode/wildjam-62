@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://buf4w3u30fdjg"]
+
+[ext_resource type="Script" path="res://core/collectibles.gd" id="1_tstnp"]
+[ext_resource type="PackedScene" uid="uid://cswvofw63dp1f" path="res://custom_nodes/mass_sprite.tscn" id="2_w1i0f"]
+[ext_resource type="Texture2D" uid="uid://pi25do3aux24" path="res://sprite/collectible/spirit_sm.png" id="3_33yiu"]
+[ext_resource type="Texture2D" uid="uid://v34irq7kysjw" path="res://sprite/collectible/spirit_lg.png" id="4_1rk0m"]
+[ext_resource type="Texture2D" uid="uid://byeuclomp04vn" path="res://sprite/collectible/coin.png" id="5_hgtb7"]
+[ext_resource type="Script" path="res://custom_nodes/mass_sprite.gd" id="6_aj7kb"]
+[ext_resource type="AudioStream" uid="uid://o8tcnbjqr871" path="res://sfx/coins.tres" id="7_poems"]
+[ext_resource type="AudioStream" uid="uid://0eqccidedyhk" path="res://sfx/souls.tres" id="8_5iidb"]
+
+[node name="Collectibles" type="Node2D"]
+script = ExtResource("1_tstnp")
+
+[node name="SpiritSm" parent="." instance=ExtResource("2_w1i0f")]
+z_index = 10
+z_as_relative = false
+texture = ExtResource("3_33yiu")
+maxCount = 10000
+props = Array[String](["time", "delay"])
+
+[node name="SpiritLg" parent="." instance=ExtResource("2_w1i0f")]
+z_index = 10
+z_as_relative = false
+texture = ExtResource("4_1rk0m")
+maxCount = 10000
+props = Array[String](["time", "delay"])
+
+[node name="Coins" type="MultiMeshInstance2D" parent="."]
+z_index = 9
+z_as_relative = false
+texture = ExtResource("5_hgtb7")
+script = ExtResource("6_aj7kb")
+maxCount = 10000
+props = Array[String](["vel", "delay"])
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("7_poems")
+volume_db = -5.0
+max_polyphony = 10
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("8_5iidb")
+volume_db = -12.0
+pitch_scale = 0.85
+max_polyphony = 10
