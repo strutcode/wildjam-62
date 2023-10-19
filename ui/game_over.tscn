@@ -1,15 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3ia8nmgwuqd8"]
+[gd_scene load_steps=4 format=3 uid="uid://b3ia8nmgwuqd8"]
 
 [ext_resource type="FontFile" uid="uid://pp3xssdve1oe" path="res://fonts/GraffitiPaintBrush.ttf" id="1_ige2o"]
+[ext_resource type="Script" path="res://ui/game_over.gd" id="1_r48nk"]
 [ext_resource type="PackedScene" uid="uid://3enif81x2vhy" path="res://ui/leaderboard.tscn" id="2_epk8d"]
 
 [node name="GameOver" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_r48nk")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -18,7 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.27451)
+color = Color(0, 0, 0, 0.501961)
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -55,3 +58,6 @@ text = "Play Again"
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Main Menu"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/Button" to="." method="playAgain"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/Button2" to="." method="mainMenu"]

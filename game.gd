@@ -3,10 +3,11 @@ extends Node
 const Collectibles = preload('res://collectibles.tscn')
 const LevelUpper = preload('res://ui/level_upper.tscn')
 const PauseMenu = preload('res://ui/pause_menu.tscn')
+const GameOver = preload('res://ui/game_over.tscn')
 
 var collectibles = Collectibles.instantiate()
 var levelUpper = LevelUpper.instantiate()
-var scoreBoard = LevelUpper.instantiate()
+var gameOver = GameOver.instantiate()
 var menu = PauseMenu.instantiate()
 
 var hp = 100.0
@@ -22,6 +23,9 @@ func _input(ev):
 	if ev is InputEventKey:
 		if ev.pressed && ev.keycode == KEY_ESCAPE:
 			pause()
+
+func end():
+	%ExtraUI.add_child(gameOver)
 
 func spawnSouls(count, position):
 	if !collectibles:

@@ -93,6 +93,9 @@ func takeDamage(amount):
 		return
 
 	Game.hp -= amount
+	if Game.hp <= 0:
+		Game.end()
+
 	sprite.modulate = Color(10, 10, 10)
 	velocity = Vector2.ZERO
 	invincibility = 0.8
