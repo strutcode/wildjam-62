@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://f1xihl0ejq3y"]
+[gd_scene load_steps=12 format=3 uid="uid://f1xihl0ejq3y"]
 
 [ext_resource type="Script" path="res://ui/hud.gd" id="1_57mxs"]
 [ext_resource type="Script" path="res://custom_nodes/smooth_progress.gd" id="2_4yd6s"]
@@ -20,6 +20,17 @@ texture = SubResource("GradientTexture2D_lf1oc")
 [sub_resource type="AtlasTexture" id="AtlasTexture_571hl"]
 atlas = ExtResource("2_vg7k4")
 region = Rect2(21, 19, 6, 8)
+
+[sub_resource type="Gradient" id="Gradient_nrktj"]
+offsets = PackedFloat32Array(0.890411, 1)
+colors = PackedColorArray(1, 0, 0, 0, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ad77b"]
+gradient = SubResource("Gradient_nrktj")
+width = 480
+height = 270
+fill = 2
+fill_from = Vector2(0.5, 0.5)
 
 [node name="HUD" type="Control"]
 process_mode = 3
@@ -121,7 +132,7 @@ theme_override_constants/outline_size = 25
 theme_override_font_sizes/font_size = 48
 text = "12345"
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="HPIcon" type="TextureRect" parent="."]
 layout_mode = 1
 offset_left = 389.0
 offset_top = 869.0
@@ -130,7 +141,7 @@ offset_bottom = 984.0
 texture = ExtResource("3_uhgkv")
 expand_mode = 3
 
-[node name="TextureRect2" type="TextureRect" parent="."]
+[node name="SoulIcon" type="TextureRect" parent="."]
 layout_mode = 1
 offset_left = 273.0
 offset_top = 905.0
@@ -138,3 +149,13 @@ offset_right = 419.813
 offset_bottom = 1067.0
 texture = ExtResource("4_rbkv7")
 expand_mode = 3
+
+[node name="HurtBorder" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_ad77b")
