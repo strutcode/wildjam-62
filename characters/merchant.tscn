@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://6ekhfs5r7yol"]
+
+[ext_resource type="Script" path="res://characters/merchant.gd" id="1_4r1r5"]
+[ext_resource type="Texture2D" uid="uid://grw6o40miw08" path="res://sprite/merchant/merchant.png" id="1_ltrn4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4yhi"]
+size = Vector2(19, 63)
+
+[node name="Merchant" type="CharacterBody2D" groups=["enemy", "merchant"]]
+z_index = 1
+collision_layer = 384
+collision_mask = 32772
+script = ExtResource("1_4r1r5")
+
+[node name="Merchant" type="Sprite2D" parent="."]
+position = Vector2(2, -45)
+texture = ExtResource("1_ltrn4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, -31.5)
+shape = SubResource("RectangleShape2D_f4yhi")
+
+[node name="Label" type="Label" parent="."]
+z_index = 1
+offset_left = 18.0
+offset_top = -92.0
+offset_right = 19.0
+offset_bottom = -80.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "Hey, watch it!"
+
+[node name="ColorRect" type="ColorRect" parent="Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
