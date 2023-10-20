@@ -36,6 +36,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "Level Up"
+horizontal_alignment = 1
 uppercase = true
 
 [node name="PanelContainer" type="PanelContainer" parent="CenterContainer/VBoxContainer"]
@@ -56,20 +57,23 @@ theme_override_constants/separation = 10
 [node name="Button4" type="Button" parent="CenterContainer/VBoxContainer/PanelContainer/MarginContainer/Options"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "Increase Attack Speed"
+text = "+5% Attack Speed"
+alignment = 0
 
 [node name="Button" type="Button" parent="CenterContainer/VBoxContainer/PanelContainer/MarginContainer/Options"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "Increase Damage
-10 => 10.75"
+text = "+5% Attack Damage"
+alignment = 0
 
 [node name="Button2" type="Button" parent="CenterContainer/VBoxContainer/PanelContainer/MarginContainer/Options"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "Increase Speed"
+text = "+5% Move Speed"
+alignment = 0
 
 [node name="Button3" type="Button" parent="CenterContainer/VBoxContainer/PanelContainer/MarginContainer/Options"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "Increase Jump"
+text = "+5% Jump Height"
+alignment = 0

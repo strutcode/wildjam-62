@@ -27,6 +27,27 @@ layout_mode = 2
 [node name="Game" type="MarginContainer" parent="CenterContainer/TabContainer"]
 layout_mode = 2
 
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/TabContainer/Game"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/TabContainer/Game/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/TabContainer/Game/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Auto level up"
+horizontal_alignment = 2
+
+[node name="CheckButton" type="CheckButton" parent="CenterContainer/TabContainer/Game/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="CenterContainer/TabContainer/Game/VBoxContainer/HBoxContainer"]
+modulate = Color(1, 1, 1, 0.568627)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Pause the game and show the level up screen automatically when gaining enough xp"
+
 [node name="Audio" type="MarginContainer" parent="CenterContainer/TabContainer"]
 visible = false
 layout_mode = 2
@@ -145,16 +166,22 @@ layout_mode = 2
 [node name="ScrollContainer" type="ScrollContainer" parent="CenterContainer/TabContainer/Input"]
 layout_mode = 2
 
-[node name="InputList" type="VBoxContainer" parent="CenterContainer/TabContainer/Input/ScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/TabContainer/Input/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="InputList" type="VBoxContainer" parent="CenterContainer/TabContainer/Input/ScrollContainer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Close" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1509.0
-offset_top = 238.0
-offset_right = 1559.0
-offset_bottom = 269.0
+offset_left = 1458.0
+offset_top = 235.0
+offset_right = 1561.0
+offset_bottom = 285.0
 text = "Close"
 
 [connection signal="pressed" from="Close" to="." method="close"]
