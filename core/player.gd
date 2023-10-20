@@ -35,6 +35,7 @@ var modifiers = {
 var xp = 0
 var lvl = 1
 var nextLvl: float = 110
+var skillPoints = 0
 
 # Inventory
 var coins = 0
@@ -65,6 +66,9 @@ func _input(ev):
 func _process(delta):
 	invincibility -= delta
 	attackFrames -= delta
+
+	$Slash.damage = damage * modifiers.damage
+	$Super.damage = damage * 3 * modifiers.damage
 
 	if velocity.x < 0:
 		$Slash.scale.x = -1
@@ -166,6 +170,7 @@ func addPoints(num):
 	if xp >= nextLvl:
 		xp -= nextLvl
 		lvl += 1
+		skillPoints += 1
 		Game.score += lvl * 100
 		nextLvl = log(lvl + 1) * 100 + lvl * 50
 		await levelUp()
