@@ -1,6 +1,56 @@
-[gd_scene load_steps=2 format=3 uid="uid://bjpfyneefb7r5"]
+[gd_scene load_steps=12 format=3 uid="uid://bjpfyneefb7r5"]
 
 [ext_resource type="Script" path="res://core/game.gd" id="1_o12mv"]
+[ext_resource type="Script" path="res://core/item_db.gd" id="2_neid6"]
+[ext_resource type="Script" path="res://core/game_item.gd" id="3_q4ymn"]
+
+[sub_resource type="Resource" id="Resource_qired"]
+script = ExtResource("3_q4ymn")
+id = "scythe"
+name = "Death Scythe"
+description = "My trusty weapon."
+
+[sub_resource type="Resource" id="Resource_p611i"]
+script = ExtResource("3_q4ymn")
+id = "dashup"
+name = ""
+description = ""
+
+[sub_resource type="Resource" id="Resource_yhruv"]
+script = ExtResource("3_q4ymn")
+id = "doublejump"
+name = ""
+description = ""
+
+[sub_resource type="Resource" id="Resource_vdxrd"]
+script = ExtResource("3_q4ymn")
+id = "potion"
+name = ""
+description = ""
+
+[sub_resource type="Resource" id="Resource_2g6u4"]
+script = ExtResource("3_q4ymn")
+id = "regen"
+name = ""
+description = ""
+
+[sub_resource type="Resource" id="Resource_yqf0k"]
+script = ExtResource("3_q4ymn")
+id = "blood"
+name = ""
+description = ""
+
+[sub_resource type="Resource" id="Resource_14aha"]
+script = ExtResource("3_q4ymn")
+id = "twisted"
+name = ""
+description = ""
+
+[sub_resource type="Resource" id="Resource_ctcg6"]
+script = ExtResource("3_q4ymn")
+id = "tear"
+name = "Moon Tear"
+description = ""
 
 [node name="Game" type="Node"]
 script = ExtResource("1_o12mv")
@@ -8,3 +58,7 @@ script = ExtResource("1_o12mv")
 [node name="ExtraUI" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
 layer = 11
+
+[node name="ItemDB" type="Node" parent="."]
+script = ExtResource("2_neid6")
+items = [SubResource("Resource_qired"), SubResource("Resource_p611i"), SubResource("Resource_yhruv"), SubResource("Resource_vdxrd"), SubResource("Resource_2g6u4"), SubResource("Resource_yqf0k"), SubResource("Resource_14aha"), SubResource("Resource_ctcg6")]
