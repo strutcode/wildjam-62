@@ -1,12 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://b87g8qw2vt7np"]
+[gd_scene load_steps=12 format=3 uid="uid://b87g8qw2vt7np"]
 
-[ext_resource type="Texture2D" uid="uid://bi1cqyujjookn" path="res://sprite/props/pumpkin.png" id="1_5cxth"]
-[ext_resource type="Texture2D" uid="uid://cunojqi0jbyqs" path="res://sprite/moon.png" id="1_idx2d"]
-[ext_resource type="PackedScene" uid="uid://b2inypsd3hnu3" path="res://core/player.tscn" id="1_tv81w"]
-[ext_resource type="Texture2D" uid="uid://ckeoqkqpv81ot" path="res://sprite/background/mountains_far.png" id="2_3mvlq"]
-[ext_resource type="Texture2D" uid="uid://dl022ts4cfv8y" path="res://sprite/tower.png" id="2_rdx6u"]
-[ext_resource type="Texture2D" uid="uid://co11s43e1vyph" path="res://sprite/background/hills.png" id="4_cpyqa"]
-[ext_resource type="AudioStream" uid="uid://cey7iy3qdljdd" path="res://music/419802__sirkoto51__anime-encounter-loop-3.ogg" id="8_ir3f4"]
+[ext_resource type="Texture2D" uid="uid://ckeoqkqpv81ot" path="res://sprite/background/mountains_far.png" id="1_5x8hc"]
+[ext_resource type="Texture2D" uid="uid://cunojqi0jbyqs" path="res://sprite/moon.png" id="2_byuys"]
+[ext_resource type="Texture2D" uid="uid://dl022ts4cfv8y" path="res://sprite/tower.png" id="3_otkpp"]
+[ext_resource type="Texture2D" uid="uid://co11s43e1vyph" path="res://sprite/background/hills.png" id="4_lqhep"]
+[ext_resource type="Texture2D" uid="uid://bi1cqyujjookn" path="res://sprite/props/pumpkin.png" id="5_aw38r"]
+[ext_resource type="PackedScene" uid="uid://6ekhfs5r7yol" path="res://characters/merchant.tscn" id="6_3j1r2"]
+[ext_resource type="PackedScene" uid="uid://b2inypsd3hnu3" path="res://core/player.tscn" id="6_rr233"]
+[ext_resource type="Texture2D" uid="uid://dm8snesre8q2x" path="res://sprite/props/sign.png" id="6_uu1fo"]
+[ext_resource type="AudioStream" uid="uid://cey7iy3qdljdd" path="res://music/419802__sirkoto51__anime-encounter-loop-3.ogg" id="7_h4j2v"]
 
 [sub_resource type="GDScript" id="GDScript_6xhvm"]
 script/source = "extends Node2D
@@ -20,6 +22,8 @@ func _process(delta):
 	%Enemies.text = 'Enemies: %d' % get_tree().get_nodes_in_group('enemy').size()
 	%Points.text = 'XP: %d/%d' % [Game.player.xp, Game.player.nextLvl]
 	%Coins.text = 'Gold: %d' % Game.player.coins
+	%Score.text = 'Score: %d' % Game.score
+	%Skills.text = 'Skill Points: %d' % Game.player.skillPoints
 
 func spawn():
 	if Time.get_ticks_msec() > 2000:
@@ -57,36 +61,36 @@ motion_scale = Vector2(0.025, 0.05)
 [node name="MountainsFar" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2(58, 232)
 scale = Vector2(2, 2)
-texture = ExtResource("2_3mvlq")
+texture = ExtResource("1_5x8hc")
 
 [node name="MountainsFar2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2(458, 232)
 scale = Vector2(2, 2)
-texture = ExtResource("2_3mvlq")
+texture = ExtResource("1_5x8hc")
 
 [node name="MountainsFar3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2(-762, 232)
 scale = Vector2(2, 2)
-texture = ExtResource("2_3mvlq")
+texture = ExtResource("1_5x8hc")
 
 [node name="MountainsFar4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2(-362, 232)
 scale = Vector2(2, 2)
-texture = ExtResource("2_3mvlq")
+texture = ExtResource("1_5x8hc")
 
 [node name="MountainsFar5" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2(858, 232)
 scale = Vector2(2, 2)
-texture = ExtResource("2_3mvlq")
+texture = ExtResource("1_5x8hc")
 
 [node name="MountainsFar6" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2(1258, 232)
 scale = Vector2(2, 2)
-texture = ExtResource("2_3mvlq")
+texture = ExtResource("1_5x8hc")
 
 [node name="Moon" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2(351, 29)
-texture = ExtResource("1_idx2d")
+texture = ExtResource("2_byuys")
 
 [node name="ColorRect" type="ColorRect" parent="ParallaxBackground/ParallaxLayer2"]
 offset_left = -962.0
@@ -100,15 +104,15 @@ motion_scale = Vector2(0.2, 0.1)
 
 [node name="Tower" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(-135, 227)
-texture = ExtResource("2_rdx6u")
+texture = ExtResource("3_otkpp")
 
 [node name="Tower2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(865, 244)
-texture = ExtResource("2_rdx6u")
+texture = ExtResource("3_otkpp")
 
 [node name="Tower3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(332, 245)
-texture = ExtResource("2_rdx6u")
+texture = ExtResource("3_otkpp")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.4, 0.2)
@@ -116,32 +120,32 @@ motion_scale = Vector2(0.4, 0.2)
 [node name="Hills" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
 position = Vector2(-616, 233)
 scale = Vector2(2, 2)
-texture = ExtResource("4_cpyqa")
+texture = ExtResource("4_lqhep")
 
 [node name="Hills2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
 position = Vector2(-216, 233)
 scale = Vector2(2, 2)
-texture = ExtResource("4_cpyqa")
+texture = ExtResource("4_lqhep")
 
 [node name="Hills3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
 position = Vector2(184, 233)
 scale = Vector2(2, 2)
-texture = ExtResource("4_cpyqa")
+texture = ExtResource("4_lqhep")
 
 [node name="Hills4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
 position = Vector2(584, 233)
 scale = Vector2(2, 2)
-texture = ExtResource("4_cpyqa")
+texture = ExtResource("4_lqhep")
 
 [node name="Hills5" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
 position = Vector2(984, 233)
 scale = Vector2(2, 2)
-texture = ExtResource("4_cpyqa")
+texture = ExtResource("4_lqhep")
 
 [node name="Hills6" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
 position = Vector2(1384, 233)
 scale = Vector2(2, 2)
-texture = ExtResource("4_cpyqa")
+texture = ExtResource("4_lqhep")
 
 [node name="ColorRect2" type="ColorRect" parent="ParallaxBackground/ParallaxLayer3"]
 offset_left = -962.0
@@ -168,13 +172,20 @@ shape = SubResource("RectangleShape2D_3y5eb")
 
 [node name="Pumpkin" type="Sprite2D" parent="."]
 position = Vector2(495, 203)
-texture = ExtResource("1_5cxth")
+texture = ExtResource("5_aw38r")
 
 [node name="Pumpkin2" type="Sprite2D" parent="."]
 position = Vector2(185, 203)
-texture = ExtResource("1_5cxth")
+texture = ExtResource("5_aw38r")
 
-[node name="Player" parent="." instance=ExtResource("1_tv81w")]
+[node name="Sign" type="Sprite2D" parent="."]
+position = Vector2(276, 201)
+texture = ExtResource("6_uu1fo")
+
+[node name="Merchant" parent="." instance=ExtResource("6_3j1r2")]
+position = Vector2(325, 212)
+
+[node name="Player" parent="." instance=ExtResource("6_rr233")]
 position = Vector2(320, 201)
 
 [node name="SpawnTimer" type="Timer" parent="."]
@@ -185,8 +196,10 @@ autostart = true
 layer = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer2"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 13.0
+offset_top = 11.0
+offset_right = 111.0
+offset_bottom = 171.0
 
 [node name="FPS" type="Label" parent="CanvasLayer2/VBoxContainer"]
 unique_name_in_owner = true
@@ -224,6 +237,24 @@ theme_override_constants/outline_size = 2
 theme_override_font_sizes/font_size = 24
 text = "Coins"
 
+[node name="Score" type="Label" parent="CanvasLayer2/VBoxContainer" groups=["points"]]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 24
+text = "Score"
+
+[node name="Skills" type="Label" parent="CanvasLayer2/VBoxContainer" groups=["points"]]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 24
+text = "Skill Points"
+
 [node name="SpawnRect" type="ReferenceRect" parent="."]
 offset_left = -415.0
 offset_top = -76.0
@@ -231,7 +262,7 @@ offset_right = 1025.0
 offset_bottom = 160.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_ir3f4")
+stream = ExtResource("7_h4j2v")
 volume_db = -20.0
 autoplay = true
 
