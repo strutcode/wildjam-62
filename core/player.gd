@@ -44,6 +44,7 @@ var coins = 0
 var doubleJump = false
 var attackFrames: float = 0
 var invincibility: float = 0
+var merchantEnabled = false
 
 func _input(ev):
 	if ev.is_action_pressed('jump'):
@@ -60,8 +61,10 @@ func _input(ev):
 		superAttack()
 
 	if ev.is_action_pressed('interact'):
-		if !inventoryViewer.is_inside_tree():
-			$UI.add_child(inventoryViewer)
+		if merchantEnabled:
+			showShop()
+		elif !inventoryViewer.is_inside_tree():
+			showInventory()
 
 func _process(delta):
 	invincibility -= delta
@@ -199,3 +202,9 @@ func increaseModifier(modifier, amount):
 	if modifiers.has(modifier):
 		modifiers[modifier] += amount
 		skillPoints -= 1
+
+func showShop():
+	print('shop')
+
+func showInventory():
+	$UI.add_child(inventoryViewer)

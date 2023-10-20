@@ -7,7 +7,6 @@ func _ready():
 
 func _input(ev):
 	if ev.is_action_pressed('interact'):
-		print(get_parent())
 		get_parent().remove_child.call_deferred(self)
 
 func _enter_tree():
