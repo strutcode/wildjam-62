@@ -84,7 +84,7 @@ text = "1000"
 
 [node name="Buy" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_constants/outline_size = 0
+theme_override_constants/outline_size = -1125
 text = "Buy"
 
 [node name="Description" type="Label" parent="MarginContainer/VBoxContainer"]

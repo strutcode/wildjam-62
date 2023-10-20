@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 const LevelUpper = preload('res://ui/level_upper.tscn')
 const Inventory = preload('res://ui/inventory.tscn')
+const Shop = preload('res://ui/shop.tscn')
 
 @export var speed = 620.0
 @export var acceleration = 0.2
@@ -16,6 +17,7 @@ const Inventory = preload('res://ui/inventory.tscn')
 # Scemes
 var levelUpper = LevelUpper.instantiate()
 var inventoryViewer = Inventory.instantiate()
+var shopViewer = Shop.instantiate()
 
 # Stats
 var hp: float = 100
@@ -204,7 +206,7 @@ func increaseModifier(modifier, amount):
 		skillPoints -= 1
 
 func showShop():
-	print('shop')
+	$UI.add_child(shopViewer)
 
 func showInventory():
 	$UI.add_child(inventoryViewer)
