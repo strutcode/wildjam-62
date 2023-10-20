@@ -188,3 +188,14 @@ func getXpPercent():
 func levelUp():
 	$UI.add_child(levelUpper)
 	await levelUpper.finished
+
+func getModifier(modifier):
+	if modifiers.has(modifier):
+		return modifiers[modifier]
+
+	return 1.0
+
+func increaseModifier(modifier, amount):
+	if modifiers.has(modifier):
+		modifiers[modifier] += amount
+		skillPoints -= 1

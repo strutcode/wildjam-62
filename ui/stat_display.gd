@@ -12,12 +12,9 @@ func _process(delta):
 		return
 
 	if Game.player:
-		if Game.player.modifiers.has(modifier):
-			var value = Game.player.modifiers[modifier]
-			$Label2.text = '%.1f%%' % (value * 100)
+		var value = Game.player.getModifier(modifier)
+		$Label2.text = '%.1f%%' % (value * 100)
 
 func increaseStat():
 	if Game.player && Game.player.skillPoints > 0:
-		if Game.player.modifiers.has(modifier):
-			Game.player.modifiers[modifier] += 0.05
-			Game.player.skillPoints -= 1
+		Game.player.increaseModifier(modifier, 0.05)
