@@ -23,12 +23,18 @@ func findPlayer():
 		player = get_tree().get_first_node_in_group('player')
 
 func _input(ev):
+	if get_tree().current_scene.scene_file_path != 'res://test.tscn':
+		return
+
 	if ev is InputEventKey:
 		if ev.pressed && ev.keycode == KEY_ESCAPE:
 			pause()
 
 func end():
 	%ExtraUI.add_child(gameOver)
+
+func goToMenu():
+	get_tree().change_scene_to_file('res://main_menu.tscn')
 
 func spawnSouls(count, position):
 	if !collectibles:

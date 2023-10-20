@@ -1,0 +1,90 @@
+[gd_scene load_steps=2 format=3 uid="uid://b220mjnvawnia"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_6vp06"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6vp06")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -340.5
+offset_top = 69.0
+offset_right = 340.5
+offset_bottom = 212.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 40
+theme_override_font_sizes/font_size = 102
+text = "MOON PHASE"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 632.0
+offset_right = 470.0
+offset_bottom = 1014.0
+
+[node name="Story" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 38
+text = "Story Mode"
+
+[node name="Endless" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 38
+text = "Endless Mode"
+
+[node name="Tutorial" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 38
+text = "Replay Intro"
+
+[node name="Options" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 38
+text = "Options
+"
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 38
+text = "Exit Game"
+
+[connection signal="pressed" from="VBoxContainer/Story" to="." method="startStory"]
+[connection signal="pressed" from="VBoxContainer/Endless" to="." method="startEndless"]
+[connection signal="pressed" from="VBoxContainer/Tutorial" to="." method="replayTutorial"]
+[connection signal="pressed" from="VBoxContainer/Options" to="." method="showOptions"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="exit"]
