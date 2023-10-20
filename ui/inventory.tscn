@@ -48,7 +48,12 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Stats/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "STATS"
+theme_override_font_sizes/font_size = 38
+text = "Strengths"
+uppercase = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Stats/MarginContainer/VBoxContainer"]
+layout_mode = 2
 
 [node name="StatDisplay" parent="MarginContainer/HBoxContainer/Stats/MarginContainer/VBoxContainer" instance=ExtResource("2_085kn")]
 layout_mode = 2
@@ -78,7 +83,23 @@ label = "Defense"
 [node name="StatDisplay5" parent="MarginContainer/HBoxContainer/Stats/MarginContainer/VBoxContainer" instance=ExtResource("2_085kn")]
 layout_mode = 2
 modifier = "health"
-label = "Max Health"
+label = "Max. Health"
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/HBoxContainer/Stats/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Stats/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Available Points"
+
+[node name="SkillPoints" type="Label" parent="MarginContainer/HBoxContainer/Stats/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "10"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2

@@ -15,6 +15,9 @@ func _enter_tree():
 func _exit_tree():
 	get_tree().paused = false
 
+func _process(delta):
+	%SkillPoints.text = '%d' % Game.player.skillPoints
+
 func itemSelect(i):
 	var title = %Title
 	var desc = %Description

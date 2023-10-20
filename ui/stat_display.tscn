@@ -20,8 +20,8 @@ text = "100%"
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="."]
+[node name="Increment" type="Button" parent="."]
 layout_mode = 2
 text = "+"
 
-[connection signal="pressed" from="Button" to="." method="increaseStat"]
+[connection signal="pressed" from="Increment" to="." method="increaseStat"]
