@@ -4,7 +4,7 @@ signal finished
 
 func _ready():
 	for button in %Options.get_children():
-		button.pressed.connect(select)
+		button.pressed.connect(select, )
 
 func _enter_tree():
 	get_tree().paused = true

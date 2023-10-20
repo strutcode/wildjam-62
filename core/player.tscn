@@ -369,10 +369,8 @@ _data = {
 collision_layer = 3
 collision_mask = 32769
 script = ExtResource("1_degrw")
-speed = 620
 acceleration = 0.275
 deceleration = 0.155
-jumpStrength = 750
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -2)
@@ -455,7 +453,7 @@ layout_mode = 2
 offset_left = 431.5
 offset_top = 728.0
 offset_right = 995.5
-offset_bottom = 871.0
+offset_bottom = 976.0
 theme_override_colors/font_color = Color(0.8, 0.129412, 0.129412, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -464,7 +462,7 @@ theme_override_constants/shadow_offset_y = 3
 theme_override_constants/outline_size = 37
 theme_override_fonts/font = ExtResource("4_webns")
 theme_override_font_sizes/font_size = 148
-text = "Crimson"
+text = "Reaper's"
 uppercase = true
 
 [node name="Label2" type="Label" parent="UI/Control"]
@@ -481,7 +479,7 @@ theme_override_constants/shadow_offset_y = 3
 theme_override_constants/outline_size = 37
 theme_override_fonts/font = ExtResource("4_webns")
 theme_override_font_sizes/font_size = 148
-text = "Moon"
+text = "Eclipse"
 uppercase = true
 
 [node name="HUD" parent="UI" instance=ExtResource("6_liuq3")]

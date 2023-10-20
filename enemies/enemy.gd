@@ -37,7 +37,7 @@ func _physics_process(delta):
 
 func touch(body):
 	if body.is_in_group('player'):
-		body.takeDamage(5)
+		body.takeDamage(50)
 
 func takeDamage(amt):
 	hp -= amt

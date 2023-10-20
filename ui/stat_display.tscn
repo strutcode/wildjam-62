@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcgtt1sd4mrxt"]
+
+[ext_resource type="Script" path="res://ui/stat_display.gd" id="1_l2s2k"]
+
+[node name="StatDisplay" type="HBoxContainer"]
+script = ExtResource("1_l2s2k")
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Test"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 2
+text = "100%"
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+text = "+"
+
+[connection signal="pressed" from="Button" to="." method="increaseStat"]
