@@ -1,55 +1,71 @@
-[gd_scene load_steps=12 format=3 uid="uid://bjpfyneefb7r5"]
+[gd_scene load_steps=16 format=3 uid="uid://bjpfyneefb7r5"]
 
 [ext_resource type="Script" path="res://core/game.gd" id="1_o12mv"]
 [ext_resource type="Script" path="res://core/item_db.gd" id="2_neid6"]
+[ext_resource type="Texture2D" uid="uid://cliywc5wl0eq2" path="res://sprite/items/scythe.png" id="3_1t2d5"]
 [ext_resource type="Script" path="res://core/game_item.gd" id="3_q4ymn"]
+[ext_resource type="Texture2D" uid="uid://cgmiuk0eg7cnq" path="res://sprite/items/boots.png" id="5_jjvda"]
+[ext_resource type="Texture2D" uid="uid://c6ge0piovxofm" path="res://sprite/items/potion.png" id="6_22j4o"]
+[ext_resource type="Texture2D" uid="uid://p2nilo1eqkqr" path="res://sprite/items/ring.png" id="7_u56ev"]
 
 [sub_resource type="Resource" id="Resource_qired"]
 script = ExtResource("3_q4ymn")
 id = "scythe"
-name = "Death Scythe"
+price = 0
+name = "Eclipse"
 description = "My trusty weapon."
+icon = ExtResource("3_1t2d5")
 
 [sub_resource type="Resource" id="Resource_p611i"]
 script = ExtResource("3_q4ymn")
 id = "dashup"
-name = ""
-description = ""
+price = 1200
+name = "Winged Boots"
+description = "Grants the user increased agility -- allows damaging enemies while dashing."
+icon = ExtResource("5_jjvda")
 
 [sub_resource type="Resource" id="Resource_yhruv"]
 script = ExtResource("3_q4ymn")
 id = "doublejump"
-name = ""
-description = ""
+price = 900
+name = "Air Wave Medallion"
+description = "Provides the ability to solidfy air, allowing the user to jump a second time."
 
 [sub_resource type="Resource" id="Resource_vdxrd"]
 script = ExtResource("3_q4ymn")
 id = "potion"
-name = ""
-description = ""
+price = 150
+name = "Health Potion"
+description = "Heals 25 health instantly."
+icon = ExtResource("6_22j4o")
 
 [sub_resource type="Resource" id="Resource_2g6u4"]
 script = ExtResource("3_q4ymn")
 id = "regen"
-name = ""
-description = ""
+price = 2000
+name = "Ring of Regeneration"
+description = "Absorbs blood of fallen enemies to heal the wearer's own wounds."
+icon = ExtResource("7_u56ev")
 
 [sub_resource type="Resource" id="Resource_yqf0k"]
 script = ExtResource("3_q4ymn")
 id = "blood"
-name = ""
+price = 0
+name = "Blood of the Sacrificed"
 description = ""
 
 [sub_resource type="Resource" id="Resource_14aha"]
 script = ExtResource("3_q4ymn")
 id = "twisted"
-name = ""
+price = 0
+name = "A Twisted Soul"
 description = ""
 
 [sub_resource type="Resource" id="Resource_ctcg6"]
 script = ExtResource("3_q4ymn")
 id = "tear"
-name = "Moon Tear"
+price = 0
+name = "The Moon's Tear"
 description = ""
 
 [node name="Game" type="Node"]

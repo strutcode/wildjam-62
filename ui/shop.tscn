@@ -56,25 +56,26 @@ horizontal_scroll_mode = 0
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer"]
+[node name="ItemList" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="ShopItem" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_i8d4e")]
+[node name="ShopItem" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/ItemList" instance=ExtResource("1_i8d4e")]
 layout_mode = 2
 
-[node name="ShopItem2" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_i8d4e")]
+[node name="ShopItem2" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/ItemList" instance=ExtResource("1_i8d4e")]
 layout_mode = 2
 
-[node name="ShopItem3" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_i8d4e")]
+[node name="ShopItem3" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/ItemList" instance=ExtResource("1_i8d4e")]
 layout_mode = 2
 
-[node name="ShopItem4" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_i8d4e")]
+[node name="ShopItem4" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/ItemList" instance=ExtResource("1_i8d4e")]
 layout_mode = 2
 
-[node name="ShopItem5" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_i8d4e")]
+[node name="ShopItem5" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/ItemList" instance=ExtResource("1_i8d4e")]
 layout_mode = 2
 
-[node name="ShopItem6" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_i8d4e")]
+[node name="ShopItem6" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/ItemList" instance=ExtResource("1_i8d4e")]
 layout_mode = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]

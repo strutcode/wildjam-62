@@ -11,6 +11,8 @@ var player
 
 var score = 0
 
+@onready var itemDb = $ItemDB
+
 func _ready():
 	add_child(collectibles)
 
@@ -23,7 +25,7 @@ func findPlayer():
 		player = get_tree().get_first_node_in_group('player')
 
 func _input(ev):
-	if get_tree().current_scene.scene_file_path != 'res://test.tscn':
+	if get_tree().current_scene.scene_file_path != 'res://main.tscn':
 		return
 
 	if ev is InputEventKey:
