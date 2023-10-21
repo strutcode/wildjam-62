@@ -41,12 +41,16 @@ var skillPoints = 0
 
 # Inventory
 var coins = 0
+var items: Array[GameItem] = []
 
 # Flags
 var doubleJump = false
 var attackFrames: float = 0
 var invincibility: float = 0
 var merchantEnabled = false
+
+func _ready():
+	items.append(Game.itemDb.find('scythe'))
 
 func _input(ev):
 	if ev.is_action_pressed('jump'):
@@ -163,7 +167,7 @@ func takeDamage(amount):
 	sprite.modulate = Color(10, 10, 10)
 	velocity = Vector2.ZERO
 	invincibility = defense * modifiers.defense
-	screenShake.add(1.0)
+	screenShake.addUpTo(1, 1)
 
 	await get_tree().create_timer(0.2).timeout
 

@@ -11,24 +11,23 @@ func _input(ev):
 
 func _enter_tree():
 	get_tree().paused = true
+	populateItems.call_deferred()
 
 func _exit_tree():
 	get_tree().paused = false
 
 func _process(delta):
 	%SkillPoints.text = '%d' % Game.player.skillPoints
+	%Gold.text = 'Gold: %d' % Game.player.coins
+	%XP.text = 'XP: %d/%d' % [Game.player.xp, Game.player.nextLvl]
+
+func populateItems():
+	itemList.clear()
+
+	for item in Game.player.items:
+		itemList.add_icon_item(item.icon)
 
 func itemSelect(i):
-	var title = %Title
-	var desc = %Description
-
-	match i:
-		0:
-			title.text = 'Death Scythe'
-			desc.text = 'My trusty weapon'
-		1:
-			title.text = 'Souls'
-			desc.text = 'Souls collected for the harvest'
-		2:
-			title.text = 'Blood of the Sacrificed'
-			desc.text = '???'
+	var item = Game.player.items[i]
+	%Title.text = item.name
+	%Description.text = item.description
