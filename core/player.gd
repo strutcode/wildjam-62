@@ -213,6 +213,12 @@ func increaseModifier(modifier, amount):
 		modifiers[modifier] += amount
 		skillPoints -= 1
 
+		if modifier == 'health':
+			var oldValue = modifiers.health - amount
+			var hpPortion = hp / (maxHp * oldValue)
+
+			hp = (maxHp * modifiers.health) * hpPortion
+
 func showShop():
 	$UI.add_child(shopViewer)
 
