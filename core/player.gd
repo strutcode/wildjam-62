@@ -139,7 +139,7 @@ func attack():
 	await get_tree().create_timer(0.07).timeout
 
 	var count = $Slash.hit()
-	if count > 0:
+	if count > 0 && Prefs.screenShake:
 		screenShake.addUpTo(0.5, 1)
 
 func superAttack():
@@ -152,7 +152,8 @@ func superAttack():
 
 	slash_sound.play()
 	$Super.hit()
-	screenShake.addUpTo(3, 3)
+	if Prefs.screenShake:
+		screenShake.addUpTo(3, 3)
 
 	await get_tree().create_timer(0.3).timeout
 
@@ -170,7 +171,8 @@ func takeDamage(amount):
 	sprite.modulate = Color(10, 10, 10)
 	velocity = Vector2.ZERO
 	invincibility = defense * modifiers.defense
-	screenShake.addUpTo(1, 1)
+	if Prefs.screenShake:
+		screenShake.addUpTo(1, 1)
 
 	await get_tree().create_timer(0.2).timeout
 
@@ -199,8 +201,9 @@ func getXpPercent():
 	return (xp / nextLvl) * 100
 
 func levelUp():
-	$UI.add_child(levelUpper)
-	await levelUpper.finished
+	if Prefs.autoLevel:
+		$UI.add_child(levelUpper)
+		await levelUpper.finished
 
 func getModifier(modifier):
 	if modifiers.has(modifier):

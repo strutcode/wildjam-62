@@ -15,9 +15,12 @@ func _process(delta):
 	var t = (Time.get_ticks_msec() / 1000.0) * speed
 
 	if parent is Node2D:
-		var x = noise.get_noise_2d(t, unique)
-		var y = noise.get_noise_2d(unique, t)
-		get_parent().position = Vector2(x, y) * wobble * strength
+		if Prefs.screenShake:
+			var x = noise.get_noise_2d(t, unique)
+			var y = noise.get_noise_2d(unique, t)
+			get_parent().position = Vector2(x, y) * wobble * strength
+		else:
+			get_parent().position = Vector2.ZERO
 
 	wobble = move_toward(wobble, 0, delta * decay)
 

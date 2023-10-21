@@ -58,6 +58,7 @@ func takeDamage(amt):
 		hit = false
 
 func die():
+	if Prefs.particles:
 	var inst = DeathFX.instantiate()
 	add_sibling(inst)
 	inst.global_position = global_position
