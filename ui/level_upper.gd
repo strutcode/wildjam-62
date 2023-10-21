@@ -4,7 +4,7 @@ signal finished
 
 func _ready():
 	for button in %Options.get_children():
-		button.pressed.connect(select, )
+		button.pressed.connect(select.bind(button.name))
 
 func _enter_tree():
 	get_tree().paused = true
@@ -13,6 +13,7 @@ func _enter_tree():
 func _exit_tree():
 	get_tree().paused = false
 
-func select():
+func select(nodeName: String):
 	get_parent().remove_child(self)
+	Game.player.increaseModifier(nodeName.to_lower(), 0.05)
 	emit_signal('finished')

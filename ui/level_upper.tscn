@@ -54,26 +54,44 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Button4" type="Button" parent="CenterContainer/VBoxContainer/PanelContainer/MarginContainer/Options"]
+[node name="Skip" type="Button" parent="CenterContainer/VBoxContainer/PanelContainer/MarginContainer/Options"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "+5% Attack Speed"
+text = "Save Points for Now"
 alignment = 0
 
-[node name="Button" type="Button" parent="CenterContainer/VBoxContainer/PanelContainer/MarginContainer/Options"]
+[node name="Damage" type="Button" parent="CenterContainer/VBoxContainer/PanelContainer/MarginContainer/Options"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "+5% Attack Damage"
 alignment = 0
 
-[node name="Button2" type="Button" parent="CenterContainer/VBoxContainer/PanelContainer/MarginContainer/Options"]
+[node name="Attack" type="Button" parent="CenterContainer/VBoxContainer/PanelContainer/MarginContainer/Options"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "+5% Attack Speed"
+alignment = 0
+
+[node name="Speed" type="Button" parent="CenterContainer/VBoxContainer/PanelContainer/MarginContainer/Options"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "+5% Move Speed"
 alignment = 0
 
-[node name="Button3" type="Button" parent="CenterContainer/VBoxContainer/PanelContainer/MarginContainer/Options"]
+[node name="Jump" type="Button" parent="CenterContainer/VBoxContainer/PanelContainer/MarginContainer/Options"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "+5% Jump Height"
+alignment = 0
+
+[node name="Defense" type="Button" parent="CenterContainer/VBoxContainer/PanelContainer/MarginContainer/Options"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "+5% Defense"
+alignment = 0
+
+[node name="Health" type="Button" parent="CenterContainer/VBoxContainer/PanelContainer/MarginContainer/Options"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "+5% Max Health"
 alignment = 0
