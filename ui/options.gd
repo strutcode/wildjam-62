@@ -22,11 +22,11 @@ func linkPreferences():
 
 		if node is CheckButton:
 			node.button_pressed = Prefs[key]
-			node.pressed.connect(func (): Prefs[key] = node.button_pressed)
+			node.pressed.connect(func (): Prefs.setPref(key, node.button_pressed))
 
 		if node is Slider:
 			node.value = Prefs[key]
-			node.value_changed.connect(func (_v): Prefs[key] = node.value)
+			node.value_changed.connect(func (_v): Prefs.setPref(key, node.value))
 
 func findPrefNodes(node, output):
 	for child in node.get_children():
