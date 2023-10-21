@@ -32,6 +32,19 @@ func _input(ev):
 		if ev.pressed && ev.keycode == KEY_ESCAPE:
 			pause()
 
+func _process(delta):
+	setVolume('Master', Prefs.masterVolume)
+	setVolume('Music', Prefs.musicVolume)
+	setVolume('SFX', Prefs.sfxVolume)
+	setVolume('Collectible', Prefs.collectVolume)
+
+func setBgmLevel(volume: float):
+	$AudioStreamPlayer.volume_db = linear_to_db(volume / 100.0) - 20.0
+
+func setVolume(bus: String, volume: float):
+	var idx = AudioServer.get_bus_index(bus)
+	AudioServer.set_bus_volume_db(idx, linear_to_db(volume / 100.0))
+
 func end():
 	%ExtraUI.add_child(gameOver)
 

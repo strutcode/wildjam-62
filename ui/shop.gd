@@ -14,11 +14,13 @@ func _ready():
 
 func _enter_tree():
 	get_tree().paused = true
+	Game.setBgmLevel(0)
 
 	populateItems.call_deferred()
 
 func _exit_tree():
 	get_tree().paused = false
+	Game.setBgmLevel(100)
 	$AudioStreamPlayer.stop()
 
 func _process(delta):

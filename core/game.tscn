@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bjpfyneefb7r5"]
+[gd_scene load_steps=22 format=3 uid="uid://bjpfyneefb7r5"]
 
 [ext_resource type="Script" path="res://core/game.gd" id="1_o12mv"]
 [ext_resource type="Script" path="res://core/item_db.gd" id="2_neid6"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bcte3u3ssknvb" path="res://sprite/items/blood.png" id="9_mae0d"]
 [ext_resource type="Texture2D" uid="uid://w6jpnjq434rg" path="res://sprite/items/soul.png" id="10_581aw"]
 [ext_resource type="Texture2D" uid="uid://k3h35mxtsvie" path="res://sprite/items/book.png" id="11_n1lo5"]
+[ext_resource type="AudioStream" uid="uid://cey7iy3qdljdd" path="res://music/419802__sirkoto51__anime-encounter-loop-3.ogg" id="12_ne83t"]
 
 [sub_resource type="Resource" id="Resource_qired"]
 script = ExtResource("3_q4ymn")
@@ -104,3 +105,9 @@ layer = 11
 [node name="ItemDB" type="Node" parent="."]
 script = ExtResource("2_neid6")
 items = [SubResource("Resource_qired"), SubResource("Resource_p611i"), SubResource("Resource_yhruv"), SubResource("Resource_vdxrd"), SubResource("Resource_2g6u4"), SubResource("Resource_yqf0k"), SubResource("Resource_14aha"), SubResource("Resource_ctcg6"), SubResource("Resource_ghxqd")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("12_ne83t")
+volume_db = -20.0
+autoplay = true
