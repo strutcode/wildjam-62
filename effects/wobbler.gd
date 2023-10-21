@@ -23,3 +23,6 @@ func _process(delta):
 
 func add(amount: float):
 	wobble += amount
+
+func addUpTo(amount: float, maximum: float):
+	wobble = max(min(wobble + amount, maximum), wobble)

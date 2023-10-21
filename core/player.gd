@@ -132,7 +132,8 @@ func attack():
 	await get_tree().create_timer(0.07).timeout
 
 	var count = $Slash.hit()
-	screenShake.add(min(count * 0.2, 0.8))
+	if count > 0:
+		screenShake.addUpTo(0.5, 1)
 
 func superAttack():
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -144,7 +145,7 @@ func superAttack():
 
 	slash_sound.play()
 	$Super.hit()
-	screenShake.add(1.0)
+	screenShake.addUpTo(3, 3)
 
 	await get_tree().create_timer(0.3).timeout
 

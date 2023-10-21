@@ -366,6 +366,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+z_index = 2
 collision_layer = 3
 collision_mask = 32769
 script = ExtResource("1_degrw")
@@ -394,7 +395,7 @@ position = Vector2(0, -81)
 zoom = Vector2(3, 3)
 
 [node name="Wobbler" parent="Camera2D" instance=ExtResource("3_30vam")]
-speed = 10.0
+speed = 11.0
 strength = Vector2(5, 10)
 decay = 1.5
 
