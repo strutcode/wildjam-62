@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cjlolft6jkcgq"
+path="res://.godot/imported/Exuberante - Bountiful.ogg-e8761f4dced00a2849fe89194b2fe4d5.oggvorbisstr"
+
+[deps]
+
+source_file="res://music/Exuberante - Bountiful.ogg"
+dest_files=["res://.godot/imported/Exuberante - Bountiful.ogg-e8761f4dced00a2849fe89194b2fe4d5.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

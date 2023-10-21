@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://b220mjnvawnia"]
+[gd_scene load_steps=4 format=3 uid="uid://b220mjnvawnia"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_6vp06"]
+[ext_resource type="Texture2D" uid="uid://d2gssp2tqet8t" path="res://icon.svg" id="2_ux1vu"]
+[ext_resource type="AudioStream" uid="uid://bailr7jp3mjrm" path="res://music/Podington Bear - Respiration.ogg" id="3_8clnk"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -82,6 +84,32 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 38
 text = "Exit Game"
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(1645, 1035)
+scale = Vector2(0.515625, 0.515625)
+texture = ExtResource("2_ux1vu")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1696.0
+offset_top = 1019.0
+offset_right = 1896.0
+offset_bottom = 1053.0
+text = "Made with Godot"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 611.0
+offset_top = 1030.0
+offset_right = 1462.0
+offset_bottom = 1104.0
+text = "Music: Respiration by Podington Bear from Free Music Archive (CC-BY-NC)"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8clnk")
+volume_db = -12.0
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/Story" to="." method="startStory"]
 [connection signal="pressed" from="VBoxContainer/Endless" to="." method="startEndless"]

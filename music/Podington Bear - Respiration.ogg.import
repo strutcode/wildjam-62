@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bailr7jp3mjrm"
+path="res://.godot/imported/Podington Bear - Respiration.ogg-d850bb6806cdab12a6114ebf8172192e.oggvorbisstr"
+
+[deps]
+
+source_file="res://music/Podington Bear - Respiration.ogg"
+dest_files=["res://.godot/imported/Podington Bear - Respiration.ogg-d850bb6806cdab12a6114ebf8172192e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

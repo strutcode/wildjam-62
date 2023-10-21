@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://sbl5s4532rqf"]
+[gd_scene load_steps=4 format=3 uid="uid://sbl5s4532rqf"]
 
 [ext_resource type="PackedScene" uid="uid://byn5tnibbkqwm" path="res://ui/shop_item.tscn" id="1_i8d4e"]
 [ext_resource type="Script" path="res://ui/shop.gd" id="1_nif2e"]
+[ext_resource type="AudioStream" uid="uid://cjlolft6jkcgq" path="res://music/Exuberante - Bountiful.ogg" id="3_i76lm"]
 
 [node name="Shop" type="Control"]
 process_mode = 3
@@ -99,8 +100,14 @@ text = "10000"
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
+[node name="Done" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Done"
 
-[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/Button" to="." method="close"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_i76lm")
+volume_db = -10.0
+autoplay = true
+
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/Done" to="." method="close"]
