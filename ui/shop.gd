@@ -19,6 +19,7 @@ func _enter_tree():
 
 func _exit_tree():
 	get_tree().paused = false
+	$AudioStreamPlayer.stop()
 
 func _process(delta):
 	if Game.player:
@@ -41,6 +42,8 @@ func populateItems():
 		var inst = ShopItem.instantiate()
 		inst.setItem(item)
 		%ItemList.add_child(inst)
+
+	%Done.grab_focus()
 
 func close():
 	get_parent().remove_child(self)

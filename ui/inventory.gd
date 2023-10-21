@@ -13,6 +13,7 @@ func _enter_tree():
 	get_tree().paused = true
 	populateItems.call_deferred()
 
+
 func _exit_tree():
 	get_tree().paused = false
 
@@ -26,6 +27,8 @@ func populateItems():
 
 	for item in Game.player.items:
 		itemList.add_icon_item(item.icon)
+
+	%ItemList.grab_focus()
 
 func itemSelect(i):
 	var item = Game.player.items[i]
