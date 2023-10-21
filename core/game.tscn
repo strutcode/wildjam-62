@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bjpfyneefb7r5"]
+[gd_scene load_steps=21 format=3 uid="uid://bjpfyneefb7r5"]
 
 [ext_resource type="Script" path="res://core/game.gd" id="1_o12mv"]
 [ext_resource type="Script" path="res://core/item_db.gd" id="2_neid6"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://p2nilo1eqkqr" path="res://sprite/items/ring.png" id="7_u56ev"]
 [ext_resource type="Texture2D" uid="uid://bcte3u3ssknvb" path="res://sprite/items/blood.png" id="9_mae0d"]
 [ext_resource type="Texture2D" uid="uid://w6jpnjq434rg" path="res://sprite/items/soul.png" id="10_581aw"]
+[ext_resource type="Texture2D" uid="uid://k3h35mxtsvie" path="res://sprite/items/book.png" id="11_n1lo5"]
 
 [sub_resource type="Resource" id="Resource_qired"]
 script = ExtResource("3_q4ymn")
@@ -17,6 +18,7 @@ id = "scythe"
 price = 0
 name = "Eclipse"
 description = "My trusty weapon."
+expandedDescription = ""
 icon = ExtResource("3_1t2d5")
 
 [sub_resource type="Resource" id="Resource_p611i"]
@@ -25,6 +27,7 @@ id = "dashup"
 price = 1200
 name = "Winged Boots"
 description = "Grants the user increased agility -- allows damaging enemies while dashing."
+expandedDescription = ""
 icon = ExtResource("5_jjvda")
 
 [sub_resource type="Resource" id="Resource_yhruv"]
@@ -33,6 +36,7 @@ id = "doublejump"
 price = 900
 name = "Air Wave Medallion"
 description = "Provides the ability to solidfy air, allowing the user to jump a second time."
+expandedDescription = ""
 icon = ExtResource("6_6hi2q")
 
 [sub_resource type="Resource" id="Resource_vdxrd"]
@@ -41,6 +45,7 @@ id = "potion"
 price = 150
 name = "Health Potion"
 description = "Heals 25 health instantly."
+expandedDescription = ""
 icon = ExtResource("6_22j4o")
 
 [sub_resource type="Resource" id="Resource_2g6u4"]
@@ -49,6 +54,7 @@ id = "regen"
 price = 2000
 name = "Ring of Regeneration"
 description = "Absorbs blood of fallen enemies to heal the wearer's own wounds."
+expandedDescription = ""
 icon = ExtResource("7_u56ev")
 
 [sub_resource type="Resource" id="Resource_yqf0k"]
@@ -57,6 +63,7 @@ id = "blood"
 price = 0
 name = "Blood of the Sacrificed"
 description = ""
+expandedDescription = ""
 icon = ExtResource("9_mae0d")
 
 [sub_resource type="Resource" id="Resource_14aha"]
@@ -65,6 +72,7 @@ id = "twisted"
 price = 0
 name = "A Twisted Soul"
 description = ""
+expandedDescription = ""
 icon = ExtResource("10_581aw")
 
 [sub_resource type="Resource" id="Resource_ctcg6"]
@@ -73,6 +81,18 @@ id = "tear"
 price = 0
 name = "The Moon's Tear"
 description = ""
+expandedDescription = ""
+
+[sub_resource type="Resource" id="Resource_ghxqd"]
+script = ExtResource("3_q4ymn")
+id = "book"
+price = 15
+name = "A Dusty Old Tome"
+description = "A very old looking book with worn edges and water stains."
+expandedDescription = "A very old looking book with worn edges and water stains.
+
+It seems to relate to the Harvest. It says \"blah bla blah blah blah\""
+icon = ExtResource("11_n1lo5")
 
 [node name="Game" type="Node"]
 script = ExtResource("1_o12mv")
@@ -83,4 +103,4 @@ layer = 11
 
 [node name="ItemDB" type="Node" parent="."]
 script = ExtResource("2_neid6")
-items = [SubResource("Resource_qired"), SubResource("Resource_p611i"), SubResource("Resource_yhruv"), SubResource("Resource_vdxrd"), SubResource("Resource_2g6u4"), SubResource("Resource_yqf0k"), SubResource("Resource_14aha"), SubResource("Resource_ctcg6")]
+items = [SubResource("Resource_qired"), SubResource("Resource_p611i"), SubResource("Resource_yhruv"), SubResource("Resource_vdxrd"), SubResource("Resource_2g6u4"), SubResource("Resource_yqf0k"), SubResource("Resource_14aha"), SubResource("Resource_ctcg6"), SubResource("Resource_ghxqd")]

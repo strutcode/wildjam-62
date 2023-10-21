@@ -7,7 +7,7 @@ resource_name = "too_poor"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MarginContainer/VBoxContainer/HBoxContainer/Buy:modulate")
+tracks/0/path = NodePath("MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Buy:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -19,7 +19,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("MarginContainer/VBoxContainer/HBoxContainer/Buy:theme_override_constants/outline_size")
+tracks/1/path = NodePath("MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Buy:theme_override_constants/outline_size")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -34,7 +34,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MarginContainer/VBoxContainer/HBoxContainer/Buy:modulate")
+tracks/0/path = NodePath("MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Buy:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -46,7 +46,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("MarginContainer/VBoxContainer/HBoxContainer/Buy:theme_override_constants/outline_size")
+tracks/1/path = NodePath("MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Buy:theme_override_constants/outline_size")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -69,30 +69,42 @@ script = ExtResource("1_3v3ls")
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 25
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Icon" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Name" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Name" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Item Name"
 
-[node name="Price" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Price" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "1000"
 
-[node name="Buy" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Buy" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/outline_size = -1125
 text = "Buy"
 
-[node name="Description" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Description" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.54902)
 layout_mode = 2
@@ -103,4 +115,4 @@ libraries = {
 "": SubResource("AnimationLibrary_mk3b5")
 }
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Buy" to="." method="buy"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Buy" to="." method="buy"]

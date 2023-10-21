@@ -30,4 +30,7 @@ func populateItems():
 func itemSelect(i):
 	var item = Game.player.items[i]
 	%Title.text = item.name
-	%Description.text = item.description
+	if item.expandedDescription.length():
+		%Description.text = item.expandedDescription
+	else:
+		%Description.text = item.description

@@ -2,17 +2,18 @@ extends Control
 
 const ShopItem = preload('res://ui/shop_item.tscn')
 const items = [
+	'book',
 	'potion',
 	'dashup',
 	'doublejump',
 	'regen',
 ]
 
+func _ready():
+	Game.player.item_added.connect(populateItems)
+
 func _enter_tree():
 	get_tree().paused = true
-
-	for child in %ItemList.get_children():
-		child.queue_free()
 
 	populateItems.call_deferred()
 
@@ -24,6 +25,9 @@ func _process(delta):
 		%Gold.text = '%d' % Game.player.coins
 
 func populateItems():
+	for child in %ItemList.get_children():
+		child.queue_free()
+
 	for id in items:
 		var item = Game.itemDb.find(id)
 

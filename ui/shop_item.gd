@@ -4,6 +4,7 @@ var item
 
 func setItem(newItem):
 	item = newItem
+	%Icon.texture = item.icon
 	%Name.text = item.name
 	%Price.text = '%d' % item.price
 	%Description.text = item.description

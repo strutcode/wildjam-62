@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal item_added
+
 const LevelUpper = preload('res://ui/level_upper.tscn')
 const Inventory = preload('res://ui/inventory.tscn')
 const Shop = preload('res://ui/shop.tscn')
@@ -224,6 +226,8 @@ func addItem(item):
 
 	items.append(item)
 	ownedItems[item.id] = true
+
+	emit_signal('item_added')
 
 func hasItem(id):
 	return ownedItems.has(id)
