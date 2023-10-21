@@ -1,12 +1,15 @@
-[gd_scene load_steps=16 format=3 uid="uid://bjpfyneefb7r5"]
+[gd_scene load_steps=19 format=3 uid="uid://bjpfyneefb7r5"]
 
 [ext_resource type="Script" path="res://core/game.gd" id="1_o12mv"]
 [ext_resource type="Script" path="res://core/item_db.gd" id="2_neid6"]
 [ext_resource type="Texture2D" uid="uid://cliywc5wl0eq2" path="res://sprite/items/scythe.png" id="3_1t2d5"]
 [ext_resource type="Script" path="res://core/game_item.gd" id="3_q4ymn"]
 [ext_resource type="Texture2D" uid="uid://cgmiuk0eg7cnq" path="res://sprite/items/boots.png" id="5_jjvda"]
+[ext_resource type="Texture2D" uid="uid://csypyiylrs5jp" path="res://sprite/items/medallion.png" id="6_6hi2q"]
 [ext_resource type="Texture2D" uid="uid://c6ge0piovxofm" path="res://sprite/items/potion.png" id="6_22j4o"]
 [ext_resource type="Texture2D" uid="uid://p2nilo1eqkqr" path="res://sprite/items/ring.png" id="7_u56ev"]
+[ext_resource type="Texture2D" uid="uid://bcte3u3ssknvb" path="res://sprite/items/blood.png" id="9_mae0d"]
+[ext_resource type="Texture2D" uid="uid://w6jpnjq434rg" path="res://sprite/items/soul.png" id="10_581aw"]
 
 [sub_resource type="Resource" id="Resource_qired"]
 script = ExtResource("3_q4ymn")
@@ -30,6 +33,7 @@ id = "doublejump"
 price = 900
 name = "Air Wave Medallion"
 description = "Provides the ability to solidfy air, allowing the user to jump a second time."
+icon = ExtResource("6_6hi2q")
 
 [sub_resource type="Resource" id="Resource_vdxrd"]
 script = ExtResource("3_q4ymn")
@@ -53,6 +57,7 @@ id = "blood"
 price = 0
 name = "Blood of the Sacrificed"
 description = ""
+icon = ExtResource("9_mae0d")
 
 [sub_resource type="Resource" id="Resource_14aha"]
 script = ExtResource("3_q4ymn")
@@ -60,6 +65,7 @@ id = "twisted"
 price = 0
 name = "A Twisted Soul"
 description = ""
+icon = ExtResource("10_581aw")
 
 [sub_resource type="Resource" id="Resource_ctcg6"]
 script = ExtResource("3_q4ymn")

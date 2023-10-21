@@ -42,6 +42,7 @@ var skillPoints = 0
 # Inventory
 var coins = 0
 var items: Array[GameItem] = []
+var ownedItems = {}
 
 # Flags
 var doubleJump = false
@@ -215,3 +216,14 @@ func showShop():
 
 func showInventory():
 	$UI.add_child(inventoryViewer)
+
+func addItem(item):
+	if item.id == 'potion':
+		hp = min(hp + 25, maxHp * modifiers.health)
+		return
+
+	items.append(item)
+	ownedItems[item.id] = true
+
+func hasItem(id):
+	return ownedItems.has(id)

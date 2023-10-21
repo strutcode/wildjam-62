@@ -102,3 +102,5 @@ text = "Item Description"
 libraries = {
 "": SubResource("AnimationLibrary_mk3b5")
 }
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Buy" to="." method="buy"]

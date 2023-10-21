@@ -48,7 +48,7 @@ horizontal_alignment = 1
 uppercase = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(600, 600)
+custom_minimum_size = Vector2(0, 400)
 layout_mode = 2
 follow_focus = true
 horizontal_scroll_mode = 0
