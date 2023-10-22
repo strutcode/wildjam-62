@@ -14,7 +14,10 @@ var waves = [
 		'zombie': 20,
 	},
 	{
-		'skullbat': 5,
+		'skullbat': 10,
+	},
+	{
+		'ogre': 1,
 	},
 ]
 
