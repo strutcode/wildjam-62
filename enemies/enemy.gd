@@ -10,12 +10,14 @@ enum MoveType {
 @export var movementType: MoveType = MoveType.Walking
 @export var speed = 30
 @export var acceleration = 10
-@export var damage = 50
+@export var damage = 5
 @export var hp: float = 30
 @export var xpMin = 7
 @export var xpMax = 12
 @export var goldMin = 7
 @export var goldMax = 12
+@export var bounce = 1.0
+@export var screenShake = 0.0
 
 @onready var sprite = $Sprite
 @onready var hpBar = $HP
@@ -33,6 +35,9 @@ func _ready():
 
 func _process(delta):
 	sprite.flip_h = Game.player.position.x < position.x
+
+	if screenShake > 0:
+		Game.player.screenShake.addUpTo(screenShake, screenShake)
 
 func _physics_process(delta):
 	match movementType:
@@ -75,8 +80,8 @@ func takeDamage(amount):
 
 	match movementType:
 		MoveType.Walking:
-			velocity.x = sign(position.x - Game.player.position.x) * 50
-			velocity.y = -200
+			velocity.x = sign(position.x - Game.player.position.x) * 50 * bounce
+			velocity.y = -200 * bounce
 		MoveType.Flying:
 			velocity = -global_position.direction_to(Game.player.global_position) * 100
 
