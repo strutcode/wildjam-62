@@ -27,6 +27,8 @@ var hp: float = 100
 var maxHp: float = 100
 var damage: float = 7
 var defense: float = 0.8
+var superPoints = 0
+var superThreshold = 1000
 var modifiers = {
 	'attack': 1.0,
 	'damage': 1.0,
@@ -150,6 +152,11 @@ func attack():
 		screenShake.addUpTo(0.5, 1)
 
 func superAttack():
+	if superPoints < superThreshold:
+		return
+
+	superPoints -= superThreshold
+
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	get_tree().paused = true
 	animator.play('super')
@@ -189,7 +196,10 @@ func takeDamage(amount):
 
 func addPoints(num):
 	xp += num
+	superPoints += num
 	Game.score += num
+
+	superPoints = clamp(superPoints, 0, superThreshold * 2)
 
 	if xp >= nextLvl:
 		xp -= nextLvl

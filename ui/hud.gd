@@ -16,6 +16,14 @@ func _process(delta):
 	%HpBar.target = Game.player.getHpPercent()
 	%Level.text = 'Level %d' % Game.player.lvl
 	%Coins.text = '%d' % Game.player.coins
+	%SuperBar.value = getSuperPercent()
+	%SuperBackupBar.value = getSuperBackupPercent()
+
+func getSuperPercent():
+	return clamp(float(Game.player.superPoints) / float(Game.player.superThreshold), 0, 1) * 100
+
+func getSuperBackupPercent():
+	return clamp(float(Game.player.superPoints - Game.player.superThreshold) / float(Game.player.superThreshold), 0, 1) * 100
 
 func hurtReaction():
 	if hurtTween:
