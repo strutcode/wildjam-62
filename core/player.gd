@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+signal hurt
 signal item_added
 
 const LevelUpper = preload('res://ui/level_upper.tscn')
@@ -173,6 +174,8 @@ func takeDamage(amount):
 	hp -= amount
 	if hp <= 0:
 		Game.end()
+
+	emit_signal('hurt')
 
 	sprite.modulate = Color(10, 10, 10)
 	velocity = Vector2.ZERO

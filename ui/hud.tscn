@@ -131,6 +131,7 @@ position = Vector2(87, 12)
 polygon = PackedVector2Array(134, 903, 149, 904, 169, 912, 185, 926, 198, 943, 204, 964, 204, 986, 192, 1008, 178, 1026, 150, 1037, 123, 1038, 101, 1030, 88, 1020, 101, 1010, 114, 997, 125, 979, 134, 961, 138, 941, 138, 918)
 
 [node name="SuperBackupBar" type="ProgressBar" parent="Polygon2D3"]
+unique_name_in_owner = true
 modulate = Color(0.223529, 0.603922, 0.796078, 1)
 clip_contents = true
 anchors_preset = 7
