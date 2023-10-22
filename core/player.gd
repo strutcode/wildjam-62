@@ -11,6 +11,9 @@ const Shop = preload('res://ui/shop.tscn')
 @export var acceleration = 0.2
 @export var deceleration = 0.75
 @export var jumpStrength = 550.0
+@export var dashCurve: Curve
+@export var dashLength = 0.25
+@export var dashSpeed = 1500
 
 @onready var sprite = $AnimatedSprite2D
 @onready var animator = $AnimationPlayer
@@ -52,6 +55,8 @@ var ownedItems = {}
 # Flags
 var doubleJump = false
 var superTime: float = 0
+var dashTime: float = 0
+var dashDir: float = 1
 var attackFrames: float = 0
 var invincibility: float = 0
 var merchantEnabled = false
@@ -60,6 +65,12 @@ func _ready():
 	items.append(Game.itemDb.find('scythe'))
 
 func _input(ev):
+	if ev.is_action_pressed('dash'):
+		dash()
+
+	if dashTime > 0:
+		return
+
 	if ev.is_action_pressed('jump'):
 		if is_on_floor() || canDoubleJump():
 			velocity.y = -jumpStrength * modifiers.jump
@@ -119,6 +130,9 @@ func _physics_process(delta):
 	var input = Input.get_axis('left', 'right')
 	var modSpeed = speed * modifiers.speed
 
+	if abs(input) > 0.1:
+		dashDir = sign(input)
+
 	var decelerateFoce = modSpeed * delta / deceleration
 	var accelerateForce = modSpeed * delta / acceleration
 
@@ -153,6 +167,19 @@ func attack():
 	var count = $Slash.hit()
 	if count > 0 && Prefs.screenShake:
 		screenShake.addUpTo(0.5, 1)
+
+func dash():
+	var delta
+
+	dashTime = 0.0001
+	invincibility = 1
+	while dashTime < 1.0:
+		velocity = Vector2(dashCurve.sample(dashTime) * dashSpeed * dashDir, 0)
+		await get_tree().physics_frame
+		dashTime += get_physics_process_delta_time() / dashLength
+
+	dashTime = 0
+	invincibility = 0
 
 func superAttack():
 	if superPoints < superThreshold:

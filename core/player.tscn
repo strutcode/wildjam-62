@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://b2inypsd3hnu3"]
+[gd_scene load_steps=40 format=3 uid="uid://b2inypsd3hnu3"]
 
 [ext_resource type="Script" path="res://core/player.gd" id="1_degrw"]
 [ext_resource type="Texture2D" uid="uid://b583bm6jigs8e" path="res://sprite/player/run0001.png" id="2_1j46r"]
@@ -32,6 +32,10 @@
 [ext_resource type="Texture2D" uid="uid://dmyhtrfotgcyx" path="res://sprite/player/slash-a0004.png" id="14_phdiu"]
 [ext_resource type="Texture2D" uid="uid://d1uyk6sit71ej" path="res://sprite/player/slash-a0005.png" id="15_14l4l"]
 [ext_resource type="Texture2D" uid="uid://dufbr2jqf0m24" path="res://sprite/player/slash-a0006.png" id="16_ney3x"]
+
+[sub_resource type="Curve" id="Curve_5fera"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.13759, 1), 0.0, 0.0, 0, 0, Vector2(0.504496, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j5fxr"]
 animations = [{
@@ -372,6 +376,7 @@ collision_mask = 32769
 script = ExtResource("1_degrw")
 acceleration = 0.275
 deceleration = 0.155
+dashCurve = SubResource("Curve_5fera")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -2)
