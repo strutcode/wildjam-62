@@ -380,6 +380,7 @@ script = ExtResource("1_degrw")
 speed = 450.0
 acceleration = 0.275
 deceleration = 0.155
+jumpStrength = 580.0
 dashCurve = SubResource("Curve_5fera")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

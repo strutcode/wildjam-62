@@ -43,7 +43,10 @@ func _physics_process(delta):
 				velocity.y = min(0, velocity.y)
 
 			if !hit:
-				velocity.x = move_toward(velocity.x, dir * speed, acceleration)
+				if abs(Game.player.position.x - position.x) > 7:
+					velocity.x = move_toward(velocity.x, dir * speed, acceleration)
+				else:
+					velocity.x = move_toward(velocity.x, 0, speed)
 		MoveType.Flying:
 			var dir = global_position.direction_to(Game.player.global_position)
 
