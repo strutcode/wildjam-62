@@ -9,8 +9,8 @@ func _ready():
 func _process(delta):
 	%XpBar.value = Game.player.getXpPercent()
 	%HpBar.target = Game.player.getHpPercent()
-	%Level.text = str(Game.player.lvl)
-	%Coins.text = str(Game.player.coins)
+	%Level.text = 'Level %d' % Game.player.lvl
+	%Coins.text = '%d' % Game.player.coins
 
 	if !hurtTween && Game.player.invincibility > 0:
 		hurtTween = get_tree().create_tween()
