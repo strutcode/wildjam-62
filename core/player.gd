@@ -61,7 +61,7 @@ func _ready():
 
 func _input(ev):
 	if ev.is_action_pressed('jump'):
-		if is_on_floor() || doubleJump:
+		if is_on_floor() || canDoubleJump():
 			velocity.y = -jumpStrength * modifiers.jump
 
 			if not is_on_floor():
@@ -126,6 +126,9 @@ func _physics_process(delta):
 	velocity.x = move_toward(velocity.x, input * modSpeed if input else 0.0, change)
 
 	move_and_slide()
+
+func canDoubleJump():
+	return doubleJump && hasItem('doublejump')
 
 func animate():
 	if attackFrames > 0:
@@ -194,12 +197,17 @@ func takeDamage(amount):
 
 	sprite.modulate = Color.WHITE
 
+func heal(amount):
+	hp = clamp(hp + amount, 0, maxHp * modifiers.health)
+
 func addPoints(num):
 	xp += num
-	superPoints += num
+	superPoints = clamp(superPoints + num, 0, superThreshold * 2)
 	Game.score += num
 
-	superPoints = clamp(superPoints, 0, superThreshold * 2)
+	if hasItem('regen'):
+		if randf() < 0.05:
+			heal(1)
 
 	if xp >= nextLvl:
 		xp -= nextLvl
@@ -249,7 +257,7 @@ func showInventory():
 
 func addItem(item):
 	if item.id == 'potion':
-		hp = min(hp + 25, maxHp * modifiers.health)
+		heal(25)
 		return
 
 	items.append(item)
