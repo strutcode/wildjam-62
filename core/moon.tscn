@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://bv01wcatd6tl7"]
+
+[ext_resource type="Script" path="res://core/moon.gd" id="1_qodjs"]
+[ext_resource type="Texture2D" uid="uid://ff8888fig8h4" path="res://sprite/background/moon_new.png" id="2_cqmit"]
+[ext_resource type="Texture2D" uid="uid://nem5afoe6qt8" path="res://sprite/background/moon_full.png" id="2_xmosm"]
+[ext_resource type="Texture2D" uid="uid://bny4td31poeog" path="res://sprite/background/moon_waxing.png" id="3_n36de"]
+[ext_resource type="Texture2D" uid="uid://bb5uavy370g1j" path="res://sprite/background/moon_waning.png" id="5_2dp8l"]
+
+[node name="Moon" type="Node2D"]
+script = ExtResource("1_qodjs")
+
+[node name="MoonNew" type="Sprite2D" parent="."]
+texture = ExtResource("2_cqmit")
+
+[node name="MoonWaxing" type="Sprite2D" parent="."]
+texture = ExtResource("3_n36de")
+
+[node name="MoonFull" type="Sprite2D" parent="."]
+texture = ExtResource("2_xmosm")
+
+[node name="MoonWaning" type="Sprite2D" parent="."]
+texture = ExtResource("5_2dp8l")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="changePhase"]

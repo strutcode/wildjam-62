@@ -212,7 +212,13 @@ func takeDamage(amount):
 	if invincibility > 0:
 		return
 
-	hp -= amount
+	var modifier = 1.0
+
+	match Game.moonPhase:
+		'waxing': modifier = 2.0
+		'waning': modifier = 0.5
+
+	hp -= amount * modifier
 	if hp <= 0:
 		Game.end()
 

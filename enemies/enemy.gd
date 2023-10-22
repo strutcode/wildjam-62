@@ -59,8 +59,15 @@ func touch(body):
 	if body.is_in_group('player'):
 		body.takeDamage(5)
 
-func takeDamage(amt):
-	hp -= amt
+func takeDamage(amount):
+	var modifier = 1.0
+
+	match Game.moonPhase:
+		'waxing': modifier = 2.0
+		'waning': modifier = 0.5
+
+	hp -= amount * modifier
+
 	hit = true
 	hpBar.value = hp / maxHp
 	modulate = Color(10, 10, 10)

@@ -30,10 +30,11 @@ func _process(delta):
 	var info = waves[wave]
 
 	waveProgress += delta / waveLength
+	var modifier = 2.0 if Game.moonPhase == 'full' else 1.0
 
 	for type in info:
 		var total = info[type]
-		var expected = floor(total * waveProgress)
+		var expected = floor(total * waveProgress) * modifier
 		var actual = spawned.get(type, 0)
 
 		while actual < expected:

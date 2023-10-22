@@ -10,6 +10,7 @@ var menu = PauseMenu.instantiate()
 var player
 
 var score = 0
+var moonPhase = 'new'
 
 @onready var itemDb = $ItemDB
 
