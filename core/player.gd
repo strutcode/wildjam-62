@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 signal hurt
 signal item_added
+signal opened_inventory
+signal super_used
 
 const LevelUpper = preload('res://ui/level_upper.tscn')
 const Inventory = preload('res://ui/inventory.tscn')
@@ -222,6 +224,7 @@ func superAttack():
 
 	process_mode = Node.PROCESS_MODE_INHERIT
 	get_tree().paused = false
+	emit_signal('super_used')
 
 func takeDamage(amount):
 	if invincibility > 0:
@@ -280,7 +283,7 @@ func getXpPercent():
 	return (xp / nextLvl) * 100
 
 func levelUp():
-	if Prefs.autoLevel:
+	if Prefs.autoLevel && Game.mode != 'tutorial':
 		$UI.add_child(levelUpper)
 		await levelUpper.finished
 
@@ -306,6 +309,7 @@ func showShop():
 
 func showInventory():
 	$UI.add_child(inventoryViewer)
+	emit_signal('opened_inventory')
 
 func addItem(item):
 	if item.id == 'potion':

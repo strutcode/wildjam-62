@@ -32,7 +32,8 @@ func _input(ev):
 	if !get_tree().current_scene:
 		return
 
-	if get_tree().current_scene.scene_file_path != 'res://main.tscn':
+	var allowedScenes = ['res://main.tscn', 'res://tutorial.tscn']
+	if !allowedScenes.has(get_tree().current_scene.scene_file_path):
 		return
 
 	if ev.is_action_pressed('pause'):

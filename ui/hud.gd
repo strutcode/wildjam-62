@@ -20,6 +20,8 @@ func _process(delta):
 	%SuperBackupBar.value = getSuperBackupPercent()
 
 	match Game.mode:
+		'tutorial':
+			%TimeScore.text = ''
 		'story':
 			var minutes = floor(Game.timer / 60)
 			var seconds = int(floor(Game.timer)) % 60
