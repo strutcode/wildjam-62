@@ -10,7 +10,9 @@ const Shop = preload('res://ui/shop.tscn')
 @export var speed = 620.0
 @export var acceleration = 0.2
 @export var deceleration = 0.75
-@export var jumpStrength = 550.0
+@export var jumpStrength = 60.0
+@export var jumpLength = 0.15
+@export var jumpCurve: Curve
 @export var dashCurve: Curve
 @export var dashLength = 0.25
 @export var dashSpeed = 1500
@@ -53,6 +55,7 @@ var items: Array[GameItem] = []
 var ownedItems = {}
 
 # Flags
+var jumpAmount: float = 0
 var doubleJump = false
 var superTime: float = 0
 var dashTime: float = 0
@@ -70,13 +73,6 @@ func _input(ev):
 
 	if dashTime > 0:
 		return
-
-	if ev.is_action_pressed('jump'):
-		if is_on_floor() || canDoubleJump():
-			velocity.y = -jumpStrength * modifiers.jump
-
-			if not is_on_floor():
-				doubleJump = false
 
 	if ev.is_action_pressed('attack'):
 		attack()
@@ -99,6 +95,20 @@ func _process(delta):
 	else:
 		superTime = 0
 
+	if Input.is_action_pressed('jump'):
+		if jumpAmount < 1.0:
+			velocity.y = min(0, velocity.y)
+			velocity.y -= jumpCurve.sample(jumpAmount) * jumpStrength * modifiers.jump
+			jumpAmount += delta / jumpLength
+
+			if not is_on_floor() && jumpAmount <= 0:
+				doubleJump = false
+	elif not is_on_floor():
+		if canDoubleJump():
+			jumpAmount = -0.2
+		else:
+			jumpAmount = 1.0
+
 	$Slash.damage = damage * modifiers.damage
 	$Super.damage = damage * 3 * modifiers.damage
 
@@ -120,6 +130,7 @@ func _physics_process(delta):
 		return
 
 	if is_on_floor():
+		jumpAmount = 0.0
 		doubleJump = true
 	else:
 		velocity.y += delta * 980 * 2

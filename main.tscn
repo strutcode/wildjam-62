@@ -158,6 +158,7 @@ position = Vector2(325, 212)
 
 [node name="Player" parent="." instance=ExtResource("6_rr233")]
 position = Vector2(320, 201)
+jumpStrength = 60.0
 
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 0.1
