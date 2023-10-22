@@ -19,6 +19,14 @@ func _process(delta):
 	%SuperBar.value = getSuperPercent()
 	%SuperBackupBar.value = getSuperBackupPercent()
 
+	match Game.mode:
+		'story':
+			var minutes = floor(Game.timer / 60)
+			var seconds = int(floor(Game.timer)) % 60
+			%TimeScore.text = '%02d:%02d' % [minutes, seconds]
+		'endless':
+			%TimeScore.text = '%d' % Game.score
+
 func getSuperPercent():
 	return clamp(float(Game.player.superPoints) / float(Game.player.superThreshold), 0, 1) * 100
 

@@ -10,6 +10,7 @@ var menu = PauseMenu.instantiate()
 var player
 
 var mode = 'endless'
+var timer = 0.0
 var score = 0
 var moonPhase = 'new'
 
@@ -39,6 +40,9 @@ func _process(delta):
 	setVolume('SFX', Prefs.sfxVolume)
 	setVolume('Collectible', Prefs.collectVolume)
 
+	if mode == 'story':
+		timer -= delta
+
 func setBgmLevel(volume: float):
 	$AudioStreamPlayer.volume_db = linear_to_db(volume / 100.0) - 20.0
 
@@ -48,6 +52,11 @@ func setVolume(bus: String, volume: float):
 
 func start():
 	$AudioStreamPlayer.play()
+
+	if mode == 'story':
+		timer = 10.0 * 60 # 10 minutes
+	if mode == 'endless':
+		score = 0
 
 func end():
 	%ExtraUI.add_child(gameOver)
@@ -93,6 +102,7 @@ func pause():
 
 func restart():
 	get_tree().reload_current_scene()
+	timer = 10.0 * 60
 	score = 0
 	if collectibles:
 		collectibles.reset()
