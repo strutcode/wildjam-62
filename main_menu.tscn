@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b220mjnvawnia"]
+[gd_scene load_steps=5 format=3 uid="uid://b220mjnvawnia"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_6vp06"]
+[ext_resource type="Texture2D" uid="uid://dp743goju6pww" path="res://art/main_menu.png" id="2_8vr1n"]
 [ext_resource type="Texture2D" uid="uid://d2gssp2tqet8t" path="res://icon.svg" id="2_ux1vu"]
 [ext_resource type="AudioStream" uid="uid://bailr7jp3mjrm" path="res://music/Podington Bear - Respiration.ogg" id="3_8clnk"]
 
@@ -20,6 +21,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_8vr1n")
+flip_h = true
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
