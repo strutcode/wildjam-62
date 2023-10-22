@@ -2,6 +2,12 @@ extends CharacterBody2D
 
 const DeathFX = preload('res://effects/enemy_death_fx.tscn')
 
+enum MoveType {
+	Walking,
+	Flying,
+}
+
+@export var movementType: MoveType = MoveType.Walking
 @export var speed = 30
 @export var acceleration = 10
 @export var hp: float = 30
@@ -24,17 +30,24 @@ func _ready():
 	attack.body_entered.connect(touch)
 
 func _process(delta):
-	sprite.flip_h = Game.player.position.x > position.x
+	sprite.flip_h = Game.player.position.x < position.x
 
 func _physics_process(delta):
-	if hit:
-		move_and_slide()
-		velocity = velocity.move_toward(Vector2.ZERO, 40)
-		return
+	match movementType:
+		MoveType.Walking:
+			var dir = sign(Game.player.position.x - position.x)
 
-	var dir = global_position.direction_to(Game.player.global_position)
+			velocity.y += 980 * delta
+			if is_on_floor():
+				velocity.y = min(0, velocity.y)
 
-	velocity = velocity.move_toward(dir * speed, acceleration)
+			if !hit:
+				velocity.x = move_toward(velocity.x, dir * speed, acceleration)
+		MoveType.Flying:
+			var dir = global_position.direction_to(Game.player.global_position)
+
+			if !hit:
+				velocity = velocity.move_toward(dir * speed, acceleration)
 
 	move_and_slide()
 
@@ -47,9 +60,16 @@ func takeDamage(amt):
 	hit = true
 	hpBar.value = hp / maxHp
 	modulate = Color(10, 10, 10)
-	velocity = -global_position.direction_to(Game.player.global_position) * 400
 
-	wobbler.add(0.5)
+	match movementType:
+		MoveType.Walking:
+			velocity.x = sign(position.x - Game.player.position.x) * 50
+			velocity.y = -200
+		MoveType.Flying:
+			velocity = -global_position.direction_to(Game.player.global_position) * 100
+
+	if wobbler:
+		wobbler.add(0.5)
 
 	await get_tree().create_timer(0.15).timeout
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b87g8qw2vt7np"]
+[gd_scene load_steps=12 format=3 uid="uid://b87g8qw2vt7np"]
 
 [ext_resource type="Texture2D" uid="uid://ckeoqkqpv81ot" path="res://sprite/background/mountains_far.png" id="1_5x8hc"]
 [ext_resource type="Texture2D" uid="uid://cunojqi0jbyqs" path="res://sprite/moon.png" id="2_byuys"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://6ekhfs5r7yol" path="res://characters/merchant.tscn" id="6_3j1r2"]
 [ext_resource type="PackedScene" uid="uid://b2inypsd3hnu3" path="res://core/player.tscn" id="6_rr233"]
 [ext_resource type="Texture2D" uid="uid://dm8snesre8q2x" path="res://sprite/props/sign.png" id="6_uu1fo"]
+[ext_resource type="PackedScene" uid="uid://iy5i7i0k7q0k" path="res://enemies/zombie.tscn" id="9_3r31k"]
 
 [sub_resource type="GDScript" id="GDScript_6xhvm"]
 script/source = "extends Node2D
@@ -260,5 +261,8 @@ offset_left = -415.0
 offset_top = -76.0
 offset_right = 1025.0
 offset_bottom = 160.0
+
+[node name="Node2D" parent="." instance=ExtResource("9_3r31k")]
+position = Vector2(162, 239)
 
 [connection signal="timeout" from="SpawnTimer" to="." method="spawn"]
