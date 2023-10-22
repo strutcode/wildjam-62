@@ -35,6 +35,7 @@ func _process(delta):
 		%Dialogue.visible_characters = speed * time
 
 func start():
+	get_tree().paused = true
 	show()
 
 	showLine(0)
@@ -57,4 +58,6 @@ func showLine(index):
 		showLine(index + 1)
 
 func finish():
+	get_tree().paused = false
 	hide()
+	emit_signal('finished')

@@ -1,12 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://xme6qr3na7wn"]
+[gd_scene load_steps=8 format=3 uid="uid://xme6qr3na7wn"]
 
 [ext_resource type="PackedScene" uid="uid://b2inypsd3hnu3" path="res://core/player.tscn" id="1_k46nh"]
 [ext_resource type="Script" path="res://tutorial.gd" id="1_kxyj8"]
 [ext_resource type="PackedScene" uid="uid://j2h0mycvgt31" path="res://ui/input_label.tscn" id="3_0kbhp"]
 [ext_resource type="PackedScene" uid="uid://bqexl4pg2hn7q" path="res://ui/dialogue_display.tscn" id="3_dvwo2"]
+[ext_resource type="PackedScene" uid="uid://b7df8x1riaxk1" path="res://objects/pillar.tscn" id="5_mg3jf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_drbt6"]
 size = Vector2(18, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8jkj6"]
 
 [node name="Tutorial" type="Node2D"]
 script = ExtResource("1_kxyj8")
@@ -53,16 +56,22 @@ layer = 12
 unique_name_in_owner = true
 dialogue = "Welcome, friends, to the forty-third annual HARVEST OF SOULS!
 
-In this contest of strength, speed and wit each of our challengers will have ten minutes to try and collect enough souls to earn the chance at freedom."
+In this contest of strength, speed and wit each of our challengers will have ten minutes to try and collect enough souls to earn the chance at freedom.
 
-[node name="Movekeys" type="Control" parent="CanvasLayer"]
+We've arranged an demonstration for our loyal viewers before the main event, so let's see how this Reaper fares in this simulated gauntlet!"
+
+[node name="JumpTip" parent="CanvasLayer" instance=ExtResource("3_dvwo2")]
+unique_name_in_owner = true
+dialogue = "Look, there's a Shambler now! Good thing there's a handy stone pillar for the contestant to escape to."
+
+[node name="MoveKeys" type="Control" parent="CanvasLayer"]
 unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="InputLabel" parent="CanvasLayer/Movekeys" instance=ExtResource("3_0kbhp")]
+[node name="InputLabel" parent="CanvasLayer/MoveKeys" instance=ExtResource("3_0kbhp")]
 layout_mode = 0
 offset_left = 774.0
 offset_top = 256.0
@@ -72,7 +81,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
 action = "left"
 
-[node name="InputLabel2" parent="CanvasLayer/Movekeys" instance=ExtResource("3_0kbhp")]
+[node name="InputLabel2" parent="CanvasLayer/MoveKeys" instance=ExtResource("3_0kbhp")]
 layout_mode = 0
 offset_left = 909.0
 offset_top = 256.0
@@ -82,7 +91,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
 action = "down"
 
-[node name="InputLabel4" parent="CanvasLayer/Movekeys" instance=ExtResource("3_0kbhp")]
+[node name="InputLabel4" parent="CanvasLayer/MoveKeys" instance=ExtResource("3_0kbhp")]
 layout_mode = 0
 offset_left = 909.0
 offset_top = 182.0
@@ -92,7 +101,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
 action = "up"
 
-[node name="InputLabel3" parent="CanvasLayer/Movekeys" instance=ExtResource("3_0kbhp")]
+[node name="InputLabel3" parent="CanvasLayer/MoveKeys" instance=ExtResource("3_0kbhp")]
 layout_mode = 0
 offset_left = 1071.0
 offset_top = 256.0
@@ -102,7 +111,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
 action = "right"
 
-[node name="Label" type="Label" parent="CanvasLayer/Movekeys"]
+[node name="Label" type="Label" parent="CanvasLayer/MoveKeys"]
 layout_mode = 0
 offset_left = 784.0
 offset_top = 85.0
@@ -113,3 +122,62 @@ theme_override_constants/outline_size = 20
 theme_override_font_sizes/font_size = 32
 text = "Try moving around"
 uppercase = true
+
+[node name="JumpKey" type="Control" parent="CanvasLayer"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="InputLabel" parent="CanvasLayer/JumpKey" instance=ExtResource("3_0kbhp")]
+layout_mode = 0
+offset_left = 909.0
+offset_top = 181.0
+offset_right = 995.0
+offset_bottom = 215.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+
+[node name="Label" type="Label" parent="CanvasLayer/JumpKey"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 720.0
+offset_top = 85.0
+offset_right = 1152.0
+offset_bottom = 130.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 32
+text = "Jump up to the platform"
+uppercase = true
+
+[node name="JumpTrigger" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-291, 151)
+scale = Vector2(7.85142, 10.1673)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="JumpTrigger"]
+shape = SubResource("RectangleShape2D_8jkj6")
+
+[node name="AttackTrigger" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(50, 92)
+scale = Vector2(7.20652, 4.82172)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackTrigger"]
+position = Vector2(-1.94268, 7.46621)
+scale = Vector2(0.732735, 0.870737)
+shape = SubResource("RectangleShape2D_8jkj6")
+
+[node name="EnemySpawn" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(169, 233)
+
+[node name="Pillar" parent="." instance=ExtResource("5_mg3jf")]
+position = Vector2(39, 240)
+
+[connection signal="body_entered" from="JumpTrigger" to="." method="jumpTipTriggered"]
