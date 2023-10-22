@@ -5,13 +5,16 @@ const Options = preload('res://ui/options.tscn')
 var optionsMenu = Options.instantiate()
 
 func startStory():
-	pass
+	Game.mode = 'story'
+	get_tree().change_scene_to_file('res://main.tscn')
 
 func startEndless():
-	pass
+	Game.mode = 'endless'
+	get_tree().change_scene_to_file('res://main.tscn')
 
 func replayTutorial():
-	pass
+	Game.mode = 'tutorial'
+	get_tree().change_scene_to_file('res://tutorial.tscn')
 
 func showOptions():
 	add_child(optionsMenu)

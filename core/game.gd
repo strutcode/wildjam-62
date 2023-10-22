@@ -9,6 +9,7 @@ var gameOver = GameOver.instantiate()
 var menu = PauseMenu.instantiate()
 var player
 
+var mode = 'endless'
 var score = 0
 var moonPhase = 'new'
 
