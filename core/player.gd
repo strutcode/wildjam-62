@@ -48,6 +48,7 @@ var ownedItems = {}
 
 # Flags
 var doubleJump = false
+var superTime: float = 0
 var attackFrames: float = 0
 var invincibility: float = 0
 var merchantEnabled = false
@@ -66,9 +67,6 @@ func _input(ev):
 	if ev.is_action_pressed('attack'):
 		attack()
 
-	if ev.is_action_pressed('super'):
-		superAttack()
-
 	if ev.is_action_pressed('interact'):
 		if merchantEnabled:
 			showShop()
@@ -78,6 +76,14 @@ func _input(ev):
 func _process(delta):
 	invincibility -= delta
 	attackFrames -= delta
+
+	if Input.is_action_pressed('attack'):
+		superTime += delta
+
+		if superTime >= 0.4:
+			superAttack()
+	else:
+		superTime = 0
 
 	$Slash.damage = damage * modifiers.damage
 	$Super.damage = damage * 3 * modifiers.damage

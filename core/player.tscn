@@ -480,7 +480,7 @@ theme_override_constants/shadow_offset_y = 3
 theme_override_constants/outline_size = 37
 theme_override_fonts/font = ExtResource("4_webns")
 theme_override_font_sizes/font_size = 148
-text = "Eclipse"
+text = "Embrace"
 uppercase = true
 
 [node name="HUD" parent="UI" instance=ExtResource("6_liuq3")]
