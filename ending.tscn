@@ -67,10 +67,50 @@ end... but perhaps not the end."
 
 [node name="GoodEnd" type="Label" parent="CenterContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
-text = "This is the good ending"
+text = "The din and fire subsides as the battle comes to an end. Something
+feels different about this moment, almost like something big is finally
+coming to an end.
+
+You've secured the Crystal Chalice, though it seems to have no effect
+on its own. You retrieve the items you collected and slowly combine
+them in the chalice, and the liquid turns an inky black for a moment.
+
+Then suddenly like a babe taking its first breath the liquid roars to life
+with such force that you instinctively drop the whole thing. The liquid
+spills and quickly forms a large pool.
+
+Looking more closely you see an image form in the pool, but it's not
+one you recognize -- skies of pure azure and colors you didn't know
+existed. It's a portal, and you're finally free!
+
+
+
+
+"
+
+[node name="GoodEnd2" type="Label" parent="CenterContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 38
+text = "
+
+
+
+
+
+
+
+
+
+
+YOU WIN -- THE END"
 
 [node name="MainMenu" type="Button" parent="."]
 unique_name_in_owner = true
