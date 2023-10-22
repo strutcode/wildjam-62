@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://b87g8qw2vt7np"]
+[gd_scene load_steps=18 format=3 uid="uid://b87g8qw2vt7np"]
 
 [ext_resource type="Texture2D" uid="uid://ckeoqkqpv81ot" path="res://sprite/background/mountains_far.png" id="1_5x8hc"]
+[ext_resource type="Script" path="res://main.gd" id="1_qsmgi"]
 [ext_resource type="PackedScene" uid="uid://bv01wcatd6tl7" path="res://core/moon.tscn" id="2_magqd"]
 [ext_resource type="Texture2D" uid="uid://dl022ts4cfv8y" path="res://sprite/tower.png" id="3_otkpp"]
 [ext_resource type="Texture2D" uid="uid://co11s43e1vyph" path="res://sprite/background/hills.png" id="4_lqhep"]
@@ -18,7 +19,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3y5eb"]
 size = Vector2(18, 28)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_86ff8"]
+
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_qsmgi")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -468,9 +472,19 @@ offset_bottom = 160.0
 [node name="WaveSpawner" parent="." instance=ExtResource("11_xx0qk")]
 
 [node name="Moon" parent="." instance=ExtResource("11_4ut3y")]
-position = Vector2(-189, 240)
+process_mode = 4
+position = Vector2(-2944, 238)
 
 [node name="Twisted" parent="." instance=ExtResource("14_hgh36")]
-position = Vector2(1325, 230)
+process_mode = 4
+position = Vector2(3709, 226)
+
+[node name="MoonTrigger" type="Area2D" parent="."]
+position = Vector2(-2644, -491)
+scale = Vector2(22.085, 72.5974)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MoonTrigger"]
+shape = SubResource("RectangleShape2D_86ff8")
 
 [connection signal="timeout" from="SpawnTimer" to="." method="spawn"]
+[connection signal="body_entered" from="MoonTrigger" to="." method="moonTrigger"]
