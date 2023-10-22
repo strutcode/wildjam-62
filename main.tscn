@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b87g8qw2vt7np"]
+[gd_scene load_steps=15 format=3 uid="uid://b87g8qw2vt7np"]
 
 [ext_resource type="Texture2D" uid="uid://ckeoqkqpv81ot" path="res://sprite/background/mountains_far.png" id="1_5x8hc"]
 [ext_resource type="PackedScene" uid="uid://bv01wcatd6tl7" path="res://core/moon.tscn" id="2_magqd"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://6ekhfs5r7yol" path="res://characters/merchant.tscn" id="6_3j1r2"]
 [ext_resource type="PackedScene" uid="uid://b2inypsd3hnu3" path="res://core/player.tscn" id="6_rr233"]
 [ext_resource type="Texture2D" uid="uid://dm8snesre8q2x" path="res://sprite/props/sign.png" id="6_uu1fo"]
+[ext_resource type="Texture2D" uid="uid://2pgkr1xmosl3" path="res://sprite/props/sign2.png" id="8_yl5vc"]
+[ext_resource type="Texture2D" uid="uid://d3lb2ndycrpsd" path="res://sprite/props/sign1.png" id="9_6u8bc"]
 [ext_resource type="PackedScene" uid="uid://b7df8x1riaxk1" path="res://objects/pillar.tscn" id="10_mdodf"]
 [ext_resource type="PackedScene" uid="uid://d02y10tvfrytx" path="res://enemies/moon_boss.tscn" id="11_4ut3y"]
 [ext_resource type="PackedScene" uid="uid://bwgnpp88tpvgm" path="res://core/wave_spawner.tscn" id="11_xx0qk"]
@@ -60,14 +62,74 @@ position = Vector2(1258, 232)
 scale = Vector2(2, 2)
 texture = ExtResource("1_5x8hc")
 
+[node name="MountainsFar7" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(-2326, 247)
+scale = Vector2(2, 2)
+texture = ExtResource("1_5x8hc")
+
+[node name="MountainsFar8" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(-1926, 247)
+scale = Vector2(2, 2)
+texture = ExtResource("1_5x8hc")
+
+[node name="MountainsFar9" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(-3146, 247)
+scale = Vector2(2, 2)
+texture = ExtResource("1_5x8hc")
+
+[node name="MountainsFar10" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(-2746, 247)
+scale = Vector2(2, 2)
+texture = ExtResource("1_5x8hc")
+
+[node name="MountainsFar11" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(-1526, 247)
+scale = Vector2(2, 2)
+texture = ExtResource("1_5x8hc")
+
+[node name="MountainsFar12" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(-1126, 247)
+scale = Vector2(2, 2)
+texture = ExtResource("1_5x8hc")
+
+[node name="MountainsFar13" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(2463, 230)
+scale = Vector2(2, 2)
+texture = ExtResource("1_5x8hc")
+
+[node name="MountainsFar14" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(2863, 230)
+scale = Vector2(2, 2)
+texture = ExtResource("1_5x8hc")
+
+[node name="MountainsFar15" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(1643, 230)
+scale = Vector2(2, 2)
+texture = ExtResource("1_5x8hc")
+
+[node name="MountainsFar16" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(2043, 230)
+scale = Vector2(2, 2)
+texture = ExtResource("1_5x8hc")
+
+[node name="MountainsFar17" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(3263, 230)
+scale = Vector2(2, 2)
+texture = ExtResource("1_5x8hc")
+
+[node name="MountainsFar18" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(3663, 230)
+scale = Vector2(2, 2)
+texture = ExtResource("1_5x8hc")
+
 [node name="Moon" parent="ParallaxBackground/ParallaxLayer2" instance=ExtResource("2_magqd")]
 position = Vector2(416, 56)
 
 [node name="ColorRect" type="ColorRect" parent="ParallaxBackground/ParallaxLayer2"]
-offset_left = -962.0
+offset_left = -3396.0
 offset_top = 331.0
-offset_right = 1548.0
-offset_bottom = 576.0
+offset_right = 3982.0
+offset_bottom = 983.0
 color = Color(0.0234375, 0.0234375, 0.03125, 1)
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -118,16 +180,76 @@ position = Vector2(1384, 233)
 scale = Vector2(2, 2)
 texture = ExtResource("4_lqhep")
 
+[node name="Hills7" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(1781, 235)
+scale = Vector2(2, 2)
+texture = ExtResource("4_lqhep")
+
+[node name="Hills8" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(2181, 235)
+scale = Vector2(2, 2)
+texture = ExtResource("4_lqhep")
+
+[node name="Hills9" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(2581, 235)
+scale = Vector2(2, 2)
+texture = ExtResource("4_lqhep")
+
+[node name="Hills10" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(2981, 235)
+scale = Vector2(2, 2)
+texture = ExtResource("4_lqhep")
+
+[node name="Hills11" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(3381, 235)
+scale = Vector2(2, 2)
+texture = ExtResource("4_lqhep")
+
+[node name="Hills12" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(3781, 235)
+scale = Vector2(2, 2)
+texture = ExtResource("4_lqhep")
+
+[node name="Hills13" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(-2993, 235)
+scale = Vector2(2, 2)
+texture = ExtResource("4_lqhep")
+
+[node name="Hills14" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(-2593, 235)
+scale = Vector2(2, 2)
+texture = ExtResource("4_lqhep")
+
+[node name="Hills15" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(-2193, 235)
+scale = Vector2(2, 2)
+texture = ExtResource("4_lqhep")
+
+[node name="Hills16" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(-1793, 235)
+scale = Vector2(2, 2)
+texture = ExtResource("4_lqhep")
+
+[node name="Hills17" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(-1393, 235)
+scale = Vector2(2, 2)
+texture = ExtResource("4_lqhep")
+
+[node name="Hills18" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(-993, 235)
+scale = Vector2(2, 2)
+texture = ExtResource("4_lqhep")
+
 [node name="ColorRect2" type="ColorRect" parent="ParallaxBackground/ParallaxLayer3"]
-offset_left = -962.0
+offset_left = -3389.0
 offset_top = 331.0
-offset_right = 1548.0
-offset_bottom = 576.0
+offset_right = 3975.0
+offset_bottom = 1081.0
 color = Color(0.078125, 0.0625, 0.0742188, 1)
 
 [node name="Floor" type="StaticBody2D" parent="."]
-position = Vector2(-824, 240)
-scale = Vector2(130.654, 11.026)
+position = Vector2(-3115, 240)
+scale = Vector2(385.017, 18.6292)
 collision_layer = 32768
 collision_mask = 0
 
@@ -141,9 +263,63 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(9, 14)
 shape = SubResource("RectangleShape2D_3y5eb")
 
+[node name="Floor2" type="StaticBody2D" parent="."]
+position = Vector2(-3588, -2112)
+scale = Vector2(27.0686, 102.705)
+collision_layer = 32768
+collision_mask = 0
+
+[node name="ColorRect2" type="ColorRect" parent="Floor2"]
+offset_right = 18.0
+offset_bottom = 28.0
+color = Color(0.192157, 0.168627, 0.168627, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor2"]
+position = Vector2(9, 14)
+shape = SubResource("RectangleShape2D_3y5eb")
+
+[node name="Floor3" type="StaticBody2D" parent="."]
+position = Vector2(3810, -2112)
+scale = Vector2(27.0686, 102.705)
+collision_layer = 32768
+collision_mask = 0
+
+[node name="ColorRect2" type="ColorRect" parent="Floor3"]
+offset_right = 18.0
+offset_bottom = 28.0
+color = Color(0.192157, 0.168627, 0.168627, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor3"]
+position = Vector2(9, 14)
+shape = SubResource("RectangleShape2D_3y5eb")
+
 [node name="Pumpkin" type="Sprite2D" parent="."]
 position = Vector2(495, 203)
 texture = ExtResource("5_aw38r")
+
+[node name="Pumpkin7" type="Sprite2D" parent="."]
+position = Vector2(-812, 203)
+texture = ExtResource("5_aw38r")
+
+[node name="Pumpkin3" type="Sprite2D" parent="."]
+position = Vector2(1255, 203)
+texture = ExtResource("5_aw38r")
+
+[node name="Pumpkin4" type="Sprite2D" parent="."]
+position = Vector2(1357, 203)
+texture = ExtResource("5_aw38r")
+
+[node name="Pumpkin5" type="Sprite2D" parent="."]
+position = Vector2(1399, 203)
+texture = ExtResource("5_aw38r")
+flip_h = true
+
+[node name="Pumpkin6" type="Sprite2D" parent="."]
+position = Vector2(1918, 203)
+texture = ExtResource("5_aw38r")
+flip_h = true
 
 [node name="Pumpkin2" type="Sprite2D" parent="."]
 position = Vector2(185, 203)
@@ -152,6 +328,60 @@ texture = ExtResource("5_aw38r")
 [node name="Sign" type="Sprite2D" parent="."]
 position = Vector2(276, 201)
 texture = ExtResource("6_uu1fo")
+
+[node name="Pillar" parent="." instance=ExtResource("10_mdodf")]
+position = Vector2(85, 240)
+
+[node name="Pillar5" parent="." instance=ExtResource("10_mdodf")]
+position = Vector2(1144, 240)
+
+[node name="Pillar6" parent="." instance=ExtResource("10_mdodf")]
+position = Vector2(3210, 240)
+
+[node name="Pillar7" parent="." instance=ExtResource("10_mdodf")]
+position = Vector2(3469, 240)
+
+[node name="Pillar8" parent="." instance=ExtResource("10_mdodf")]
+position = Vector2(2961, 240)
+
+[node name="Pillar9" parent="." instance=ExtResource("10_mdodf")]
+position = Vector2(3083, 240)
+scale = Vector2(1.10859, 1.99912)
+
+[node name="Pillar10" parent="." instance=ExtResource("10_mdodf")]
+position = Vector2(3339, 241)
+scale = Vector2(1.10859, 1.99912)
+
+[node name="Pillar2" parent="." instance=ExtResource("10_mdodf")]
+position = Vector2(-741, 240)
+
+[node name="Pillar3" parent="." instance=ExtResource("10_mdodf")]
+position = Vector2(-2069, 240)
+
+[node name="Pillar4" parent="." instance=ExtResource("10_mdodf")]
+position = Vector2(-1668, 240)
+scale = Vector2(-1, 1)
+
+[node name="Sign2" type="Sprite2D" parent="."]
+position = Vector2(2598, 208)
+texture = ExtResource("8_yl5vc")
+
+[node name="Sign1" type="Sprite2D" parent="."]
+position = Vector2(2248, 216)
+texture = ExtResource("9_6u8bc")
+
+[node name="Sign3" type="Sprite2D" parent="."]
+position = Vector2(-2301, 208)
+texture = ExtResource("8_yl5vc")
+
+[node name="Sign5" type="Sprite2D" parent="."]
+position = Vector2(-2406, 208)
+texture = ExtResource("8_yl5vc")
+flip_h = true
+
+[node name="Sign4" type="Sprite2D" parent="."]
+position = Vector2(-2125, 215)
+texture = ExtResource("9_6u8bc")
 
 [node name="Merchant" parent="." instance=ExtResource("6_3j1r2")]
 position = Vector2(325, 212)
@@ -235,9 +465,6 @@ offset_right = 1025.0
 offset_bottom = 160.0
 
 [node name="WaveSpawner" parent="." instance=ExtResource("11_xx0qk")]
-
-[node name="Pillar" parent="." instance=ExtResource("10_mdodf")]
-position = Vector2(85, 240)
 
 [node name="Moon" parent="." instance=ExtResource("11_4ut3y")]
 position = Vector2(-189, 240)
