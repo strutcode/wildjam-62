@@ -28,9 +28,8 @@ func _input(ev):
 	if get_tree().current_scene.scene_file_path != 'res://main.tscn':
 		return
 
-	if ev is InputEventKey:
-		if ev.pressed && ev.keycode == KEY_ESCAPE:
-			pause()
+	if ev.is_action_pressed('pause'):
+		pause()
 
 func _process(delta):
 	setVolume('Master', Prefs.masterVolume)

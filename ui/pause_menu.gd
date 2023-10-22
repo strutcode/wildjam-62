@@ -14,9 +14,8 @@ func _exit_tree():
 	Game.setBgmLevel(100)
 
 func _input(ev):
-	if ev is InputEventKey:
-		if ev.pressed && ev.keycode == KEY_ESCAPE:
-			resume()
+	if ev.is_action_pressed('pause'):
+		resume.call_deferred()
 
 func resume():
 	get_parent().remove_child(self)
