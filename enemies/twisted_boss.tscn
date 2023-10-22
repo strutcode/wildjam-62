@@ -1,0 +1,84 @@
+[gd_scene load_steps=9 format=3 uid="uid://uts53mfyq0y0"]
+
+[ext_resource type="Script" path="res://enemies/enemy.gd" id="1_h3wyr"]
+[ext_resource type="Texture2D" uid="uid://bsb0mcq6hdffw" path="res://sprite/enemies/twisted/walk0001.png" id="3_vm8ic"]
+
+[sub_resource type="Gradient" id="Gradient_wbqjk"]
+offsets = PackedFloat32Array(0.00403226, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pdyt5"]
+gradient = SubResource("Gradient_wbqjk")
+width = 22
+height = 22
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_feop3"]
+radius = 67.0075
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g41px"]
+bg_color = Color(0.231373, 0.231373, 0.231373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2t1ah"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a5y7e"]
+radius = 49.0
+
+[node name="Twisted" type="CharacterBody2D"]
+collision_layer = 384
+collision_mask = 32772
+script = ExtResource("1_h3wyr")
+movementType = 2
+damage = 20
+hp = 2500.0
+xpMin = 700
+xpMax = 1000
+goldMin = 700
+goldMax = 1000
+bounce = 0.0
+screenShake = 0.5
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(0, -76)
+amount = 40
+texture = SubResource("GradientTexture2D_pdyt5")
+emission_shape = 1
+emission_sphere_radius = 61.6
+direction = Vector2(0, -1)
+gravity = Vector2(0, 40)
+initial_velocity_min = 17.68
+initial_velocity_max = 49.48
+scale_amount_min = 0.2
+scale_amount_max = 0.5
+color = Color(0.164706, 0.341176, 0.168627, 1)
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(-1, -37)
+texture = ExtResource("3_vm8ic")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -65)
+shape = SubResource("CircleShape2D_feop3")
+
+[node name="HP" type="ProgressBar" parent="."]
+modulate = Color(0.862745, 0.152941, 0.152941, 1)
+z_index = 1
+offset_left = -65.0
+offset_top = 5.0
+offset_right = 65.0
+offset_bottom = 7.0
+theme_override_styles/background = SubResource("StyleBoxFlat_g41px")
+theme_override_styles/fill = SubResource("StyleBoxFlat_2t1ah")
+max_value = 1.0
+value = 0.5
+show_percentage = false
+
+[node name="Attack" type="Area2D" parent="."]
+collision_layer = 512
+collision_mask = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Attack"]
+position = Vector2(0, -73)
+shape = SubResource("CircleShape2D_a5y7e")

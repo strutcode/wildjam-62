@@ -466,10 +466,10 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="UI/Control"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
-offset_left = 431.5
-offset_top = 728.0
-offset_right = 1291.5
-offset_bottom = 976.0
+offset_left = 164.0
+offset_top = 563.0
+offset_right = 1024.0
+offset_bottom = 811.0
 theme_override_colors/font_color = Color(0.8, 0.129412, 0.129412, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -482,11 +482,12 @@ text = "Shadowblade"
 uppercase = true
 
 [node name="Label2" type="Label" parent="UI/Control"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 2
-offset_left = 1055.5
-offset_top = 728.0
-offset_right = 1645.5
-offset_bottom = 871.0
+offset_left = 1156.0
+offset_top = 563.0
+offset_right = 1746.0
+offset_bottom = 706.0
 theme_override_colors/font_color = Color(0.8, 0.129412, 0.129412, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)

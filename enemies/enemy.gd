@@ -5,6 +5,7 @@ const DeathFX = preload('res://effects/enemy_death_fx.tscn')
 enum MoveType {
 	Walking,
 	Flying,
+	Bouncing,
 }
 
 @export var movementType: MoveType = MoveType.Walking
@@ -27,6 +28,7 @@ enum MoveType {
 var hit = false
 var maxHp: float
 var unique = randf()
+var rotationalVelocity: float = 0
 
 func _ready():
 	maxHp = hp
@@ -35,6 +37,9 @@ func _ready():
 
 func _process(delta):
 	sprite.flip_h = Game.player.position.x < position.x
+
+	if rotationalVelocity:
+		sprite.rotation += rotationalVelocity * delta
 
 	if screenShake > 0:
 		Game.player.screenShake.addUpTo(screenShake, screenShake)
@@ -58,6 +63,14 @@ func _physics_process(delta):
 
 			if !hit:
 				velocity = velocity.move_toward(dir * speed, acceleration)
+		MoveType.Bouncing:
+			var dir = Game.player.position.x - position.x
+
+			velocity.y += 540 * delta
+
+			if !hit && is_on_floor():
+				velocity = Vector2(randf_range(0, dir), -randf_range(100, 400))
+				rotationalVelocity = randf_range(0, 10)
 
 	move_and_slide()
 

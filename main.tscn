@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b87g8qw2vt7np"]
+[gd_scene load_steps=16 format=3 uid="uid://b87g8qw2vt7np"]
 
 [ext_resource type="Texture2D" uid="uid://ckeoqkqpv81ot" path="res://sprite/background/mountains_far.png" id="1_5x8hc"]
 [ext_resource type="PackedScene" uid="uid://bv01wcatd6tl7" path="res://core/moon.tscn" id="2_magqd"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://b7df8x1riaxk1" path="res://objects/pillar.tscn" id="10_mdodf"]
 [ext_resource type="PackedScene" uid="uid://d02y10tvfrytx" path="res://enemies/moon_boss.tscn" id="11_4ut3y"]
 [ext_resource type="PackedScene" uid="uid://bwgnpp88tpvgm" path="res://core/wave_spawner.tscn" id="11_xx0qk"]
+[ext_resource type="PackedScene" uid="uid://uts53mfyq0y0" path="res://enemies/twisted_boss.tscn" id="14_hgh36"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3y5eb"]
 size = Vector2(18, 28)
@@ -468,5 +469,8 @@ offset_bottom = 160.0
 
 [node name="Moon" parent="." instance=ExtResource("11_4ut3y")]
 position = Vector2(-189, 240)
+
+[node name="Twisted" parent="." instance=ExtResource("14_hgh36")]
+position = Vector2(1325, 230)
 
 [connection signal="timeout" from="SpawnTimer" to="." method="spawn"]
