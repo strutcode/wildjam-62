@@ -1,11 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dusjyyttd7bio"]
+[gd_scene load_steps=8 format=3 uid="uid://dusjyyttd7bio"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_ar6gt"]
 [ext_resource type="Texture2D" uid="uid://blnspfwowamr8" path="res://sprite/enemy.png" id="2_6b1du"]
 [ext_resource type="PackedScene" uid="uid://i38u1xst7u8d" path="res://effects/wobbler.tscn" id="3_3ihg6"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_4qd7q"]
-frequency = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_35w86"]
 radius = 24.0208
@@ -21,12 +18,11 @@ bg_color = Color(0.231373, 0.231373, 0.231373, 1)
 collision_layer = 384
 collision_mask = 32772
 script = ExtResource("1_ar6gt")
-noise = SubResource("FastNoiseLite_4qd7q")
 
-[node name="Enemy" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_6b1du")
 
-[node name="Wobbler" parent="Enemy" instance=ExtResource("3_3ihg6")]
+[node name="Wobbler" parent="Sprite" instance=ExtResource("3_3ihg6")]
 speed = 10.0
 strength = Vector2(20, 20)
 
