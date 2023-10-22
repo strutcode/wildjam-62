@@ -23,18 +23,18 @@ func _ready():
 	multimesh.instance_count = maxCount
 	multimesh.visible_instance_count = 0
 
-func addProp(name: String):
-	data[name] = []
-	data[name].resize(maxCount)
+func addProp(propName: String):
+	data[propName] = []
+	data[propName].resize(maxCount)
 
-func getProp(index: int, name: String):
-	return data[name][index]
+func getProp(index: int, propName: String):
+	return data[propName][index]
 
-func setProp(index: int, name: String, value):
-	if data.has(name):
-		data[name][index] = value
+func setProp(index: int, propName: String, value):
+	if data.has(propName):
+		data[propName][index] = value
 
-		if name == 'pos':
+		if propName == 'pos':
 			multimesh.set_instance_transform_2d(index, Transform2D.IDENTITY.scaled(Vector2(1, -1)).translated(value))
 
 func add(newPos: Vector2, newData = {}):
