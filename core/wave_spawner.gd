@@ -8,7 +8,7 @@ const enemies = {
 
 # Settings
 var floorHeight = 238
-var waveLength = 20.0
+var waveLength = 30.0
 var waves = [
 	{
 		'zombie': 20,
@@ -17,7 +17,73 @@ var waves = [
 		'skullbat': 10,
 	},
 	{
+		'zombie': 20,
+		'skullbat': 10,
+	},
+	{
+		'zombie': 50,
+		'skullbat': 25,
+	},
+	{
 		'ogre': 1,
+	},
+	{
+		'zombie': 50,
+		'skullbat': 10,
+	},
+	{
+		'skullbat': 100,
+	},
+	{
+		'zombie': 70,
+		'skullbat': 70,
+	},
+	{
+		'zombie': 50,
+		'skullbat': 25,
+	},
+	{
+		'ogre': 1,
+		'zombie': 50,
+	},
+	{
+		'zombie': 100,
+		'skullbat': 25,
+	},
+	{
+		'skullbat': 200,
+	},
+	{
+		'zombie': 120,
+		'skullbat': 120,
+	},
+	{
+		'zombie': 100,
+		'skullbat': 50,
+	},
+	{
+		'ogre': 3,
+		'zombie': 50,
+	},
+	{
+		'zombie': 300,
+	},
+	{
+		'skullbat': 200,
+	},
+	{
+		'zombie': 170,
+		'skullbat': 170,
+	},
+	{
+		'zombie': 150,
+		'skullbat': 250,
+		'ogre': 1,
+	},
+	{
+		'ogre': 10,
+		'zombie': 200,
+		'skullbat': 50,
 	},
 ]
 
@@ -49,7 +115,8 @@ func _process(delta):
 func nextWave():
 	wave += 1
 	wave = wave % waves.size()
-	waveProgress = 0
+	waveProgress = 0.0
+	spawned = {}
 
 func spawn(enemy):
 	if enemies.has(enemy):
