@@ -28,6 +28,9 @@ func findPlayer():
 		player = get_tree().get_first_node_in_group('player')
 
 func _input(ev):
+	if !get_tree().current_scene:
+		return
+
 	if get_tree().current_scene.scene_file_path != 'res://main.tscn':
 		return
 
@@ -101,6 +104,8 @@ func pause():
 	%ExtraUI.add_child(menu)
 
 func restart():
+	gameOver.queue_free()
+	gameOver = GameOver.instantiate()
 	get_tree().reload_current_scene()
 	timer = 10.0 * 60
 	score = 0
