@@ -291,7 +291,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.12, 0.16, 0.19, 0.22),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(378, 751), Vector2(431.5, 728), Vector2(412, 715), Vector2(411, 736), Vector2(431.5, 728)]
+"values": [Vector2(278, 751), Vector2(158, 557), Vector2(139, 574), Vector2(155, 538), Vector2(164, 563)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -327,7 +327,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0.65, 0.79, 0.82, 0.86, 0.9),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1080, 796), Vector2(1055.5, 728), Vector2(1049, 716), Vector2(1059, 745), Vector2(1055.5, 728)]
+"values": [Vector2(1080, 760), Vector2(1166, 563), Vector2(1171, 574), Vector2(1177, 545), Vector2(1156, 563)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -468,7 +468,7 @@ modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 offset_left = 431.5
 offset_top = 728.0
-offset_right = 995.5
+offset_right = 1291.5
 offset_bottom = 976.0
 theme_override_colors/font_color = Color(0.8, 0.129412, 0.129412, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -478,7 +478,7 @@ theme_override_constants/shadow_offset_y = 3
 theme_override_constants/outline_size = 37
 theme_override_fonts/font = ExtResource("4_webns")
 theme_override_font_sizes/font_size = 148
-text = "Reaper's"
+text = "Shadowblade"
 uppercase = true
 
 [node name="Label2" type="Label" parent="UI/Control"]
@@ -495,7 +495,7 @@ theme_override_constants/shadow_offset_y = 3
 theme_override_constants/outline_size = 37
 theme_override_fonts/font = ExtResource("4_webns")
 theme_override_font_sizes/font_size = 148
-text = "Embrace"
+text = "Eclipse"
 uppercase = true
 
 [node name="HUD" parent="UI" instance=ExtResource("6_liuq3")]

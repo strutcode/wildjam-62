@@ -32,7 +32,7 @@ var hp: float = 100
 var maxHp: float = 100
 var damage: float = 7
 var defense: float = 0.8
-var superPoints = 0
+var superPoints = 1000
 var superThreshold = 1000
 var modifiers = {
 	'attack': 1.0,
@@ -110,7 +110,7 @@ func _process(delta):
 			jumpAmount = 1.0
 
 	$Slash.damage = damage * modifiers.damage
-	$Super.damage = damage * 3 * modifiers.damage
+	$Super.damage = damage * 10 * modifiers.damage
 
 	if velocity.x < 0:
 		$Slash.scale.x = -1
@@ -310,6 +310,9 @@ func addItem(item):
 
 	items.append(item)
 	ownedItems[item.id] = true
+
+	if hasItem('tear') && hasItem('blood') && hasItem('soul'):
+		Game.goodEnd = true
 
 	emit_signal('item_added')
 

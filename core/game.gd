@@ -13,6 +13,7 @@ var mode = 'endless'
 var timer = 0.0
 var score = 0
 var moonPhase = 'new'
+var goodEnd = false
 
 @onready var itemDb = $ItemDB
 
