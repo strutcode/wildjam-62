@@ -15,6 +15,8 @@ func update():
 			child.modulate = Color.TRANSPARENT
 
 	match Game.moonPhase:
+		'none':
+			return
 		'new':
 			next = $MoonNew
 		'waxing':

@@ -368,11 +368,11 @@ position = Vector2(-1668, 240)
 scale = Vector2(-1, 1)
 
 [node name="Sign2" type="Sprite2D" parent="."]
-position = Vector2(2598, 208)
+position = Vector2(2736, 208)
 texture = ExtResource("8_yl5vc")
 
 [node name="Sign1" type="Sprite2D" parent="."]
-position = Vector2(2248, 216)
+position = Vector2(2504, 215)
 texture = ExtResource("9_6u8bc")
 
 [node name="Sign3" type="Sprite2D" parent="."]
@@ -486,5 +486,15 @@ scale = Vector2(22.085, 72.5974)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MoonTrigger"]
 shape = SubResource("RectangleShape2D_86ff8")
 
+[node name="TwistedTrigger" type="Area2D" parent="."]
+position = Vector2(3326, -493)
+scale = Vector2(22.085, 72.5974)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TwistedTrigger"]
+shape = SubResource("RectangleShape2D_86ff8")
+
 [connection signal="timeout" from="SpawnTimer" to="." method="spawn"]
+[connection signal="died" from="Moon" to="." method="moonDied"]
+[connection signal="died" from="Twisted" to="." method="twistedDied"]
 [connection signal="body_entered" from="MoonTrigger" to="." method="moonTrigger"]
+[connection signal="body_entered" from="TwistedTrigger" to="." method="twistedTrigger"]

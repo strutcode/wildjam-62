@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal died
+
 const DeathFX = preload('res://effects/enemy_death_fx.tscn')
 
 enum MoveType {
@@ -121,4 +123,5 @@ func die():
 	Game.spawnSouls(randi_range(xpMin, xpMax), global_position)
 	Game.spawnCoins(randi_range(goldMin, goldMax), global_position)
 
+	emit_signal('died')
 	queue_free()
