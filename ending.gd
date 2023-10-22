@@ -10,4 +10,5 @@ func _ready():
 	%MainMenu.grab_focus()
 
 func mainMenu():
+	print('menu')
 	Game.goToMenu()

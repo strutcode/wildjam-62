@@ -32,7 +32,7 @@ var shopViewer = Shop.instantiate()
 # Stats
 var hp: float = 100
 var maxHp: float = 100
-var damage: float = 700
+var damage: float = 7
 var defense: float = 0.8
 var superPoints = 0
 var superThreshold = 1000
@@ -84,10 +84,6 @@ func _input(ev):
 			showShop()
 		elif !inventoryViewer.is_inside_tree():
 			showInventory()
-
-	if ev is InputEventKey:
-		if ev.pressed && ev.keycode == KEY_0:
-			get_tree().change_scene_to_file('res://ending.tscn')
 
 func _process(delta):
 	invincibility -= delta

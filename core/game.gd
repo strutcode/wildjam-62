@@ -47,6 +47,9 @@ func _process(delta):
 
 	if mode == 'story':
 		timer -= delta
+		if timer <= 0:
+			mode = 'ending'
+			get_tree().change_scene_to_file('res://ending.tscn')
 
 func setBgmLevel(volume: float):
 	$AudioStreamPlayer.volume_db = linear_to_db(volume / 100.0) - 20.0
@@ -59,7 +62,7 @@ func start():
 	$AudioStreamPlayer.play()
 
 	if mode == 'story':
-		timer = 10.0 * 60 # 10 minutes
+		timer = 10.0 * 60
 	if mode == 'endless':
 		score = 0
 
