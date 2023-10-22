@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b87g8qw2vt7np"]
+[gd_scene load_steps=13 format=3 uid="uid://b87g8qw2vt7np"]
 
 [ext_resource type="Texture2D" uid="uid://ckeoqkqpv81ot" path="res://sprite/background/mountains_far.png" id="1_5x8hc"]
 [ext_resource type="Texture2D" uid="uid://cunojqi0jbyqs" path="res://sprite/moon.png" id="2_byuys"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b2inypsd3hnu3" path="res://core/player.tscn" id="6_rr233"]
 [ext_resource type="Texture2D" uid="uid://dm8snesre8q2x" path="res://sprite/props/sign.png" id="6_uu1fo"]
 [ext_resource type="PackedScene" uid="uid://iy5i7i0k7q0k" path="res://enemies/zombie.tscn" id="9_3r31k"]
+[ext_resource type="PackedScene" uid="uid://vua3qnp6ltcm" path="res://enemies/ogre.tscn" id="10_pduvk"]
 
 [sub_resource type="GDScript" id="GDScript_6xhvm"]
 script/source = "extends Node2D
@@ -264,5 +265,8 @@ offset_bottom = 160.0
 
 [node name="Node2D" parent="." instance=ExtResource("9_3r31k")]
 position = Vector2(162, 239)
+
+[node name="Ogre" parent="." instance=ExtResource("10_pduvk")]
+position = Vector2(622, 239)
 
 [connection signal="timeout" from="SpawnTimer" to="." method="spawn"]

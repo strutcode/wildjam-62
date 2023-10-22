@@ -24,7 +24,7 @@ var shopViewer = Shop.instantiate()
 # Stats
 var hp: float = 100
 var maxHp: float = 100
-var damage: float = 10
+var damage: float = 7
 var defense: float = 0.8
 var modifiers = {
 	'attack': 1.0,

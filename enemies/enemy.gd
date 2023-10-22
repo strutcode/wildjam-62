@@ -22,10 +22,11 @@ enum MoveType {
 @onready var attack = $Attack
 
 var hit = false
-var maxHp: float = hp
+var maxHp: float
 var unique = randf()
 
 func _ready():
+	maxHp = hp
 	hpBar.value = 1
 	attack.body_entered.connect(touch)
 

@@ -17,8 +17,9 @@ radius = 12.0416
 
 [node name="Zombie" type="CharacterBody2D"]
 collision_layer = 384
-collision_mask = 32770
+collision_mask = 32772
 script = ExtResource("1_vwwnx")
+hp = 10.0
 xpMin = 3
 xpMax = 5
 goldMin = 3

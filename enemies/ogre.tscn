@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://vua3qnp6ltcm"]
+
+[ext_resource type="Script" path="res://enemies/enemy.gd" id="1_kv7ys"]
+[ext_resource type="Texture2D" uid="uid://csbwmyx626v1l" path="res://sprite/enemies/ogre/walk0001.png" id="2_q8dkq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vf08e"]
+radius = 31.0
+height = 130.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g41px"]
+bg_color = Color(0.231373, 0.231373, 0.231373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2t1ah"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c0qnf"]
+radius = 48.0416
+
+[node name="Ogre" type="CharacterBody2D"]
+collision_layer = 384
+collision_mask = 32772
+script = ExtResource("1_kv7ys")
+hp = 500.0
+xpMin = 70
+xpMax = 100
+goldMin = 70
+goldMax = 100
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(-5, -36)
+texture = ExtResource("2_q8dkq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -65)
+shape = SubResource("CapsuleShape2D_vf08e")
+
+[node name="HP" type="ProgressBar" parent="."]
+modulate = Color(0.862745, 0.152941, 0.152941, 1)
+z_index = 1
+offset_left = -49.0
+offset_top = -140.0
+offset_right = 49.0
+offset_bottom = -138.0
+theme_override_styles/background = SubResource("StyleBoxFlat_g41px")
+theme_override_styles/fill = SubResource("StyleBoxFlat_2t1ah")
+max_value = 1.0
+value = 0.5
+show_percentage = false
+
+[node name="Attack" type="Area2D" parent="."]
+collision_layer = 512
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack"]
+position = Vector2(0, -87)
+shape = SubResource("CircleShape2D_c0qnf")
