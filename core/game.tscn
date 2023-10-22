@@ -104,10 +104,11 @@ layer = 11
 
 [node name="ItemDB" type="Node" parent="."]
 script = ExtResource("2_neid6")
-items = [SubResource("Resource_qired"), SubResource("Resource_p611i"), SubResource("Resource_yhruv"), SubResource("Resource_vdxrd"), SubResource("Resource_2g6u4"), SubResource("Resource_yqf0k"), SubResource("Resource_14aha"), SubResource("Resource_ctcg6"), SubResource("Resource_ghxqd")]
+items = Array[Resource]([SubResource("Resource_qired"), SubResource("Resource_p611i"), SubResource("Resource_yhruv"), SubResource("Resource_vdxrd"), SubResource("Resource_2g6u4"), SubResource("Resource_yqf0k"), SubResource("Resource_14aha"), SubResource("Resource_ctcg6"), SubResource("Resource_ghxqd")])
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("12_ne83t")
 volume_db = -20.0
 autoplay = true
+bus = &"Music"

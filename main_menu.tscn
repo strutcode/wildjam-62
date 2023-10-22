@@ -110,6 +110,7 @@ text = "Music: Respiration by Podington Bear from Free Music Archive (CC-BY-NC)"
 stream = ExtResource("3_8clnk")
 volume_db = -12.0
 autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="VBoxContainer/Story" to="." method="startStory"]
 [connection signal="pressed" from="VBoxContainer/Endless" to="." method="startEndless"]
