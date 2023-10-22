@@ -5,6 +5,7 @@ const LeaderboardEntry = preload('res://ui/leaderboard_entry.tscn')
 @onready var spinner = $VBoxContainer/Loader/Spinner
 
 func _enter_tree():
+	%Confirmation.hide()
 	%Score.text = str(Game.score)
 	await get_tree().process_frame
 	clearScores()
@@ -36,6 +37,9 @@ func getScores():
 		return []
 
 func postScore(username, score):
+	%NameEntry.hide()
+	%Save.hide()
+
 	var reqBody = '{ "name": "%s", "score": %d }' % [username, score]
 
 	var req := $WebClient
@@ -46,6 +50,7 @@ func postScore(username, score):
 	if body:
 		var json = JSON.new()
 		json.parse(body.get_string_from_utf8())
+		%Confirmation.show()
 
 func addScore():
 	clearScores()

@@ -46,10 +46,16 @@ func setVolume(bus: String, volume: float):
 	var idx = AudioServer.get_bus_index(bus)
 	AudioServer.set_bus_volume_db(idx, linear_to_db(volume / 100.0))
 
+func start():
+	$AudioStreamPlayer.play()
+
 func end():
 	%ExtraUI.add_child(gameOver)
 
 func goToMenu():
+	$AudioStreamPlayer.stop()
+	gameOver.queue_free()
+	gameOver = GameOver.instantiate()
 	get_tree().change_scene_to_file('res://main_menu.tscn')
 
 func spawnSouls(count, position):

@@ -10,6 +10,7 @@ enum MoveType {
 @export var movementType: MoveType = MoveType.Walking
 @export var speed = 30
 @export var acceleration = 10
+@export var damage = 50
 @export var hp: float = 30
 @export var xpMin = 7
 @export var xpMax = 12
@@ -57,7 +58,7 @@ func _physics_process(delta):
 
 func touch(body):
 	if body.is_in_group('player'):
-		body.takeDamage(5)
+		body.takeDamage(damage)
 
 func takeDamage(amount):
 	var modifier = 1.0
