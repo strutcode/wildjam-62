@@ -4,6 +4,9 @@ const Options = preload('res://ui/options.tscn')
 
 var optionsMenu = Options.instantiate()
 
+func _ready():
+	%Story.grab_focus()
+
 func startStory():
 	Game.mode = 'story'
 	get_tree().change_scene_to_file('res://main.tscn')

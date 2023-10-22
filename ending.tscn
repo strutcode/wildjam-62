@@ -1,0 +1,76 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6w8ixsyhxs3m"]
+
+[ext_resource type="Texture2D" uid="uid://yfs7vktu8g2p" path="res://sprite/chalice.png" id="1_ixy3c"]
+[ext_resource type="Script" path="res://ending.gd" id="1_q5ldb"]
+
+[node name="Ending" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q5ldb")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Chalice" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.184314)
+position = Vector2(490, 429)
+scale = Vector2(3, 3)
+texture = ExtResource("1_ixy3c")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 755.0
+offset_bottom = -126.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BadEnd" type="Label" parent="CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+text = "After all the fighting ceases, the Organizer steps down from the dias
+and slowly paces closer. There's a palpable tension in the air as all
+eyes fall on you.
+
+\"You have done well, victor. As promised the Crystal Chalice is now
+yours for the taking.\"
+
+A brilliant light pierces the air, forcing you to shield your eyes. When
+the white returns again to darkness, a frail but immeasurably
+important object is right before your eyes.
+
+With a trembling hand, you reach out and grasp the chalice firmly.
+Your freedom is now at hand, and yet... Nothing. There's absolutely
+nothing different now.
+
+\"Congratulations! You have obtained the Crystal Chalice, yet that
+alone is not enough to earn your freedom. Better luck next time,
+I'll see you again in a year!\"
+
+A cackling laugh haunts your ears as your tragic tale comes to an
+end... but perhaps not the end."
+
+[node name="MainMenu" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 622.0
+offset_top = 939.0
+offset_right = 1352.0
+offset_bottom = 1018.0
+text = "Return to the Main Menu"
+
+[connection signal="pressed" from="MainMenu" to="." method="mainMenu"]
