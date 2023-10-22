@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://b2inypsd3hnu3"]
+[gd_scene load_steps=41 format=3 uid="uid://b2inypsd3hnu3"]
 
 [ext_resource type="Script" path="res://core/player.gd" id="1_degrw"]
 [ext_resource type="Texture2D" uid="uid://b583bm6jigs8e" path="res://sprite/player/run0001.png" id="2_1j46r"]
@@ -369,6 +369,9 @@ _data = {
 "super": SubResource("Animation_qjp2i")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_t0b7g"]
+radius = 33.0151
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 2
 collision_layer = 3
@@ -499,3 +502,9 @@ bus = &"SFX"
 stream = ExtResource("7_h3eef")
 volume_db = -5.0
 bus = &"SFX"
+
+[node name="DashZone" type="Area2D" parent="."]
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DashZone"]
+shape = SubResource("CircleShape2D_t0b7g")

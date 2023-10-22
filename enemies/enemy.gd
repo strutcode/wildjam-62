@@ -70,7 +70,7 @@ func takeDamage(amt):
 			velocity = -global_position.direction_to(Game.player.global_position) * 100
 
 	if wobbler:
-		wobbler.add(0.5)
+		wobbler.addUpTo(0.5, 0.5)
 
 	await get_tree().create_timer(0.15).timeout
 

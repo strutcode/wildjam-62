@@ -48,7 +48,7 @@ var nextLvl: float = 110
 var skillPoints = 0
 
 # Inventory
-var coins = 0
+var coins = 10000
 var items: Array[GameItem] = []
 var ownedItems = {}
 
@@ -177,6 +177,10 @@ func dash():
 		velocity = Vector2(dashCurve.sample(dashTime) * dashSpeed * dashDir, 0)
 		await get_tree().physics_frame
 		dashTime += get_physics_process_delta_time() / dashLength
+
+		if hasItem('dashup'):
+			for enemy in $DashZone.get_overlapping_bodies():
+				enemy.takeDamage(damage / 4)
 
 	dashTime = 0
 	invincibility = 0
