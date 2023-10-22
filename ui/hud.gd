@@ -27,6 +27,12 @@ func _process(delta):
 		'endless':
 			%TimeScore.text = '%d' % Game.score
 
+	match Game.moonPhase:
+		'new': %MoonPhase.text = 'New Moon - No Effect'
+		'waxing': %MoonPhase.text = 'Waxing Moon - Health is reduced for all'
+		'full': %MoonPhase.text = 'Full Moon - More enemies appear'
+		'waning': %MoonPhase.text = 'Waning Moon - Health is increased for all'
+
 func getSuperPercent():
 	return clamp(float(Game.player.superPoints) / float(Game.player.superThreshold), 0, 1) * 100
 
